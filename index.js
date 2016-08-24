@@ -2,6 +2,6 @@
 
 const divanator = require('divanator')
 
-divanator('ddoc/feverish', 'http://localhost:5984/bobo')
+divanator('ddoc/feverish', process.argv[2])
   .then(console.log)
   .catch(console.error)

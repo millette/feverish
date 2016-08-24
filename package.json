@@ -1,9 +1,13 @@
 {
   "name": "feverish",
+  "config": {
+    "dburl": "http://localhost:5984/bobo"
+  },
   "version": "0.0.0",
   "description": "Portfolio",
   "main": "index.js",
   "scripts": {
+    "deploy": "node index $npm_package_config_dburl",
     "lint": "standard",
     "test": "standard && nyc ava"
   },
