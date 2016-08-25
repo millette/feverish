@@ -5,9 +5,9 @@ import ddoc from './commands/ddoc'
 import deploy from './commands/deploy'
 
 test('go', t => {
-  const result = Object.keys(fn).sort()
-  t.is(result[0], 'ddoc')
-  t.is(result[1], 'deploy')
+  const result = Object.keys(fn)
+  t.not(result.indexOf('ddoc'), -1)
+  t.not(result.indexOf('deploy'), -1)
 })
 
 test('ddoc', async t => {
