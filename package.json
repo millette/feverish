@@ -1,13 +1,13 @@
 {
   "name": "feverish",
   "config": {
-    "dburl": "http://localhost:5984/bobo"
+    "dburl": "http://localhost:5985/groupe2016"
   },
   "version": "0.0.0",
   "description": "Portfolio",
   "main": "index.js",
   "scripts": {
-    "deploy": "node index $npm_package_config_dburl",
+    "deploy": "standard && node index $npm_package_config_dburl",
     "lint": "standard",
     "test": "standard && nyc ava"
   },
@@ -25,7 +25,7 @@
     "ava": "^0.16.0",
     "babel-eslint": "^6.1.2",
     "coveralls": "^2.11.12",
-    "divanator": "^0.3.1",
+    "divanator": "^0.3.2",
     "nyc": "^8.1.0",
     "standard": "^7.1.2"
   },
