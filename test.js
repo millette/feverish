@@ -4,6 +4,7 @@ import fn from './'
 import ddoc from './commands/ddoc'
 import deploy from './commands/deploy'
 import addUser from './commands/add-user'
+import addUsers from './commands/add-users'
 
 test('go', t => {
   const result = Object.keys(fn)
@@ -54,4 +55,51 @@ test('add user imp', async t => {
   const result = await au('http://localhost:5984/la-db', 'joe', 'blo')
   t.is(result.name, 'joe')
   t.is(result.password, 'blo')
+})
+
+test('add users', async t => {
+  const mod = { addUsers: (db, usersfile) => Promise.resolve(`db: ${db}; ${usersfile}`) }
+  const result = addUsers(mod, (o) => o)
+  t.is(result.command, 'add-users <usersfile>')
+  const h = await result.handler({
+    db: 'hoho',
+    usersfile: 'joe-file-of-users.txt'
+  })
+  t.is(h, 'db: hoho; joe-file-of-users.txt')
+})
+
+/*
+test.only('add users imp', async t => {
+  const mockNano = (db) => {
+    return {
+      db: 'yup',
+      name: db,
+      insert: (doc, cb) => {
+        cb(null, doc)
+      }
+    }
+  }
+
+  const au = addUsers.imp(mockNano)
+  const result = await au('http://localhost:5984/la-db', 'un-fichier-des-users.txt')
+  console.log(result)
+  t.is(result.name, 'joe')
+  t.is(result.password, 'blo')
+})
+*/
+
+test('add users imp (not implemented)', async t => {
+  const mockNano = (db) => {
+    return {
+      db: 'yup',
+      name: db,
+      insert: (doc, cb) => {
+        cb(null, doc)
+      }
+    }
+  }
+
+  const au = addUsers.imp(mockNano)
+
+  await t.throws(() => au('http://localhost:5984/la-db', 'un-fichier-des-users.txt'), 'Not implemented yet.')
 })
