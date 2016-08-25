@@ -2,5 +2,12 @@
   {
     "from": "",
     "to": "allo2.txt"
+  },
+  {
+    "from": "themes.json",
+    "to": "_view/themes",
+    "query": {
+      "group": "true"
+    }
   }
 ]
