@@ -27,7 +27,7 @@
     "babel-eslint": "^6.1.2",
     "coveralls": "^2.11.12",
     "nyc": "^8.1.0",
-    "standard": "^7.1.2"
+    "standard": "^8.0.0"
   },
   "standard": {
     "parser": "babel-eslint"
