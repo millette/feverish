@@ -5,33 +5,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.css">
 <title>hi monde</title>
+<style>
+body > div:first-child { margin-top: 2em; }
+form > fieldset:first-child > h1:first-child { margin-bottom: 1em; }
+</style>
 </head>
 <body>
-<div class="row column small-12">
-  <h1>hi monde!</h1>
+<div class="row column">
   <div class="row">
-  <div class="column small-6 small-offset-3">
+  <div class="column small-12 medium-6 medium-offset-3">
     <form action="/_session?next=/" method="post">
       <fieldset class="fieldset callout primary">
-        <legend>Bienvenue</legend>
+      <h1 class="title text-center">Bienvenue</h1>
       <div class="row">
-        <div class="small-3 column">
-          <label for="nom-label" class="text-right">Nom</label>
+        <div class="small-4 column medium-6">
+          <label for="nom-label" class="text-right middle">Nom</label>
         </div>
-        <div class="small-9 column">
+        <div class="small-8 column medium-6">
           <input type="text" id="nom-label" name="name" required>
         </div>
       </div>
       <div class="row">
-        <div class="small-3 column">
-          <label for="pw-label" class="text-right">Mot de passe</label>
+        <div class="small-4 column medium-6">
+          <label for="pw-label" class="text-right middle">Mot de passe</label>
         </div>
-        <div class="small-9 column">
+        <div class="small-8 column medium-6">
           <input type="password" id="pw-label" name="password" required>
         </div>
       </div>
       <div class="row">
-        <div class="small-offset-3 small-9 column">
+        <div class="small-offset-4 small-8 medium-6 medium-offset-6 column">
           <input class="button expanded" type="submit" value="Login">
         </div>
       </div>
