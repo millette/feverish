@@ -8,6 +8,7 @@
   "main": "index.js",
   "bin": "cli.js",
   "scripts": {
+    "feverish": "standard && node cli",
     "deploy": "standard && node cli deploy ddoc/feverish",
     "lint": "standard",
     "test": "standard && nyc ava",
@@ -35,6 +36,7 @@
   },
   "dependencies": {
     "divanator": "^0.3.2",
+    "nano": "^6.2.0",
     "update-notifier": "^1.0.2",
     "yargs": "^5.0.0"
   }
