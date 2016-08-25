@@ -50,7 +50,6 @@ test('add user imp', async t => {
       }
     }
   }
-
   const au = addUser.imp(mockNano)
   const result = await au('http://localhost:5984/la-db', 'joe', 'blo')
   t.is(result.name, 'joe')
@@ -98,8 +97,6 @@ test('add users imp (not implemented)', async t => {
       }
     }
   }
-
   const au = addUsers.imp(mockNano)
-
   await t.throws(() => au('http://localhost:5984/la-db', 'un-fichier-des-users.txt'), 'Not implemented yet.')
 })
