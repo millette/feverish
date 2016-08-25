@@ -20,6 +20,16 @@ The path is available in notifier.config.path.
 Users can also opt-out by setting the environment variable NO_UPDATE_NOTIFIER
 with any value or by using the --no-update-notifier flag on a per run basis.
 
+## Getting help
+```
+$ ./feverish.sh --help
+```
+
+## Configuration
+```
+npm config set feverish:dburl http://USERNAME:PASSWORD@localhost:5985/groupe2016
+```
+
 ## License
 AGPL-v3 © [Robin Millette](http://robin.millette.info)
 
