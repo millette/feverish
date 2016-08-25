@@ -8,7 +8,6 @@ module.exports = (mod, cb) => {
   return {
     command: 'ddoc <ddocpath>',
     describe: 'get ddoc (without attachments)',
-    builder: {},
     handler: ddocHandler
   }
 }

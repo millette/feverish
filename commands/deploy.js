@@ -8,7 +8,6 @@ module.exports = (mod, cb) => {
   return {
     command: 'deploy <ddocpath>',
     describe: 'deploy ddoc (with attachments)',
-    builder: {},
     handler: deployHandler
   }
 }
