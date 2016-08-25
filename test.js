@@ -3,6 +3,7 @@ import test from 'ava'
 import fn from './'
 import ddoc from './commands/ddoc'
 import deploy from './commands/deploy'
+import addUser from './commands/add-user'
 
 test('go', t => {
   const result = Object.keys(fn)
@@ -24,4 +25,33 @@ test('deploy', async t => {
   t.is(result.command, 'deploy <ddocpath>')
   const h = await result.handler({ db: 'hoho', ddocpath: 'here' })
   t.is(h, 'path: here; db: hoho')
+})
+
+test('add user', async t => {
+  const mod = { addUser: (db, username, password) => Promise.resolve(`db: ${db}; ${username}:${password}`) }
+  const result = addUser(mod, (o) => o)
+  t.is(result.command, 'add-user <name> <password>')
+  const h = await result.handler({
+    db: 'hoho',
+    name: 'joe',
+    password: 'blo'
+  })
+  t.is(h, 'db: hoho; joe:blo')
+})
+
+test('add user imp', async t => {
+  const mockNano = (db) => {
+    return {
+      db: 'yup',
+      name: db,
+      insert: (doc, cb) => {
+        cb(null, doc)
+      }
+    }
+  }
+
+  const au = addUser.imp(mockNano)
+  const result = await au('http://localhost:5984/la-db', 'joe', 'blo')
+  t.is(result.name, 'joe')
+  t.is(result.password, 'blo')
 })
