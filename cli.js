@@ -24,5 +24,5 @@ yargs
   .global('db')
   .version()
   .help()
-  .commandDir('commands', { visit: (c) => c(feverish, jsonlog)})
+  .commandDir('commands', { visit: (c) => c(feverish, jsonlog) })
   .argv
