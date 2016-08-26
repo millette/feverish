@@ -12,6 +12,15 @@
   },
   {
     "method": "GET",
+    "from": "exercices",
+    "to": "_list/exercices/exercices",
+    "query": {
+      "include_docs": "true",
+      "descending": "true"
+    }
+  },
+  {
+    "method": "GET",
     "from": "new",
     "to": "_list/create/themes",
     "query": {
