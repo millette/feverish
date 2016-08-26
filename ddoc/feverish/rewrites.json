@@ -9,5 +9,20 @@
     "query": {
       "group": "true"
     }
+  },
+  {
+    "from": "new",
+    "to": "_list/create/themes",
+    "query": {
+      "group": "true",
+      "order": "pop"
+    }
+  },
+  {
+    "from": "new/:order",
+    "to": "_list/create/themes",
+    "query": {
+      "group": "true"
+    }
   }
 ]
