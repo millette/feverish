@@ -1,6 +1,11 @@
 /* globals start, getRow, send */
 'use strict'
 module.exports = function (head, req, mocks) {
+  if (req.userCtx.roles.indexOf('teacher') === -1) {
+    start({ headers: { 'Content-Type': 'text/html; charset=utf-8' } })
+    send('not a teacher')
+    return
+  }
   const tpl = require('views/lib/templates')
   if (!mocks) { mocks = { start: start, getRow: getRow, send: send } }
   const sortedRows = (order) => {
@@ -23,7 +28,5 @@ module.exports = function (head, req, mocks) {
   const rows = sortedRows(req.query.order)
   start({ headers: { 'Content-Type': 'text/html; charset=utf-8' } })
   tpl.hiRow = (row) => `<option value="${row.key}">${row.key} (${row.value})</option>`
-
   send(tpl.hi({ rows: rows }))
-  // send('<pre>' + JSON.stringify(rows, null, ' ') + '</pre>')
 }

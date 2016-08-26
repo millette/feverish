@@ -32,16 +32,12 @@
     "from": "new",
     "to": "_update/create",
     "query": {
-      "group": "true",
       "order": "pop"
     }
   },
   {
     "method": "POST",
     "from": "new/:order",
-    "to": "_update/create",
-    "query": {
-      "group": "true"
-    }
+    "to": "_update/create"
   }
 ]
