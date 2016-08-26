@@ -11,6 +11,7 @@
     }
   },
   {
+    "method": "GET",
     "from": "new",
     "to": "_list/create/themes",
     "query": {
@@ -19,8 +20,26 @@
     }
   },
   {
+    "method": "GET",
     "from": "new/:order",
     "to": "_list/create/themes",
+    "query": {
+      "group": "true"
+    }
+  },
+  {
+    "method": "POST",
+    "from": "new",
+    "to": "_update/create",
+    "query": {
+      "group": "true",
+      "order": "pop"
+    }
+  },
+  {
+    "method": "POST",
+    "from": "new/:order",
+    "to": "_update/create",
     "query": {
       "group": "true"
     }
