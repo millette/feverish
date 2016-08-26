@@ -1,8 +1,65 @@
-<html>
+<!doctype html>
+<html lang="fr">
 <head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.css">
 <title>Allou allou!</title>
+<style>
+body > div:first-child { margin-top: 2em; }
+form > fieldset:first-child > h1:first-child { margin-bottom: 1em; }
+</style>
 </head>
 <body>
-<h1>Allou allou!</h1>
+<div class="row column">
+  <div class="row">
+    <div class="column small-12 medium-10 medium-offset-1 large-6 large-offset-3">
+      <form method="post">
+        <fieldset class="fieldset callout primary">
+        <h1 class="title text-center">Nouvel exercice</h1>
+        <div class="row">
+          <div class="small-4 column medium-6">
+            <label for="nom-label" class="text-right middle">Nom</label>
+          </div>
+          <div class="small-8 column medium-6">
+            <input type="text" id="nom-label" name="name" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-4 column medium-6">
+            <label for="nom-label" class="text-right middle">Descriptif</label>
+          </div>
+          <div class="small-8 column medium-6">
+            <textarea rows="10" id="nom-label" name="descriptif" required></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-4 column medium-6">
+            <label for="theme-label" class="text-right middle">Thème</label>
+          </div>
+          <div class="small-8 column medium-6">
+            <select id="theme-label" name="theme">
+              <%= data.rows.map(this.hiRow).join('\n')  %>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-offset-4 small-8 medium-6 medium-offset-6 column">
+            <input class="button expanded" type="submit" value="Créer">
+          </div>
+        </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.js"></script>
+<script>
+$(function () {
+  $(document).foundation()
+})
+</script>
 </body>
 </html>
