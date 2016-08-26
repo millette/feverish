@@ -1,8 +1,8 @@
-/* globals emit, log */
+/* globals emit */
 'use strict'
 module.exports = function (doc, mocks) {
   if (!doc.theme) { return }
-  if (!mocks) { mocks = { emit: emit, log: log } }
+  if (!mocks) { mocks = { emit: emit } }
   if (doc.theme.substring && doc.title) {
     mocks.emit(doc.theme)
   } else if (doc.theme.forEach) {
