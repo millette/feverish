@@ -1,7 +1,7 @@
 /* globals start, getRow, send */
 'use strict'
 module.exports = function (head, req, mocks) {
-  if (req.userCtx.roles.indexOf('teacher') === -1) {
+  if (req.userCtx.roles.indexOf('teacher') === -1 && req.userCtx.roles.indexOf('_admin') === -1) {
     start({ headers: { 'Content-Type': 'text/html; charset=utf-8' } })
     send('not a teacher')
     return
