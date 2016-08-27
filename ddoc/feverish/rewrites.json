@@ -4,6 +4,10 @@
     "to": "allo2.txt"
   },
   {
+    "from": "psd",
+    "to": "psd.html"
+  },
+  {
     "from": "themes.json",
     "to": "_view/themes",
     "query": {
