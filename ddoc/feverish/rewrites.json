@@ -8,6 +8,10 @@
     "to": "_show/upload-psd/:ex"
   },
   {
+    "from": "corrections/:ex",
+    "to": "_show/corrections/:ex"
+  },
+  {
     "from": "users",
     "to": "_show/users"
   },

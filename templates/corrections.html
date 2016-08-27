@@ -5,7 +5,7 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.css">
-<title>Allou allou!</title>
+<title>hi monde</title>
 <style>
 body > div:first-child { margin-top: 2em; }
 form > fieldset:first-child > h1:first-child { margin-bottom: 1em; }
@@ -13,21 +13,27 @@ form > fieldset:first-child > h1:first-child { margin-bottom: 1em; }
 </head>
 <body>
 <div class="row column">
-<h1 class="title">Les exercices</h1>
-<ol>
-<% data.rows.forEach(function (row) { %>
-  <li><%- row.title %> - <a href="/psd/<%- row._id %>">Envoyer PSD</a> - <a href="/corrections/<%- row._id %>">Corriger</a></li>
-<% }) %>
-</ol>
-<pre>
-<%- JSON.stringify(data.rows, null, ' ') %>
-</pre>
+<h1 class="title">Exercice <%- data.doc.title %> <small>corrections</small></h1>
+<pre></pre>
 </div>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.js"></script>
 <script>
 $(function () {
   $(document).foundation()
+  const getUsers = function () {
+    const fn = function (data) {
+      const rows = data.rows.map(function (row) { return row.doc })
+      $('pre').text(JSON.stringify(rows, null, ' '))
+    }
+    const query = {
+      startkey: '"org.couchdb.user:"',
+      endkey: '"org.couchdb.user:\ufff0"',
+      include_docs: true
+    }
+    $.getJSON('/_users/_all_docs', query, fn)
+  }
+  getUsers()
 })
 </script>
 </body>

@@ -14,3 +14,6 @@
 1. nginx (auth, login)
 1. host it publicly (with login)
 1. check if image is already uploaded
+1. move features from client js to _users design doc
+1. move client js to ddoc attachments
+1. move css to ddoc attachments
