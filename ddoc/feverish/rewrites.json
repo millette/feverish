@@ -11,6 +11,14 @@
     }
   },
   {
+    "from": "exercices.json",
+    "to": "_view/exercices",
+    "query": {
+      "include_docs": "true",
+      "descending": "true"
+    }
+  },
+  {
     "method": "GET",
     "from": "exercices",
     "to": "_list/exercices/exercices",
