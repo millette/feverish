@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.css">
+<title>hi monde</title>
+<style>
+body > div:first-child { margin-top: 2em; }
+form > fieldset:first-child > h1:first-child { margin-bottom: 1em; }
+</style>
+</head>
+<body>
+<div class="row column">
+  <div class="row">
+  <div class="column small-12 medium-6 medium-offset-3">
+    <form id="upload-psd" action="/_users/org.couchdb.user:<%- data.name %>">
+      <fieldset class="fieldset callout primary">
+      <h1 class="title text-center">Téléverser Photoshop</h1>
+      <div class="row">
+        <div class="small-offset-4 small-8 medium-6 medium-offset-6 column">
+          <label for="fichier-label" class="button expanded">Choisir le fichier</label>
+          <input type="file" id="fichier-label" class="show-for-sr" name="psd" required>
+        </div>
+      </div>
+      </fieldset>
+    </form>
+  </div>
+  </div>
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.js"></script>
+<script>
+$(function () {
+  'use strict'
+  $(document).foundation()
+
+  $('#upload-psd input').change(function () {
+    // see http://stackoverflow.com/a/11910333/1154755
+    const $self = $(this)
+    const uploadFile = function () {
+      const docUrl = $self.parents('form').attr('action')
+      const file = $self[0].files[0]
+      const headRequest = new XMLHttpRequest()
+      headRequest.open('HEAD', docUrl, true)
+      headRequest.send()
+      headRequest.onreadystatechange = function (response) {
+        const putRequest = new XMLHttpRequest()
+        const fileReader = new FileReader()
+        if (headRequest.readyState === 4 && headRequest.status === 200) {
+          const rev = headRequest.getResponseHeader('Etag').slice(1, -1)
+          putRequest.open('PUT', docUrl + '/fichier.psd' + '?rev=' + rev, true)
+          putRequest.setRequestHeader('Content-Type', file.type)
+          fileReader.readAsArrayBuffer(file)
+          fileReader.onload = function (readerEvent) { putRequest.send(readerEvent.target.result) }
+          putRequest.onreadystatechange = function (response) {
+            if (putRequest.readyState === 4) {
+              $('label[for="fichier-label"]').addClass('success').text('Merci!')
+              $self.prop('disabled', true)
+            } else {
+              $('label[for="fichier-label"]').addClass('warning').text('Erreur #1...')
+            }
+          }
+        } else {
+          $('label[for="fichier-label"]').addClass('warning').text('Erreur #2...')
+        }
+      }
+    }
+    uploadFile()
+  })
+})
+</script>
+</body>
+</html>

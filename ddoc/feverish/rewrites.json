@@ -5,7 +5,7 @@
   },
   {
     "from": "psd",
-    "to": "psd.html"
+    "to": "_show/upload-psd"
   },
   {
     "from": "themes.json",
