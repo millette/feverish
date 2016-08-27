@@ -6,12 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.css">
 <title>hi monde</title>
-<style>
-body > div:first-child { margin-top: 2em; }
-form > fieldset:first-child > h1:first-child { margin-bottom: 1em; }
-</style>
 </head>
-<body>
+<body data-uid="<%- data.query.user %>">
 <div class="row column">
 <h1 class="title">Correction d'exercice de <%- data.query.user %></h1>
 <nav aria-label="You are here:" role="navigation">
@@ -26,6 +22,7 @@ form > fieldset:first-child > h1:first-child { margin-bottom: 1em; }
 </nav>
 <span class="label"><%- data.doc.theme %></span>
 <p><%- data.doc.descriptif || data.doc.description %></p>
+<pre id="json"></pre>
 <pre><%= JSON.stringify(data, null, ' ') %></pre>
 </div>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -33,6 +30,10 @@ form > fieldset:first-child > h1:first-child { margin-bottom: 1em; }
 <script>
 $(function () {
   $(document).foundation()
+  const uid = $('body').data('uid')
+  $.getJSON('/_users/org.couchdb.user:' + uid, function (data) {
+    $('pre#json').text(JSON.stringify(data, null, ' '))
+  })
 })
 </script>
 </body>

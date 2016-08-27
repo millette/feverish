@@ -6,14 +6,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.css">
 <title>Allou allou!</title>
-<style>
-body > div:first-child { margin-top: 2em; }
-form > fieldset:first-child > h1:first-child { margin-bottom: 1em; }
-</style>
 </head>
 <body>
 <div class="row column">
 <h1 class="title">Les exercices</h1>
+<nav aria-label="You are here:" role="navigation">
+  <ul class="breadcrumbs">
+    <li><a href="/">Accueil</a></li>
+    <li>
+      <span class="show-for-sr">Actuel: </span> Exercices
+    </li>
+  </ul>
+</nav>
 <ol>
 <% data.rows.forEach(function (row) { %>
   <li><%- row.title %> - <a href="/psd/<%- row._id %>">Envoyer PSD</a> - <a href="/corrections/<%- row._id %>">Corriger</a></li>

@@ -6,10 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.css">
 <title>hi monde</title>
-<style>
-body > div:first-child { margin-top: 2em; }
-form > fieldset:first-child > h1:first-child { margin-bottom: 1em; }
-</style>
 </head>
 <body data-exid="<%- data.doc._id %>">
 <div class="row column">
@@ -23,6 +19,8 @@ form > fieldset:first-child > h1:first-child { margin-bottom: 1em; }
     </li>
   </ul>
 </nav>
+<span class="label"><%- data.doc.theme %></span>
+<p><%- data.doc.descriptif || data.doc.description %></p>
 <ul id="json"></ul>
 </div>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
