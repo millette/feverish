@@ -13,8 +13,14 @@ form > fieldset:first-child > h1:first-child { margin-bottom: 1em; }
 </head>
 <body>
 <div class="row column">
+<h1 class="title">Les exercices</h1>
+<ol>
+<% data.rows.forEach(function (row) { %>
+  <li><%- row.title %> - <a href="/psd/<%- row._id %>">Envoyer PSD</a></li>
+<% }) %>
+</ol>
 <pre>
-<%= JSON.stringify(data.rows, null, ' ') %>
+<%- JSON.stringify(data.rows, null, ' ') %>
 </pre>
 </div>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>

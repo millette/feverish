@@ -17,11 +17,11 @@ form > fieldset:first-child > h1:first-child { margin-bottom: 1em; }
   <div class="column small-12 medium-6 medium-offset-3">
     <form id="upload-psd" action="/_users/org.couchdb.user:<%- data.name %>">
       <fieldset class="fieldset callout primary">
-      <h1 class="title text-center">Téléverser Photoshop</h1>
+      <h1 class="title text-center">Exercice <%- data.doc.title %> <small>téléverser photoshop</small></h1>
       <div class="row">
         <div class="small-offset-4 small-8 medium-6 medium-offset-6 column">
           <label for="fichier-label" class="button expanded">Choisir le fichier</label>
-          <input type="file" id="fichier-label" class="show-for-sr" name="psd" required>
+          <input data-exid="<%- data.doc._id %>" type="file" id="fichier-label" class="show-for-sr" name="psd" required>
         </div>
       </div>
       </fieldset>
@@ -39,6 +39,7 @@ $(function () {
   $('#upload-psd input').change(function () {
     // see http://stackoverflow.com/a/11910333/1154755
     const $self = $(this)
+    const exid = $self.data('exid')
     const uploadFile = function () {
       const docUrl = $self.parents('form').attr('action')
       const file = $self[0].files[0]
@@ -50,7 +51,7 @@ $(function () {
         const fileReader = new FileReader()
         if (headRequest.readyState === 4 && headRequest.status === 200) {
           const rev = headRequest.getResponseHeader('Etag').slice(1, -1)
-          putRequest.open('PUT', docUrl + '/fichier.psd' + '?rev=' + rev, true)
+          putRequest.open('PUT', docUrl + '/' + exid + '.psd' + '?rev=' + rev, true)
           putRequest.setRequestHeader('Content-Type', file.type)
           fileReader.readAsArrayBuffer(file)
           fileReader.onload = function (readerEvent) { putRequest.send(readerEvent.target.result) }

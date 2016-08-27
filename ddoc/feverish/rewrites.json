@@ -4,8 +4,8 @@
     "to": "allo2.txt"
   },
   {
-    "from": "psd",
-    "to": "_show/upload-psd"
+    "from": "psd/:ex",
+    "to": "_show/upload-psd/:ex"
   },
   {
     "from": "themes.json",
