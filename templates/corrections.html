@@ -11,10 +11,10 @@ body > div:first-child { margin-top: 2em; }
 form > fieldset:first-child > h1:first-child { margin-bottom: 1em; }
 </style>
 </head>
-<body>
+<body data-exid="<%- data.doc._id %>">
 <div class="row column">
-<h1 class="title">Exercice <%- data.doc.title %> <small>corrections</small></h1>
-<pre></pre>
+<h1 class="title"><%- data.doc.title %> <small>corrections d'exercice</small></h1>
+<ul></ul>
 </div>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.js"></script>
@@ -22,9 +22,21 @@ form > fieldset:first-child > h1:first-child { margin-bottom: 1em; }
 $(function () {
   $(document).foundation()
   const getUsers = function () {
+    const exid = $('body').data('exid')
     const fn = function (data) {
-      const rows = data.rows.map(function (row) { return row.doc })
-      $('pre').text(JSON.stringify(rows, null, ' '))
+      const filt = function (doc) {
+        // return doc._attachments && doc._attachments[exid + '.psd'] && doc.roles.indexOf('student') !== -1
+        return doc.roles.indexOf('student') !== -1
+      }
+      const docs = data.rows.map(function (row) { return row.doc })
+      const withAtts = docs.filter(filt)
+      let atts
+      if (withAtts.length) {
+        atts = withAtts.map(function (doc) { return '<li><a href="/corrections/' + exid + '/' + doc.name + '">' + doc.name + '</a></li>' })
+      } else {
+        atts = ['<li>[PERSONNE]</li>']
+      }
+      $('ul').html(atts.join(''))
     }
     const query = {
       startkey: '"org.couchdb.user:"',

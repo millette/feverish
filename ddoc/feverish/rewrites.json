@@ -12,6 +12,10 @@
     "to": "_show/corrections/:ex"
   },
   {
+    "from": "corrections/:ex/:user",
+    "to": "_show/corrections/:ex"
+  },
+  {
     "from": "users",
     "to": "_show/users"
   },

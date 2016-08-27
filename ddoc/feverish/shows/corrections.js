@@ -5,5 +5,10 @@ module.exports = function (doc, req) {
 
   const tpl = require('views/lib/templates')
   req.userCtx.doc = doc
-  return tpl.corrections(req.userCtx)
+  if (req.query.user) {
+    req.userCtx.query = req.query
+    return tpl['corrections-user'](req.userCtx)
+  } else {
+    return tpl.corrections(req.userCtx)
+  }
 }
