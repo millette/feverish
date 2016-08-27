@@ -8,6 +8,10 @@
     "to": "_show/upload-psd/:ex"
   },
   {
+    "from": "users",
+    "to": "_show/users"
+  },
+  {
     "from": "themes.json",
     "to": "_view/themes",
     "query": {

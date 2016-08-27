@@ -13,19 +13,27 @@ form > fieldset:first-child > h1:first-child { margin-bottom: 1em; }
 </head>
 <body>
 <div class="row column">
-<h1>Bienvenue</h1>
-<ul>
-<li><a href="/">Accueil</a></li>
-<li><a href="/exercices">Exercices</a></li>
-<li><a href="/new">Créer un exercice</a></li>
-<li><a href="/users">Voir tous les utilisateurs</a></li>
-</ul>
+<h1 class="title">Tous les utilisateurs</h1>
+<pre></pre>
 </div>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.js"></script>
 <script>
 $(function () {
   $(document).foundation()
+  $.getJSON(
+    '/_users/_all_docs',
+//    '/_users/_all_docs?startkey="org.couchdb.user:"&endkey="org.couchdb.user:\ufff0"&include_docs=true',
+    {
+      startkey: '"org.couchdb.user:"',
+      endkey: '"org.couchdb.user:\ufff0"',
+      include_docs: true
+    },
+    function (data) {
+      const rows = data.rows.map((function (row) { return row.doc })
+      $('pre').text(JSON.stringify(rows, null, ' '))
+    }
+  )
 })
 </script>
 </body>
