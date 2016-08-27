@@ -13,8 +13,20 @@ form > fieldset:first-child > h1:first-child { margin-bottom: 1em; }
 </head>
 <body>
 <div class="row column">
-<h1 class="title">Correction d'exercice d'un user</h1>
-<pre><%- JSON.stringify(data, null, ' ') %></pre>
+<h1 class="title">Correction d'exercice de <%- data.query.user %></h1>
+<nav aria-label="You are here:" role="navigation">
+  <ul class="breadcrumbs">
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/exercices">Exercices</a></li>
+    <li><a href="/corrections/<%- data.doc._id %>"><%- data.doc.title %></a></li>
+    <li>
+      <span class="show-for-sr">Actuel: </span> <%- data.query.user %>
+    </li>
+  </ul>
+</nav>
+<span class="label"><%- data.doc.theme %></span>
+<p><%- data.doc.descriptif || data.doc.description %></p>
+<pre><%= JSON.stringify(data, null, ' ') %></pre>
 </div>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.js"></script>

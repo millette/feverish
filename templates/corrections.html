@@ -13,8 +13,17 @@ form > fieldset:first-child > h1:first-child { margin-bottom: 1em; }
 </head>
 <body data-exid="<%- data.doc._id %>">
 <div class="row column">
-<h1 class="title"><%- data.doc.title %> <small>corrections d'exercice</small></h1>
-<ul></ul>
+<h1 class="title">Corrections d'exercice</h1>
+<nav aria-label="You are here:" role="navigation">
+  <ul class="breadcrumbs">
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/exercices">Exercices</a></li>
+    <li>
+      <span class="show-for-sr">Actuel: </span> <%- data.doc.title %>
+    </li>
+  </ul>
+</nav>
+<ul id="json"></ul>
 </div>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.js"></script>
@@ -36,7 +45,7 @@ $(function () {
       } else {
         atts = ['<li>[PERSONNE]</li>']
       }
-      $('ul').html(atts.join(''))
+      $('ul#json').html(atts.join(''))
     }
     const query = {
       startkey: '"org.couchdb.user:"',
