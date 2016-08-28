@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.css">
 <title>hi monde</title>
 </head>
-<body data-uid="<%- data.query.user %>">
+<body data-exercice="<%- data.doc._id %>" data-student="<%- data.query.user %>" data-ponderation="<%- data.doc.ponderation %>">
 <div class="row column">
 <h1 class="title">Correction d'exercice de <%- data.query.user %></h1>
 <nav aria-label="You are here:" role="navigation">
@@ -20,22 +20,91 @@
     </li>
   </ul>
 </nav>
+<h2><%- data.doc.title %></h2>
 <ul>
 <li>Thème: <span class="label"><%- data.doc.theme %></span></li>
-<li>Pondération: sur <%- data.doc.ponderation %></li>
+<li>Pondération sur <span class="stat"><%- data.doc.ponderation %></span></li>
 </ul>
 <p><%- data.doc.descriptif || data.doc.description %></p>
+  <div class="row">
+    <div class="column small-12 medium-10 medium-offset-1 large-6 large-offset-3">
+      <form method="post">
+        <fieldset class="fieldset callout primary">
+        <div class="row">
+          <div class="small-4 column medium-6">
+            <label for="note-label" class="text-right middle">Note sur <%- data.doc.ponderation %></label>
+          </div>
+          <div class="small-8 column medium-6">
+            <input min="0" max="<%- data.doc.ponderation %>" type="number" id="note-label" name="note" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-4 column medium-6">
+            <label for="commentaires-label" class="text-right">Commentaires</label>
+          </div>
+          <div class="small-8 column medium-6">
+            <textarea rows="10" id="commentaires-label" name="commentaires" required></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-offset-4 small-8 medium-6 medium-offset-6 column">
+            <input class="button expanded" type="submit" value="Noter">
+          </div>
+        </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
 <pre id="json"></pre>
-<pre><%= JSON.stringify(data, null, ' ') %></pre>
 </div>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.js"></script>
 <script>
 $(function () {
+  const score = function ($form, ponderation) {
+    const ret = { ponderation: ponderation }
+    $form.serializeArray().forEach(function (x) { ret[x.name] = x.value })
+    ret.note = parseInt(ret.note, 10)
+    ret.ponderation = parseInt(ret.ponderation, 10)
+    ret.createdAt = new Date().toISOString()
+    return ret
+  }
+
   $(document).foundation()
-  const uid = $('body').data('uid')
-  $.getJSON('/_users/org.couchdb.user:' + uid, function (data) {
-    $('pre#json').text(JSON.stringify(data, null, ' '))
+  const bodyData = $('body').data()
+  $('form').submit(function (ev) {
+    ev.preventDefault()
+    const $form = $(this)
+    const userUrl = '/_users/org.couchdb.user:' + bodyData.student
+    $.getJSON(userUrl, function (userDoc) {
+      if (!userDoc.corrections) { userDoc.corrections = { } }
+      userDoc.corrections[bodyData.exercice] = score($form, bodyData.ponderation)
+      console.log('userDoc:', userDoc)
+      $('pre#json').text(JSON.stringify(userDoc, null, ' '))
+      console.log('now is time to save to userDoc')
+
+      const completeFn = function (a, b, c) {
+        console.log('completeFn', a, b, c)
+      }
+
+      const errorFn = function (a, b, c) {
+        console.log('errorFn', a, b, c)
+      }
+
+      const successFn = function (a, b, c) {
+        console.log('successFn', a, b, c)
+      }
+
+      $.ajax({
+        url: userUrl,
+        method: 'PUT',
+        contentType: 'application/json',
+        data: JSON.stringify(userDoc),
+        complete: completeFn,
+        error: errorFn,
+        success: successFn
+      })
+    })
   })
 })
 </script>
