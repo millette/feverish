@@ -1,6 +1,5 @@
 # TODO
 
-1. teacher: edit exercice
 1. teacher: edit correction (score)
 1. teacher: flag reference exercice
 1. student: see reference exercices
@@ -20,3 +19,4 @@
 1. navigate by theme
 1. configurable exercice path (doc._id)
 1. student: see results for all exams at once
+1. teacher: redirect after exercice edit/create
