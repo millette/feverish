@@ -35,7 +35,7 @@
     "parser": "babel-eslint"
   },
   "dependencies": {
-    "divanator": "^0.4.1",
+    "divanator": "^0.4.2",
     "nano": "^6.2.0",
     "update-notifier": "^1.0.2",
     "yargs": "^5.0.0"
