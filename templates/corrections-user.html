@@ -35,7 +35,7 @@
             <label for="note-label" class="text-right middle">Note sur <%- data.doc.ponderation %></label>
           </div>
           <div class="small-8 column medium-6">
-            <input min="0" max="<%- data.doc.ponderation %>" type="number" id="note-label" name="note" required>
+            <input min="0" max="<%- data.doc.ponderation %>" type="number" step="any" id="note-label" name="note" required>
           </div>
         </div>
         <div class="row">
@@ -64,8 +64,8 @@ $(function () {
   const score = function ($form, ponderation) {
     const ret = { ponderation: ponderation }
     $form.serializeArray().forEach(function (x) { ret[x.name] = x.value })
-    ret.note = parseInt(ret.note, 10)
-    ret.ponderation = parseInt(ret.ponderation, 10)
+    ret.note = parseFloat(ret.note)
+    ret.ponderation = parseFloat(ret.ponderation)
     ret.createdAt = new Date().toISOString()
     return ret
   }
@@ -77,12 +77,6 @@ $(function () {
     const $form = $(this)
     const userUrl = '/_users/org.couchdb.user:' + bodyData.student
     $.getJSON(userUrl, function (userDoc) {
-      if (!userDoc.corrections) { userDoc.corrections = { } }
-      userDoc.corrections[bodyData.exercice] = score($form, bodyData.ponderation)
-      console.log('userDoc:', userDoc)
-      $('pre#json').text(JSON.stringify(userDoc, null, ' '))
-      console.log('now is time to save to userDoc')
-
       const completeFn = function (a, b, c) {
         console.log('completeFn', a, b, c)
       }
@@ -93,7 +87,12 @@ $(function () {
 
       const successFn = function (a, b, c) {
         console.log('successFn', a, b, c)
+        $('input[type="submit"]').addClass('success').val('Merci!')
+        $form.prop('disabled', true)
       }
+
+      if (!userDoc.corrections) { userDoc.corrections = { } }
+      userDoc.corrections[bodyData.exercice] = score($form, bodyData.ponderation)
 
       $.ajax({
         url: userUrl,
