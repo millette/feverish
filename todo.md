@@ -1,6 +1,5 @@
 # TODO
 
-1. student: see results per exam
 1. student: upload jpg
 1. teacher: edit exercice
 1. teacher: edit correction (score)
@@ -21,3 +20,4 @@
 1. use page.js to enable transitions between pages
 1. navigate by theme
 1. configurable exercice path (doc._id)
+1. student: see results for all exams at once
