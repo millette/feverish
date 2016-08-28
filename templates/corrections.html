@@ -19,7 +19,10 @@
     </li>
   </ul>
 </nav>
-<span class="label"><%- data.doc.theme %></span>
+<ul>
+<li>Thème: <span class="label"><%- data.doc.theme %></span></li>
+<li>Pondération: sur <%- data.doc.ponderation %></li>
+</ul>
 <p><%- data.doc.descriptif || data.doc.description %></p>
 <ul id="json"></ul>
 </div>

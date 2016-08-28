@@ -20,7 +20,10 @@
     </li>
   </ul>
 </nav>
-<span class="label"><%- data.doc.theme %></span>
+<ul>
+<li>Thème: <span class="label"><%- data.doc.theme %></span></li>
+<li>Pondération: sur <%- data.doc.ponderation %></li>
+</ul>
 <p><%- data.doc.descriptif || data.doc.description %></p>
 <pre id="json"></pre>
 <pre><%= JSON.stringify(data, null, ' ') %></pre>

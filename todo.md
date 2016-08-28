@@ -19,3 +19,4 @@
 1. student: main navigation menu
 1. teacher: main navigation menu
 1. use page.js to enable transitions between pages
+1. navigate by theme
