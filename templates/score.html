@@ -49,10 +49,11 @@ $(function () {
   const userUrl = '/_users/org.couchdb.user:' + bodyData.student
   const $score = $('pre#json-score')
 
-  const submitJpeg =  function (self, rev, ev) {
+  const submitJpeg =  function (bodyData, self, rev, ev) {
     // see http://stackoverflow.com/a/11910333/1154755
     const $self = $(self)
-    const exid = $self.data('exid')
+    // const exid = $self.data('exid')
+    const exid = bodyData.exercice
     const docUrl = $self.parents('form').attr('action')
     const file = $self[0].files[0]
     const putRequest = new XMLHttpRequest()
@@ -71,15 +72,15 @@ $(function () {
     }
   }
 
-  const showUpload = function ($score) {
+  const showUpload = function (student, $score) {
     $score.after([
-      '<form id="upload-jpeg" action="/_users/org.couchdb.user:'+ bodyData.student + '">',
+      '<form id="upload-jpeg" action="/_users/org.couchdb.user:'+ student + '">',
       '  <fieldset class="fieldset callout primary">',
       '  <h1 class="title text-center">Téléverser jpeg</h1>',
       '  <div class="row">',
       '    <div class="small-offset-4 small-8 medium-6 medium-offset-6 column">',
       '      <label for="fichier-label" class="button expanded">Choisir le fichier</label>',
-      '      <input data-exid="' + bodyData.exercice + '" type="file" id="fichier-label" class="show-for-sr" name="jpeg" required>',
+      '      <input type="file" id="fichier-label" class="show-for-sr" name="jpeg" required>',
       '    </div>',
       '  </div>',
       '  </fieldset>',
@@ -87,17 +88,25 @@ $(function () {
     ].join())
   }
 
-  const showScore = function (userDoc, $score, score) {
+  const showJpeg = function (exercice, userDoc) {
+    $score.after('<img src="/_users/' + userDoc._id + '/' + exercice + '.jpg' + '" alt="jpeg">')
+  }
+
+  const showScore = function (bodyData, userDoc, $score, score) {
     score.percent = Math.round(1000 * score.note / score.ponderation) / 10
     $score.text(JSON.stringify(score, null, ' '))
-    showUpload($score)
-    $body.on('change', 'input#fichier-label', submitJpeg.bind(null, 'input#fichier-label', userDoc._rev))
+    if (userDoc._attachments && userDoc._attachments[bodyData.exercice + '.jpg']) {
+      showJpeg(bodyData.exercice, userDoc)
+    } else {
+      showUpload(bodyData.student, $score)
+    }
+    $body.on('change', 'input#fichier-label', submitJpeg.bind(null, bodyData, 'input#fichier-label', userDoc._rev))
   }
 
   $.getJSON(userUrl, function (userDoc) {
     const score = userDoc.corrections && userDoc.corrections[bodyData.exercice]
     if (score) {
-      showScore(userDoc, $score, score)
+      showScore(bodyData, userDoc, $score, score)
     } else {
       $score.text('Aucun résultat disponible.')
     }

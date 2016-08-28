@@ -1,6 +1,5 @@
 # TODO
 
-1. student: upload jpg
 1. teacher: edit exercice
 1. teacher: edit correction (score)
 1. teacher: flag reference exercice
