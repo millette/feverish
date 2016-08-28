@@ -20,3 +20,4 @@
 1. teacher: main navigation menu
 1. use page.js to enable transitions between pages
 1. navigate by theme
+1. configurable exercice path (doc._id)
