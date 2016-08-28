@@ -31,12 +31,11 @@
 <script>
 $(function () {
   $(document).foundation()
+  const exid = $('body').data('exid')
   const getUsers = function () {
-    const exid = $('body').data('exid')
     const fn = function (data) {
       const filt = function (doc) {
-        // return doc._attachments && doc._attachments[exid + '.psd'] && doc.roles.indexOf('student') !== -1
-        return doc.roles.indexOf('student') !== -1
+        return doc.roles.indexOf('student') !== -1 && (!doc.corrections || !doc.corrections[exid])
       }
       const docs = data.rows.map(function (row) { return row.doc })
       const withAtts = docs.filter(filt)
