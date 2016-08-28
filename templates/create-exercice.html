@@ -40,7 +40,7 @@ form > fieldset:first-child > h1:first-child { margin-bottom: 1em; }
           </div>
           <div class="small-8 column medium-6">
             <select id="theme-label" name="theme">
-              <%= data.rows.map(this.hiRow).join('\n')  %>
+              <%= data.rows.map(this.themeOption).join('\n')  %>
             </select>
           </div>
         </div>
