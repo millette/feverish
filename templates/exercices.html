@@ -20,7 +20,7 @@
 </nav>
 <ol>
 <% data.rows.forEach(function (row) { %>
-  <li><%- row.title %> - <a href="/psd/<%- row._id %>">Envoyer PSD</a> - <a href="/corrections/<%- row._id %>">Corriger</a></li>
+  <li><%- row.title %> - <a href="/score/<%- row._id %>">Consulter mon résultat</a> - <a href="/psd/<%- row._id %>">Envoyer PSD</a> - <a href="/corrections/<%- row._id %>">Corriger</a></li>
 <% }) %>
 </ol>
 <pre>

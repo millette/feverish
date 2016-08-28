@@ -1,6 +1,6 @@
 # TODO
 
-1. student: see results
+1. student: see results per exam
 1. student: upload jpg
 1. teacher: edit exercice
 1. teacher: edit correction (score)
