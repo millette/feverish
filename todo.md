@@ -1,9 +1,9 @@
 # TODO
 
-1. teacher: score users' exercices (note, pondération, remarques)
 1. student: see results
 1. student: upload jpg
 1. teacher: edit exercice
+1. teacher: edit correction (score)
 1. teacher: flag reference exercice
 1. student: see reference exercices
 1. student: first page after login
