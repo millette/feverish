@@ -20,12 +20,15 @@
 </nav>
 <ol>
 <% data.rows.forEach(function (row) { %>
-  <li><%- row.title %><ul class="menu expanded">
-    <li><a href="/edit/<%- row._id %>">Éditer</a></li>
-    <li><a href="/score/<%- row._id %>">Consulter mon résultat</a></li>
-    <li><a href="/psd/<%- row._id %>">Envoyer PSD</a></li>
-    <li><a href="/corrections/<%- row._id %>">Corriger</a></li>
-  </ul></li>
+  <li>
+    <h3><%- row.title %> <small><%- row.createdAt.split('T')[0] %></small></h3>
+    <ul class="menu expanded">
+      <li><a href="/edit/<%- row._id %>">Éditer</a></li>
+      <li><a href="/score/<%- row._id %>">Consulter mon résultat</a></li>
+      <li><a href="/psd/<%- row._id %>">Envoyer PSD</a></li>
+      <li><a href="/corrections/<%- row._id %>">Corriger</a></li>
+    </ul>
+  </li>
 <% }) %>
 </ol>
 </div>
