@@ -20,12 +20,14 @@
 </nav>
 <ol>
 <% data.rows.forEach(function (row) { %>
-  <li><%- row.title %> - <a href="/score/<%- row._id %>">Consulter mon résultat</a> - <a href="/psd/<%- row._id %>">Envoyer PSD</a> - <a href="/corrections/<%- row._id %>">Corriger</a></li>
+  <li><%- row.title %><ul class="menu expanded">
+    <li><a href="/edit/<%- row._id %>">Éditer</a></li>
+    <li><a href="/score/<%- row._id %>">Consulter mon résultat</a></li>
+    <li><a href="/psd/<%- row._id %>">Envoyer PSD</a></li>
+    <li><a href="/corrections/<%- row._id %>">Corriger</a></li>
+  </ul></li>
 <% }) %>
 </ol>
-<pre>
-<%- JSON.stringify(data.rows, null, ' ') %>
-</pre>
 </div>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.js"></script>

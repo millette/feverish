@@ -47,7 +47,6 @@ $(function () {
   $(document).foundation()
   const $body = $('body')
   const bodyData = $body.data()
-  const userUrl = '/_users/org.couchdb.user:' + bodyData.student
   const $score = $('#json-score')
 
   const submitJpeg =  function (bodyData, self, rev, ev) {
@@ -108,7 +107,7 @@ $(function () {
     $body.on('change', 'input#fichier-label', submitJpeg.bind(null, bodyData, 'input#fichier-label', userDoc._rev))
   }
 
-  $.getJSON(userUrl, function (userDoc) {
+  $.getJSON('/_users/org.couchdb.user:' + bodyData.student, function (userDoc) {
     const score = userDoc.corrections && userDoc.corrections[bodyData.exercice]
     if (score) {
       showScore(bodyData, userDoc, $score, score)
