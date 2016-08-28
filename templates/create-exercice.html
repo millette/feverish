@@ -17,7 +17,7 @@ form > fieldset:first-child > h1:first-child { margin-bottom: 1em; }
     <div class="column small-12 medium-10 medium-offset-1 large-6 large-offset-3">
       <form method="post">
         <fieldset class="fieldset callout primary">
-        <h1 class="title text-center"><%- this.themeOption ? 'Nouvel' : 'Éditer' %> exercice</h1>
+        <h1 class="title text-center"><%- data.doc ? 'Éditer' : 'Nouvel' %> exercice</h1>
         <div class="row">
           <div class="small-4 column medium-6">
             <label for="titre-label" class="text-right middle">Titre</label>
@@ -39,7 +39,7 @@ form > fieldset:first-child > h1:first-child { margin-bottom: 1em; }
             <label for="theme-label" class="text-right middle">Thème</label>
           </div>
           <div class="small-8 column medium-6">
-            <% if (this.themeOption) { %>
+            <% if (!data.doc) { %>
             <select id="theme-label" name="theme">
               <%= data.rows.map(this.themeOption).join('\n')  %>
             </select>
@@ -58,7 +58,7 @@ form > fieldset:first-child > h1:first-child { margin-bottom: 1em; }
         </div>
         <div class="row">
           <div class="small-offset-4 small-8 medium-6 medium-offset-6 column">
-            <input class="button expanded" type="submit" value="<%- this.themeOption ? 'Créer' : 'Éditer' %>">
+            <input class="button expanded" type="submit" value="<%- data.doc ? 'Éditer' : 'Créer'  %>">
           </div>
         </div>
         </fieldset>
