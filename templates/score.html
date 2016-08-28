@@ -47,11 +47,9 @@ $(function () {
   const bodyData = $('body').data()
   const userUrl = '/_users/org.couchdb.user:' + bodyData.student
   $.getJSON(userUrl, function (userDoc) {
-    console.log('got userDoc:', userDoc)
     const score = userDoc.corrections && userDoc.corrections[bodyData.exercice]
-    console.log('got userDoc.corrections:', userDoc.corrections)
     if (score) {
-      console.log(score)
+      score.percent = Math.round(1000 * score.note / score.ponderation) / 10
       $('pre#json-score').text(JSON.stringify(score, null, ' '))
     }
   })
