@@ -3,12 +3,10 @@
 1. teacher: edit correction (score)
 1. teacher: flag reference exercice
 1. student: see reference exercices
-1. student: first page after login
-1. teacher: first page after login
-1. teacher: upload excel to create users (node)
 1. nginx (auth, login)
 1. host it publicly (with login)
 1. student: update jpeg
+1. teacher: upload excel to create users (node)
 1. dev: move features from client js to _users design doc
 1. dev: move client js to ddoc attachments
 1. dev: move css to ddoc attachments
