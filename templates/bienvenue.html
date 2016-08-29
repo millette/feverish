@@ -6,19 +6,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.css">
 <title>hi monde</title>
-<style>
-body > div:first-child { margin-top: 2em; }
-form > fieldset:first-child > h1:first-child { margin-bottom: 1em; }
-</style>
 </head>
 <body>
 <div class="row column">
 <h1>Bienvenue</h1>
-<ul>
-<li><a href="/">Accueil</a></li>
-<li><a href="/exercices">Exercices</a></li>
-<li><a href="/new">Créer un exercice</a></li>
-<li><a href="/users">Voir tous les utilisateurs</a></li>
+<nav aria-label="You are here:" role="navigation">
+  <ul class="breadcrumbs">
+    <li>
+      <span class="show-for-sr">Actuel: </span> Accueil
+    </li>
+  </ul>
+</nav>
+<ul class="menu">
+  <li><a href="/exercices">Exercices</a></li>
+  <% if (data.roles.indexOf('teacher') !== -1 || data.roles.indexOf('_admin') !== -1) { %>
+  <li><a href="/new">Créer un exercice</a></li>
+  <% } %>
 </ul>
 </div>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
