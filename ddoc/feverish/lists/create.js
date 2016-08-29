@@ -27,6 +27,6 @@ module.exports = function (head, req, mocks) {
   }
   const rows = sortedRows(req.query.order)
   start({ headers: { 'Content-Type': 'text/html; charset=utf-8' } })
-  tpl.themeOption = (row) => `<option value="${row.key}">${row.key} (${row.value})</option>`
-  send(tpl['create-exercice']({ rows: rows }))
+  const themeOption = (row) => `<option value="${row.key}">${row.key} (${row.value})</option>`
+  send(tpl['create-exercice']({ themeOption: themeOption, rows: rows }))
 }

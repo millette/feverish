@@ -41,7 +41,7 @@ form > fieldset:first-child > h1:first-child { margin-bottom: 1em; }
           <div class="small-8 column medium-6">
             <% if (!data.doc) { %>
             <select id="theme-label" name="theme">
-              <%= data.rows.map(this.themeOption).join('\n')  %>
+              <%= data.rows.map(data.themeOption).join('\n')  %>
             </select>
             <% } else { %>
               <input type="text" name="theme" id="theme-label" value="<%- data.doc && data.doc.theme || '' %>">
