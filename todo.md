@@ -1,6 +1,5 @@
 # TODO
 
-1. only show allowed links
 1. show logged in users
 1. logout button
 1. teacher: edit correction (score)
