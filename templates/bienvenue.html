@@ -8,6 +8,23 @@
 <title>hi monde</title>
 </head>
 <body>
+<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="menu">
+      <li class="active"><a href="/">Accueil</a></li>
+      <li><a href="/exercices">Exercices</a></li>
+      <% if (data.roles.indexOf('teacher') !== -1 || data.roles.indexOf('_admin') !== -1) { %>
+      <li><a href="/new">Créer un exercice</a></li>
+      <% } %>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+      <li class="menu-text"><%- data.name %></li>
+      <li><button type="button" class="button">Logout</button></li>
+    </ul>
+  </div>
+</div>
 <div class="row column">
 <h1>Bienvenue</h1>
 <nav aria-label="You are here:" role="navigation">
@@ -17,12 +34,8 @@
     </li>
   </ul>
 </nav>
-<ul class="menu">
-  <li><a href="/exercices">Exercices</a></li>
-  <% if (data.roles.indexOf('teacher') !== -1 || data.roles.indexOf('_admin') !== -1) { %>
-  <li><a href="/new">Créer un exercice</a></li>
-  <% } %>
-</ul>
+<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur viverra tortor vitae diam congue hendrerit. Suspendisse dictum vehicula dui, maximus sodales eros viverra et. Donec laoreet libero quis ligula maximus, sit amet tincidunt neque eleifend. Cras sed orci quis dui venenatis mollis quis et arcu. Cras commodo dolor suscipit, consequat lectus nec, sollicitudin dolor. Phasellus mattis et erat semper convallis. Nulla eleifend nisl a porta sodales. Integer consequat tempus condimentum. Fusce ac gravida mauris. Aliquam vel risus mi. Curabitur tempus sagittis sagittis.</p>
+<p>In in justo ligula. Pellentesque odio metus, cursus non leo et, accumsan ultrices nulla. Ut consequat, enim id porttitor dignissim, dolor tellus finibus ante, sed consequat enim arcu vel mauris. Nunc finibus felis a velit varius, eget rhoncus urna sagittis. Suspendisse orci urna, pretium sit amet rutrum in, viverra et arcu. Nunc vestibulum turpis dui, vitae accumsan odio ullamcorper id. Sed placerat malesuada lorem, quis bibendum diam dignissim eget. Donec tristique, est a malesuada posuere, tortor justo iaculis nisi, vel venenatis nisl lorem ac diam.</p>
 </div>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.js"></script>
