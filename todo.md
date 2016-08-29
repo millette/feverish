@@ -1,7 +1,5 @@
 # TODO
 
-1. show logged in users
-1. logout button
 1. teacher: edit correction (score)
 1. teacher: flag reference exercice
 1. student: see reference exercices
@@ -15,8 +13,6 @@
 1. dev: move client js to ddoc attachments
 1. dev: move css to ddoc attachments
 1. dev: split up templates
-1. student: main navigation menu
-1. teacher: main navigation menu
 1. dev: use page.js to enable transitions between pages
 1. navigate by theme (student/teacher)
 1. teacher: configurable exercice path (doc._id)
