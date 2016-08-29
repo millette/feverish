@@ -9,20 +9,20 @@
 1. teacher: upload excel to create users (node)
 1. nginx (auth, login)
 1. host it publicly (with login)
-1. update jpeg
-1. move features from client js to _users design doc
-1. move client js to ddoc attachments
-1. move css to ddoc attachments
-1. split up templates
+1. student: update jpeg
+1. dev: move features from client js to _users design doc
+1. dev: move client js to ddoc attachments
+1. dev: move css to ddoc attachments
+1. dev: split up templates
 1. student: main navigation menu
 1. teacher: main navigation menu
-1. use page.js to enable transitions between pages
-1. navigate by theme
-1. configurable exercice path (doc._id)
+1. dev: use page.js to enable transitions between pages
+1. navigate by theme (student/teacher)
+1. teacher: configurable exercice path (doc._id)
 1. student: see results for all exams at once
 1. teacher: redirect after exercice edit/create
-1. autocomplete themes in exercice edit
-1. format descriptif and result comments (allow html or markdown)
-1. check if psd image is already uploaded
-1. update psd
-1. zip up psds for an exercice for batch download
+1. teacher: autocomplete themes in exercice edit
+1. teacher: format descriptif and result comments (allow html or markdown)
+1. student: check if psd image is already uploaded
+1. student: update psd
+1. teacher: zip up psds for an exercice for batch download
