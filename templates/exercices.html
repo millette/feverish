@@ -8,6 +8,23 @@
 <title>Allou allou!</title>
 </head>
 <body>
+<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="menu">
+      <li><a href="/">Accueil</a></li>
+      <li class="active"><a href="/exercices">Exercices</a></li>
+      <% if (data.roles.indexOf('teacher') !== -1 || data.roles.indexOf('_admin') !== -1) { %>
+      <li><a href="/new">Créer un exercice</a></li>
+      <% } %>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+      <li class="menu-text"><%- data.name %></li>
+      <li><button type="button" class="button">Logout</button></li>
+    </ul>
+  </div>
+</div>
 <div class="row column">
 <h1 class="title">Les exercices</h1>
 <nav aria-label="You are here:" role="navigation">

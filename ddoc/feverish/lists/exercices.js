@@ -17,5 +17,7 @@ module.exports = function (head, req, mocks) {
   let row
   const rows = []
   while ((row = getRow())) { rows.push(row.doc) }
-  send(tpl.exercices({ userMenu: req.userCtx.roles.indexOf('teacher') === -1 ? studentMenu : teacherMenu, rows: rows }))
+  req.userCtx.userMenu = req.userCtx.roles.indexOf('teacher') === -1 ? studentMenu : teacherMenu
+  req.userCtx.rows = rows
+  send(tpl.exercices(req.userCtx))
 }
