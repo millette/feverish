@@ -1,5 +1,6 @@
 # TODO
 
+1. only show allowed links
 1. teacher: edit correction (score)
 1. teacher: flag reference exercice
 1. student: see reference exercices
@@ -8,8 +9,7 @@
 1. teacher: upload excel to create users (node)
 1. nginx (auth, login)
 1. host it publicly (with login)
-1. check if psd image is already uploaded
-1. update images (jpeg or psd)
+1. update jpeg
 1. move features from client js to _users design doc
 1. move client js to ddoc attachments
 1. move css to ddoc attachments
@@ -22,3 +22,7 @@
 1. student: see results for all exams at once
 1. teacher: redirect after exercice edit/create
 1. autocomplete themes in exercice edit
+1. format descriptif and result comments (allow html or markdown)
+1. check if psd image is already uploaded
+1. update psd
+1. zip up psds for an exercice for batch download
