@@ -2,33 +2,39 @@
 $(function () {
   'use strict'
   const exid = $('body').data('exid')
-  const getUsers = function () {
-    const fn = function (data) {
-      const filt = function (doc) {
+
+  const showUsers = function (d, todo) {
+    const sel = todo ? 'ul#json' : 'ul#json2'
+    const filt = todo
+      ? function (doc) {
         return doc.roles.indexOf('student') !== -1 && (!doc.corrections || !doc.corrections[exid])
       }
-      const docs = data.rows.map(function (row) { return row.doc })
-      const withAtts = docs.filter(filt)
-      const atts = withAtts.length
-        ? withAtts.map(function (doc) { return '<li><a href="/corrections/' + exid + '/' + doc.name + '">' + doc.name + '</a></li>' })
-        : ['<li>[PERSONNE]</li>']
-      $('ul#json').html(atts.join(''))
-
-      const filt2 = function (doc) {
+      : function (doc) {
         return doc.roles.indexOf('student') !== -1 && doc.corrections && doc.corrections[exid]
       }
-      const withAtts2 = docs.filter(filt2)
-      const atts2 = withAtts2.length
-        ? withAtts2.map(function (doc) { return '<li><a href="/corrections/' + exid + '/' + doc.name + '">' + doc.name + '</a></li>' })
-        : ['<li>[PERSONNE]</li>']
-      $('ul#json2').html(atts2.join(''))
-    }
-    const query = {
-      startkey: '"org.couchdb.user:"',
-      endkey: '"org.couchdb.user:\ufff0"',
-      include_docs: true
-    }
-    $.getJSON('/_users/_all_docs', query, fn)
+
+    const act = todo
+      ? function () {}
+      : function (doc) {
+        if (doc.corrections && doc.corrections[exid] && doc.corrections[exid].reference) { return ' class="active"' }
+        return ''
+      }
+    const withAtts = d.filter(filt)
+    const atts = withAtts.length
+      ? withAtts.map(function (doc) { return '<li' + act(doc) + '><a href="/corrections/' + exid + '/' + doc.name + '">' + doc.name + '</a></li>' })
+      : ['<li>[PERSONNE]</li>']
+    $(sel).html(atts.join(''))
   }
-  getUsers()
+
+  const fn = function (data) {
+    const docs = data.rows.map(function (row) { return row.doc })
+    showUsers(docs, true)
+    showUsers(docs, false)
+  }
+  const query = {
+    startkey: '"org.couchdb.user:"',
+    endkey: '"org.couchdb.user:\ufff0"',
+    include_docs: true
+  }
+  $.getJSON('/_users/_all_docs', query, fn)
 })
