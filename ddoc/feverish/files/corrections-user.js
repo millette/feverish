@@ -13,6 +13,7 @@ $(function () {
   const bodyData = $('body').data()
   var userDoc
   var referenceUser
+  var nextUser
 
   const saveUser = function (ud, errFn, succFn) {
     $.ajax({
@@ -31,8 +32,16 @@ $(function () {
     include_docs: true
   }
   const getRef = function (data) {
+    nextUser = data.rows.filter(function (row) {
+      return row.doc.roles.indexOf('student') !== -1 &&
+        row.doc.name !== bodyData.student &&
+        (!row.doc.corrections || !row.doc.corrections[bodyData.exercice])
+    })
+    .map(function (row) { return row.doc })[0]
+
     referenceUser = data.rows.filter(function (row) {
-      return row.doc.corrections &&
+      return row.doc.roles.indexOf('student') !== -1 &&
+        row.doc.corrections &&
         row.doc.corrections[bodyData.exercice] &&
         row.doc.corrections[bodyData.exercice].reference &&
         row.doc.name !== bodyData.student
@@ -74,10 +83,11 @@ $(function () {
     // const completeFn = function (a, b, c) { console.log('completeFn', a, b, c) }
     const errorFn = function (a, b, c) { console.log('errorFn', a, b, c) }
     const successFn = function (a, b, c) {
-      console.log('successFn', a, b, c)
-      // FIXME: redirect to next student
       $('input[type="submit"]').addClass('success').val('Merci!')
       $form.prop('disabled', true)
+      const nextUrl = ['/corrections', bodyData.exercice]
+      if (nextUser) { nextUrl.push(nextUser.name) }
+      window.location = nextUrl.join('/')
     }
     saveUser(userDoc, errorFn, successFn)
   })

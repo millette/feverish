@@ -48,8 +48,10 @@ $(function () {
   }
 
   const makeHtml = function (score) {
-    return ('<p><span class="stat">' + score.percent + '%' + '</span> ' + score.note + '/' + score.ponderation + '</p>' +
-     '<p><i>' + score.createdAt.split('T')[0] + '</i> ' + score.commentaires + '</p>')
+    return '<p><span class="stat">' + score.percent + '%' + '</span> ' +
+      score.note + '/' + score.ponderation + '</p>' +
+      '<p>' + (score.reference ? '<span class="label alert"><span class="stat"> RÉFÉRENCE </span> </span> ' : '') +
+      '<i>' + score.createdAt.split('T')[0] + '</i> ' + score.commentaires + '</p>'
   }
 
   const showScore = function (bodyData, userDoc, $score, score) {
