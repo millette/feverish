@@ -1,6 +1,5 @@
 # TODO
 
-1. teacher: edit correction (score)
 1. teacher: flag reference exercice
 1. student: see reference exercices
 1. nginx (auth, login)
