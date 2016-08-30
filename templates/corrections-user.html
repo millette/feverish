@@ -23,6 +23,7 @@
       <li class="menu-text"><%- data.name %></li>
       <li><button type="button" class="button">Logout</button></li>
     </ul>
+
   </div>
 </div>
 <div class="row column">
@@ -76,8 +77,10 @@
 </div>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
 <script>
 $(function () {
+  'use strict'
   const score = function ($form, ponderation) {
     const ret = { ponderation: ponderation }
     $form.serializeArray().forEach(function (x) { ret[x.name] = x.value })
@@ -87,7 +90,6 @@ $(function () {
     return ret
   }
 
-  $(document).foundation()
   const bodyData = $('body').data()
   var userDoc
   const userUrl = '/_users/org.couchdb.user:' + bodyData.student
@@ -129,7 +131,6 @@ $(function () {
       error: errorFn,
       success: successFn
     })
-    // })
   })
 })
 </script>
