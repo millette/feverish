@@ -1,5 +1,7 @@
 # TODO
 
+1. teacher: edit frontpage text
+1. student: show jpeg the moment it's uploaded
 1. student: update jpeg
 1. student: see results for all exams at once
 1. nginx (auth, login)
@@ -15,3 +17,4 @@
 1. teacher: configurable exercice path (doc._id)
 1. teacher: format descriptif and result comments (allow html or markdown)
 1. dev: use page.js to enable transitions between pages
+1. teacher: edit page instructions
