@@ -4,6 +4,10 @@
     "to": "_show/bienvenue"
   },
   {
+    "from": "js/:js",
+    "to": ":js"
+  },
+  {
     "from": "psd/:ex",
     "to": "_show/upload-psd/:ex"
   },
