@@ -19,8 +19,3 @@
 1. teacher: configurable exercice path (doc._id)
 1. teacher: format descriptif and result comments (allow html or markdown)
 1. dev: use page.js to enable transitions between pages
-
-## Later
-1. student: check if psd image is already uploaded
-1. student: update psd
-1. teacher: zip up psds for an exercice for batch download

@@ -8,10 +8,6 @@
     "to": ":js"
   },
   {
-    "from": "psd/:ex",
-    "to": "_show/upload-psd/:ex"
-  },
-  {
     "from": "score/:ex",
     "to": "_show/score/:ex"
   },
