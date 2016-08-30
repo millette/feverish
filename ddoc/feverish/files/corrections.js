@@ -4,7 +4,7 @@ $(function () {
   const exid = $('body').data('exid')
 
   const showUsers = function (d, todo) {
-    const sel = todo ? 'ul#json' : 'ul#json2'
+    const $sel = $(todo ? 'ul#json' : 'ul#json2')
     const filt = todo
       ? function (doc) {
         return doc.roles.indexOf('student') !== -1 && (!doc.corrections || !doc.corrections[exid])
@@ -21,9 +21,11 @@ $(function () {
       }
     const withAtts = d.filter(filt)
     const atts = withAtts.length
-      ? withAtts.map(function (doc) { return '<li' + act(doc) + '><a href="/corrections/' + exid + '/' + doc.name + '">' + doc.name + '</a></li>' })
-      : ['<li>[PERSONNE]</li>']
-    $(sel).html(atts.join(''))
+      ? withAtts.map(function (doc) {
+        return '<li' + act(doc) + '><a href="/corrections/' + exid + '/' + doc.name + '">' + doc.name + '</a></li>'
+      })
+      : ['<li class="menu-text">[' + (todo ? 'TERMINÉ' : 'PERSONNE') + ']</li>']
+    $sel.html(atts.join(''))
   }
 
   const fn = function (data) {
