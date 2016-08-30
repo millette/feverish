@@ -14,7 +14,7 @@ $(function () {
       }
 
     const act = todo
-      ? function () {}
+      ? function () { return '' }
       : function (doc) {
         if (doc.corrections && doc.corrections[exid] && doc.corrections[exid].reference) { return ' class="active"' }
         return ''
