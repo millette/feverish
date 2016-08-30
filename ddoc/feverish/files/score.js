@@ -1,17 +1,6 @@
 /* globals $ */
 $(function () {
   'use strict'
-/*
-  const score = function ($form, ponderation) {
-    const ret = { ponderation: ponderation }
-    $form.serializeArray().forEach(function (x) { ret[x.name] = x.value })
-    ret.note = parseFloat(ret.note)
-    ret.ponderation = parseFloat(ret.ponderation)
-    ret.createdAt = new Date().toISOString()
-    return ret
-  }
-*/
-
   const $body = $('body')
   const bodyData = $body.data()
   const $score = $('#json-score')
@@ -58,14 +47,14 @@ $(function () {
     $score.after('<img src="/_users/' + userDoc._id + '/' + exercice + '.jpg' + '" alt="jpeg">')
   }
 
-  const makeHtml = function (score2) {
-    return ('<p><span class="stat">' + score2.percent + '%' + '</span> ' + score2.note + '/' + score2.ponderation + '</p>' +
-     '<p><i>' + score2.createdAt.split('T')[0] + '</i> ' + score2.commentaires + '</p>')
+  const makeHtml = function (score) {
+    return ('<p><span class="stat">' + score.percent + '%' + '</span> ' + score.note + '/' + score.ponderation + '</p>' +
+     '<p><i>' + score.createdAt.split('T')[0] + '</i> ' + score.commentaires + '</p>')
   }
 
-  const showScore = function (bodyData, userDoc, $score, score3) {
-    score3.percent = Math.round(1000 * score3.note / score3.ponderation) / 10
-    $score.addClass('success').html(makeHtml(score3))
+  const showScore = function (bodyData, userDoc, $score, score) {
+    score.percent = Math.round(1000 * score.note / score.ponderation) / 10
+    $score.addClass('success').html(makeHtml(score))
     if (userDoc._attachments && userDoc._attachments[bodyData.exercice + '.jpg']) {
       showJpeg(bodyData.exercice, userDoc)
     } else {
@@ -75,9 +64,9 @@ $(function () {
   }
 
   $.getJSON('/_users/org.couchdb.user:' + bodyData.student, function (userDoc) {
-    const score4 = userDoc.corrections && userDoc.corrections[bodyData.exercice]
-    if (score4) {
-      showScore(bodyData, userDoc, $score, score4)
+    const score = userDoc.corrections && userDoc.corrections[bodyData.exercice]
+    if (score) {
+      showScore(bodyData, userDoc, $score, score)
     } else {
       $score.addClass('warning').text('Aucun résultat disponible.')
     }
