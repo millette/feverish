@@ -4,6 +4,7 @@ $(function () {
   const $body = $('body')
   const bodyData = $body.data()
   const $score = $('#json-score')
+  const $accordion = $('#json-score + ul.accordion').hide()
 
   const submitJpeg = function (bodyData, self, rev, ev) {
     // see http://stackoverflow.com/a/11910333/1154755
@@ -13,38 +14,21 @@ $(function () {
     const file = $self[0].files[0]
     const putRequest = new window.XMLHttpRequest()
     const fileReader = new window.FileReader()
+    const fileReader2 = new window.FileReader()
     putRequest.open('PUT', docUrl + '/' + exid + '.jpg' + '?rev=' + rev, true)
     putRequest.setRequestHeader('Content-Type', file.type)
+    fileReader2.readAsDataURL(file)
     fileReader.readAsArrayBuffer(file)
+    fileReader2.onload = function (readerEvent) { $('#reference-image img')[0].src = fileReader2.result }
     fileReader.onload = function (readerEvent) { putRequest.send(readerEvent.target.result) }
     putRequest.onreadystatechange = function (response) {
       if (putRequest.readyState === 4 && putRequest.status === 201) {
         $('label[for="fichier-label"]').addClass('success').text('Merci!')
-        $self.prop('disabled', true)
+        $accordion.foundation('toggle', $('#reference-image .accordion-content'))
       } else {
         $('label[for="fichier-label"]').addClass('warning').text('Erreur #1...')
       }
     }
-  }
-
-  const showUpload = function (student, $score) {
-    $score.after([
-      '<form id="upload-jpeg" action="/_users/org.couchdb.user:' + student + '">',
-      '  <fieldset class="fieldset callout primary">',
-      '  <h1 class="title text-center">Téléverser jpeg</h1>',
-      '  <div class="row">',
-      '    <div class="small-offset-4 small-8 medium-6 medium-offset-6 column">',
-      '      <label for="fichier-label" class="button expanded">Choisir le fichier</label>',
-      '      <input type="file" id="fichier-label" class="show-for-sr" name="jpeg" required>',
-      '    </div>',
-      '  </div>',
-      '  </fieldset>',
-      '</form>'
-    ].join())
-  }
-
-  const showJpeg = function (exercice, userDoc) {
-    $score.after('<img src="/_users/' + userDoc._id + '/' + exercice + '.jpg' + '" alt="jpeg">')
   }
 
   const makeHtml = function (score) {
@@ -55,12 +39,13 @@ $(function () {
   }
 
   const showScore = function (bodyData, userDoc, $score, score) {
+    $accordion.show()
     score.percent = Math.round(1000 * score.note / score.ponderation) / 10
     $score.addClass('success').html(makeHtml(score))
+
     if (userDoc._attachments && userDoc._attachments[bodyData.exercice + '.jpg']) {
-      showJpeg(bodyData.exercice, userDoc)
-    } else {
-      showUpload(bodyData.student, $score)
+      $('#reference-image img').attr('src', ['/_users', userDoc._id, bodyData.exercice + '.jpg'].join('/'))
+      $accordion.foundation('toggle', $('#reference-image .accordion-content'))
     }
     $body.on('change', 'input#fichier-label', submitJpeg.bind(null, bodyData, 'input#fichier-label', userDoc._rev))
   }
