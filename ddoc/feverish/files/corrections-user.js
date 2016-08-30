@@ -14,40 +14,41 @@ $(function () {
   var userDoc
   var referenceUser
 
-  $.getJSON(
-    '/_users/_all_docs',
-    {
-      startkey: '"org.couchdb.user:"',
-      endkey: '"org.couchdb.user:\ufff0"',
-      include_docs: true
-    },
-    function (data) {
-      referenceUser = data.rows
-        .filter(function (row) {
-          return row.doc.corrections &&
-            row.doc.corrections[bodyData.exercice] &&
-            row.doc.corrections[bodyData.exercice].reference &&
-            row.doc.name !== bodyData.student
-        })
-        .map(function (row) { return row.doc })[0]
-    }
-  )
+  const saveUser = function (ud, errFn, succFn) {
+    $.ajax({
+      url: '/_users/' + ud._id,
+      method: 'PUT',
+      contentType: 'application/json',
+      data: JSON.stringify(ud),
+      error: errFn,
+      success: succFn
+    })
+  }
+
+  const userQuery = {
+    startkey: '"org.couchdb.user:"',
+    endkey: '"org.couchdb.user:\ufff0"',
+    include_docs: true
+  }
+  const getRef = function (data) {
+    referenceUser = data.rows.filter(function (row) {
+      return row.doc.corrections &&
+        row.doc.corrections[bodyData.exercice] &&
+        row.doc.corrections[bodyData.exercice].reference &&
+        row.doc.name !== bodyData.student
+    })
+    .map(function (row) { return row.doc })[0]
+  }
+
+  $.getJSON('/_users/_all_docs', userQuery, getRef)
 
   $('#reference-label').change(function (ev) {
-    const successFn = errorFn = function () { }
-
+    const nopFn = function () { }
     if ($(this).prop('checked')) {
       if (referenceUser) {
         if (window.confirm('Remplacer ' + referenceUser.name + '?')) {
           delete referenceUser.corrections[bodyData.exercice].reference
-          $.ajax({
-            url: '/_users/' + referenceUser._id,
-            method: 'PUT',
-            contentType: 'application/json',
-            data: JSON.stringify(referenceUser),
-            error: errorFn,
-            success: successFn
-          })
+          saveUser(referenceUser, nopFn, nopFn)
         } else {
           $(this).prop('checked', false)
         }
@@ -55,8 +56,7 @@ $(function () {
     }
   })
 
-  const userUrl = '/_users/org.couchdb.user:' + bodyData.student
-  $.getJSON(userUrl, function (ud) {
+  $.getJSON('/_users/org.couchdb.user:' + bodyData.student, function (ud) {
     userDoc = ud
     const exData = userDoc.corrections && userDoc.corrections[bodyData.exercice]
     if (exData) {
@@ -69,10 +69,8 @@ $(function () {
   $('form').submit(function (ev) {
     ev.preventDefault()
     const $form = $(this)
-
     if (!userDoc.corrections) { userDoc.corrections = { } }
     userDoc.corrections[bodyData.exercice] = score($form, bodyData.ponderation)
-
     // const completeFn = function (a, b, c) { console.log('completeFn', a, b, c) }
     const errorFn = function (a, b, c) { console.log('errorFn', a, b, c) }
     const successFn = function (a, b, c) {
@@ -81,15 +79,6 @@ $(function () {
       $('input[type="submit"]').addClass('success').val('Merci!')
       $form.prop('disabled', true)
     }
-
-    $.ajax({
-      url: userUrl,
-      method: 'PUT',
-      contentType: 'application/json',
-      data: JSON.stringify(userDoc),
-      // complete: completeFn,
-      error: errorFn,
-      success: successFn
-    })
+    saveUser(userDoc, errorFn, successFn)
   })
 })
