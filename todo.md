@@ -1,6 +1,6 @@
 # TODO
 
-1. teacher: flag reference exercice
+1. teacher: flag reference exercice, one per exercice
 1. student: see reference exercices
 1. student: update jpeg
 1. student: see results for all exams at once

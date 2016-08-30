@@ -34,7 +34,7 @@ $(function () {
       include_docs: true
     },
     function (data) {
-      const rows = data.rows.map((function (row) { return row.doc }))
+      const rows = data.rows.map(function (row) { return row.doc })
       $('pre').text(JSON.stringify(rows, null, ' '))
     }
   )
