@@ -32,7 +32,8 @@
     "standard": "^8.0.0"
   },
   "standard": {
-    "parser": "babel-eslint"
+    "parser": "babel-eslint",
+    "ignore": "ddoc/feverish/files/jquery.autocomplete*.js"
   },
   "dependencies": {
     "divanator": "^0.4.2",
