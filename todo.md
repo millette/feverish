@@ -1,8 +1,8 @@
 # TODO
 
-1. student: see results for all exams at once (replace current /exercice)
 1. teacher: edit frontpage text
 1. teacher: format descriptif and result comments (allow html or markdown)
+1. student: see results for all exams at once (replace current /exercice)
 1. nginx (auth, login)
 1. host it publicly (with login)
 1. teacher: upload tab-delimited file to create users (node)
