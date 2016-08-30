@@ -12,11 +12,15 @@
 1. dev: split up templates
 1. dev: use page.js to enable transitions between pages
 1. navigate by theme (student/teacher)
-1. teacher: configurable exercice path (doc._id)
 1. student: see results for all exams at once
 1. teacher: redirect after exercice edit/create
 1. teacher: autocomplete themes in exercice edit
+
+## Maybe
+1. teacher: configurable exercice path (doc._id)
 1. teacher: format descriptif and result comments (allow html or markdown)
+
+## Later
 1. student: check if psd image is already uploaded
 1. student: update psd
 1. teacher: zip up psds for an exercice for batch download
