@@ -5,6 +5,7 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.css">
+<link rel="stylesheet" href="/css/jquery.autocomplete.css">
 <title>Allou allou!</title>
 <style>
 </style>
@@ -74,12 +75,12 @@
             <label for="theme-label" class="text-right middle">Thème</label>
           </div>
           <div class="small-8 column medium-6">
-            <% if (!data.doc) { %>
+            <% if (data.doc) { %>
+            <input type="text" name="theme" id="theme-label" value="<%- data.doc && data.doc.theme || '' %>">
+            <% } else { %>
             <select id="theme-label" name="theme">
               <%= data.rows.map(data.themeOption).join('\n')  %>
             </select>
-            <% } else { %>
-              <input type="text" name="theme" id="theme-label" value="<%- data.doc && data.doc.theme || '' %>">
             <% } %>
           </div>
         </div>
@@ -103,6 +104,8 @@
 </div>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.js"></script>
+<script type="text/javascript" src="/js/jquery.autocomplete.min.js"></script>
 <script type="text/javascript" src="/js/main.js"></script>
+<script type="text/javascript" src="/js/exercice.js"></script>
 </body>
 </html>
