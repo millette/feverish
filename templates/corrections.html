@@ -19,12 +19,17 @@
     </li>
   </ul>
 </nav>
+<h2><%- data.doc.title %></h2>
 <ul>
 <li>Thème: <span class="label"><%- data.doc.theme %></span></li>
 <li>Pondération: sur <%- data.doc.ponderation %></li>
 </ul>
 <p><%- data.doc.descriptif || data.doc.description %></p>
+<h3>À faire</h3>
 <ul id="json"></ul>
+
+<h3>Corrigés</h3>
+<ul id="json2"></ul>
 </div>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.js"></script>
@@ -39,13 +44,19 @@ $(function () {
       }
       const docs = data.rows.map(function (row) { return row.doc })
       const withAtts = docs.filter(filt)
-      let atts
-      if (withAtts.length) {
-        atts = withAtts.map(function (doc) { return '<li><a href="/corrections/' + exid + '/' + doc.name + '">' + doc.name + '</a></li>' })
-      } else {
-        atts = ['<li>[PERSONNE]</li>']
-      }
+      const atts = withAtts.length
+        ? withAtts.map(function (doc) { return '<li><a href="/corrections/' + exid + '/' + doc.name + '">' + doc.name + '</a></li>' })
+        : ['<li>[PERSONNE]</li>']
       $('ul#json').html(atts.join(''))
+
+      const filt2 = function (doc) {
+        return doc.roles.indexOf('student') !== -1 && doc.corrections && doc.corrections[exid]
+      }
+      const withAtts2 = docs.filter(filt2)
+      const atts2 = withAtts2.length
+        ? withAtts2.map(function (doc) { return '<li><a href="/corrections/' + exid + '/' + doc.name + '">' + doc.name + '</a></li>' })
+        : ['<li>[PERSONNE]</li>']
+      $('ul#json2').html(atts2.join(''))
     }
     const query = {
       startkey: '"org.couchdb.user:"',
