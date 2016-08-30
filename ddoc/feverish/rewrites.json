@@ -8,6 +8,10 @@
     "to": ":js"
   },
   {
+    "from": "css/:css",
+    "to": ":css"
+  },
+  {
     "from": "score/:ex",
     "to": "_show/score/:ex"
   },
