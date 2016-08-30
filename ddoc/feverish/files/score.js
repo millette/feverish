@@ -47,7 +47,6 @@ $(function () {
     lastRev = userDoc._rev
     score.percent = Math.round(1000 * score.note / score.ponderation) / 10
     $score.addClass('success').html(makeHtml(score))
-
     if (userDoc._attachments && userDoc._attachments[bodyData.exercice + '.jpg']) {
       $('#reference-image img').attr('src', ['/_users', userDoc._id, bodyData.exercice + '.jpg'].join('/'))
       $accordion.foundation('toggle', $('#reference-image .accordion-content'))
