@@ -1,6 +1,5 @@
 # TODO
 
-1. teacher: redirect after exercice edit/create
 1. teacher: autocomplete themes in exercice edit
 1. student: update jpeg
 1. student: see results for all exams at once

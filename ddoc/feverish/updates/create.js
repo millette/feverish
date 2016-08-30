@@ -6,12 +6,16 @@ module.exports = function (doc, req) {
   req.form.descriptif = req.form.descriptif.trim()
   req.form.theme = req.form.theme.trim()
 
+  const dest = {
+    code: 303,
+    headers: { location: '/edit/' + doc ? doc._id : req.uuid }
+  }
   if (doc) {
     req.form.updatedAt = new Date().toISOString()
     for (r in req.form) { doc[r] = req.form[r] }
-    return [doc, JSON.stringify(doc, null, ' ')]
+    return [doc, dest]
   }
   req.form.createdAt = new Date().toISOString()
   req.form._id = req.uuid
-  return [req.form, JSON.stringify(req.form, null, ' ')]
+  return [req.form, dest]
 }
