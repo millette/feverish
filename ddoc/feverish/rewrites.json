@@ -29,7 +29,7 @@
   },
   {
     "from": "themes.json",
-    "to": "_view/themes",
+    "to": "_list/themes/themes",
     "query": {
       "group": "true"
     }
