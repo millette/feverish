@@ -5,6 +5,11 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/medium-editor/5.21.1/css/themes/default.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/medium-editor/5.21.1/css/medium-editor.min.css">
+<style>
+.medium-editor-element { outline: none; }
+</style>
 <title>hi monde</title>
 </head>
 <body data-exercice="<%- data.doc._id %>" data-student="<%- data.query.user %>" data-ponderation="<%- data.doc.ponderation %>">
@@ -59,10 +64,11 @@
         </div>
         <div class="row">
           <div class="small-4 column medium-6">
-            <label for="commentaires-label" class="text-right">Commentaires</label>
+            <label aria-describedby="commentairesHelpText" for="commentaires-label" class="text-right">Commentaires</label>
           </div>
           <div class="small-8 column medium-6">
             <textarea rows="10" id="commentaires-label" name="commentaires" required></textarea>
+            <p class="help-text" id="commentairesHelpText">Éditeur WYSIWYG, sélectionnez du texte pour le styler.</p>
           </div>
         </div>
         <div class="row">
@@ -86,6 +92,7 @@
 </div>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/medium-editor/5.21.1/js/medium-editor.min.js"></script>
 <script type="text/javascript" src="/js/main.js"></script>
 <script type="text/javascript" src="/js/corrections-user.js"></script>
 </body>

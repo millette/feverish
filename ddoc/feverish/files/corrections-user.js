@@ -1,4 +1,4 @@
-/* globals $ */
+/* globals $, MediumEditor */
 $(function () {
   'use strict'
   const score = function ($form, ponderation) {
@@ -66,13 +66,21 @@ $(function () {
   })
 
   $.getJSON('/_users/org.couchdb.user:' + bodyData.student, function (ud) {
+    const $ed = $('#commentaires-label')
+    var x
     userDoc = ud
     const exData = userDoc.corrections && userDoc.corrections[bodyData.exercice]
     if (exData) {
       $('#note-label').val(exData.note)
-      $('#commentaires-label').text(exData.commentaires)
+      $ed.text(exData.commentaires)
       if (exData.reference) { $('#reference-label').prop('checked', true) }
     }
+    x = new MediumEditor($ed[0], {
+      autoLink: true,
+      placeholder: { text: 'Tapez votre texte ici.' },
+      toolbar: { buttons: ['h3', 'bold', 'italic', 'orderedlist', 'unorderedlist', 'quote'] }
+    })
+    $(x.origElements).hide()
   })
 
   $('form').submit(function (ev) {
@@ -80,7 +88,6 @@ $(function () {
     const $form = $(this)
     if (!userDoc.corrections) { userDoc.corrections = { } }
     userDoc.corrections[bodyData.exercice] = score($form, bodyData.ponderation)
-    // const completeFn = function (a, b, c) { console.log('completeFn', a, b, c) }
     const errorFn = function (a, b, c) { console.log('errorFn', a, b, c) }
     const successFn = function (a, b, c) {
       $('input[type="submit"]').addClass('success').val('Merci!')
