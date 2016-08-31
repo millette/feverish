@@ -1,4 +1,4 @@
-/* globals $ */
+/* globals $, MediumEditor */
 $(function () {
   'use strict'
 
@@ -12,4 +12,13 @@ $(function () {
 
   setupAutocomplete('theme')
   setupAutocomplete('travail')
+
+  const $ed = $('#descriptif-label')
+  const x = new MediumEditor($ed[0], {
+    autoLink: true,
+    placeholder: { text: 'Tapez votre texte ici.' },
+    toolbar: { buttons: ['h3', 'bold', 'italic', 'orderedlist', 'unorderedlist', 'quote'] }
+  })
+
+  $(x.origElements).hide()
 })
