@@ -28,21 +28,21 @@
     "to": "_show/users"
   },
   {
-    "from": "travaux.json",
+    "from": "travail.json",
     "to": "_list/json/travaux",
     "query": {
       "group": "true"
     }
   },
   {
-    "from": "themes.json",
+    "from": "theme.json",
     "to": "_list/json/themes",
     "query": {
       "group": "true"
     }
   },
   {
-    "from": "exercices.json",
+    "from": "exercice.json",
     "to": "_list/json/exercices",
     "query": {
       "include_docs": "true",
