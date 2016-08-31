@@ -3,7 +3,6 @@ $(function () {
   'use strict'
 
   var dirty = false
-
   var $saver = $('h1.title > button')
 
   const show = function (maybe) {

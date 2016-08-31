@@ -1,6 +1,5 @@
 # TODO
 
-1. teacher: edit frontpage text
 1. teacher/admin: edit autocomplete choices for themes and travaux
 1. teacher: upload tab-delimited file to create users (client js)
 1. student: see results for all exams at once (replace current /exercice)
