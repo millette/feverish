@@ -4,7 +4,7 @@ $(function () {
   const $body = $('body')
   const bodyData = $body.data()
   const $score = $('#json-score')
-  const $accordion = $('#json-score + ul.accordion').hide()
+  const $accordion = $('#json-score + #reference-image').hide()
   var lastRev
 
   const submitJpeg = function (bodyData, self, ev) {
@@ -27,10 +27,11 @@ $(function () {
       if (putRequest.readyState === 4 && putRequest.status === 201) {
         const etag = putRequest.getResponseHeader('etag')
         lastRev = etag.slice(1, -1)
-        $('label[for="fichier-label"]').addClass('success').text('Merci!')
-        $accordion.foundation('toggle', $('#reference-image .accordion-content'))
+        $('label[for="fichier-label"]').addClass('success') // .text('Merci!')
+        $('#reference-image img').attr('title', 'Merci!')
       } else {
-        $('label[for="fichier-label"]').addClass('warning').text('Erreur #1...')
+        $('label[for="fichier-label"]').addClass('warning') // .text('Erreur #1...')
+        $('#reference-image img').attr('title', 'Erreur #1...')
       }
     }
   }
@@ -49,7 +50,6 @@ $(function () {
     $score.addClass('success').html(makeHtml(score))
     if (userDoc._attachments && userDoc._attachments[bodyData.exercice + '.jpg']) {
       $('#reference-image img').attr('src', ['/_users', userDoc._id, bodyData.exercice + '.jpg'].join('/'))
-      $accordion.foundation('toggle', $('#reference-image .accordion-content'))
     }
     $body.on('change', 'input#fichier-label', submitJpeg.bind(null, bodyData, 'input#fichier-label'))
   }

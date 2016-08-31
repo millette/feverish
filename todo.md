@@ -1,6 +1,5 @@
 # TODO
 
-1. student: remove accordion on upload
 1. teacher: edit frontpage text
 1. teacher/admin: edit autocomplete choices for themes and travaux
 1. teacher: upload tab-delimited file to create users (client js)
