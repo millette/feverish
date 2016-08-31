@@ -1,7 +1,13 @@
 [
   {
+    "method": "GET",
     "from": "",
-    "to": "_show/bienvenue"
+    "to": "_show/bienvenue/accueil"
+  },
+  {
+    "method": "POST",
+    "from": "",
+    "to": "/_update/bienvenue/accueil"
   },
   {
     "from": "js/:js",
