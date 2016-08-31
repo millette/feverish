@@ -28,8 +28,8 @@
     "to": "_show/users"
   },
   {
-    "from": "themes.json",
-    "to": "_list/json/themes",
+    "from": "travaux.json",
+    "to": "_list/json/travaux",
     "query": {
       "group": "true"
     }
