@@ -5,6 +5,13 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.css">
+<% if (data.editor) { %>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/medium-editor/5.21.1/css/themes/mani.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/medium-editor/5.21.1/css/medium-editor.min.css">
+<style>
+.medium-editor-element { outline: none; }
+</style>
+<% } %>
 <title>hi monde</title>
 </head>
 <body>
@@ -26,7 +33,7 @@
   </div>
 </div>
 <div class="row column">
-<h1>Bienvenue</h1>
+<h1 class="title"><span><%- data.title || 'Bienvenue' %></span><%= data.editor ? ' <button class="button alert">SAUVEGARDER</button>' : '' %></h1>
 <nav aria-label="You are here:" role="navigation">
   <ul class="breadcrumbs">
     <li>
@@ -34,11 +41,18 @@
     </li>
   </ul>
 </nav>
-<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur viverra tortor vitae diam congue hendrerit. Suspendisse dictum vehicula dui, maximus sodales eros viverra et. Donec laoreet libero quis ligula maximus, sit amet tincidunt neque eleifend. Cras sed orci quis dui venenatis mollis quis et arcu. Cras commodo dolor suscipit, consequat lectus nec, sollicitudin dolor. Phasellus mattis et erat semper convallis. Nulla eleifend nisl a porta sodales. Integer consequat tempus condimentum. Fusce ac gravida mauris. Aliquam vel risus mi. Curabitur tempus sagittis sagittis.</p>
-<p>In in justo ligula. Pellentesque odio metus, cursus non leo et, accumsan ultrices nulla. Ut consequat, enim id porttitor dignissim, dolor tellus finibus ante, sed consequat enim arcu vel mauris. Nunc finibus felis a velit varius, eget rhoncus urna sagittis. Suspendisse orci urna, pretium sit amet rutrum in, viverra et arcu. Nunc vestibulum turpis dui, vitae accumsan odio ullamcorper id. Sed placerat malesuada lorem, quis bibendum diam dignissim eget. Donec tristique, est a malesuada posuere, tortor justo iaculis nisi, vel venenatis nisl lorem ac diam.</p>
+<div id='main-editor'>
+<%= data.content %>
+</div>
 </div>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.js"></script>
+<% if (data.editor) { %>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/medium-editor/5.21.1/js/medium-editor.min.js"></script>
+<% } %>
 <script type="text/javascript" src="/js/main.js"></script>
+<% if (data.editor) { %>
+<script type="text/javascript" src="/js/editor.js"></script>
+<% } %>
 </body>
 </html>
