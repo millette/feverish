@@ -4,6 +4,7 @@
 1. teacher: edit frontpage text
 1. teacher: upload tab-delimited file to create users (client js)
 1. teacher/admin: edit autocomplete choices for themes and travaux
+1. student: remove accordion on upload
 1. student: see results for all exams at once (replace current /exercice)
 1. teacher: see results for all exams at once (replace current /exercice)
 1. nginx (auth, login)
