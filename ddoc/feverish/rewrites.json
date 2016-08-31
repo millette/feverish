@@ -63,10 +63,7 @@
   {
     "method": "GET",
     "from": "new",
-    "to": "_list/create/themes",
-    "query": {
-      "group": "true"
-    }
+    "to": "_show/edit"
   },
   {
     "method": "POST",
