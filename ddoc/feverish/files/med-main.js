@@ -1,11 +1,8 @@
-/* globals $, MediumEditor, MeMarkdown, _ */
+/* globals $, MediumEditor */
 $(function () {
   'use strict'
   const $ed = $('.ed')
   const x = new MediumEditor($ed[0], {
-    extensions: {
-      markdown: new MeMarkdown(_.debounce(function (md) { $ed.val(md) }, 400))
-    },
     autoLink: true,
     toolbar: { buttons: ['h2', 'h3', 'bold', 'italic', 'orderedlist', 'unorderedlist', 'quote'] }
   })
