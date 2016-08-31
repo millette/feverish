@@ -45,6 +45,7 @@ de l'autocomplétion incluent les valeurs des autres exercices.</p>
     <ul class="tabs vertical" id="example-vert-tabs" data-tabs>
       <li class="tabs-title is-active"><a href="#panel1v" aria-selected="true">Travaux</a></li>
       <li class="tabs-title"><a href="#panel2v">Thèmes</a></li>
+      <li class="tabs-title"><a href="#panel3v">Étudiants</a></li>
     </ul>
   </div>
   <div class="medium-9 columns">
@@ -57,7 +58,7 @@ de l'autocomplétion incluent les valeurs des autres exercices.</p>
               <textarea name="theme" rows="10"><%- data.theme && data.theme.length && data.theme.join('\n') || '' %></textarea>
             </div>
             <div class="column small-4">
-              <input class="button secondary" type="submit" value="Configurer">
+              <input class="button secondary" type="submit" value="Soumettre">
             </div>
           </div>
         </form>
@@ -70,11 +71,27 @@ de l'autocomplétion incluent les valeurs des autres exercices.</p>
               <textarea name="travail" rows="10"><%- data.travail && data.travail.length && data.travail.join('\n') || '' %></textarea>
             </div>
             <div class="column small-4">
-              <input class="button secondary" type="submit" value="Configurer">
+              <input class="button secondary" type="submit" value="Soumettre">
             </div>
           </div>
         </form>
       </div>
+
+      <div class="tabs-panel" id="panel3v">
+        <form>
+          <h3>Inscrire des étudiants</h3>
+          <div class="row">
+            <div class="column small-8">
+              <input type="file">
+            </div>
+            <div class="column small-4">
+              <input class="button secondary" type="submit" value="Soumettre">
+            </div>
+          </div>
+        </form>
+      </div>
+
+
     </div>
   </div>
 </div>
