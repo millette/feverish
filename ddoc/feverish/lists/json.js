@@ -5,6 +5,6 @@ module.exports = function (head, req, mocks) {
   start({ headers: { 'Content-Type': 'application/json; charset=utf-8' } })
   let row
   const rows = []
-  while ((row = getRow())) { rows.push(row) }
+  while ((row = getRow())) { rows.push(row.doc || row) }
   send(JSON.stringify(rows))
 }

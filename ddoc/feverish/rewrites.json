@@ -29,14 +29,21 @@
   },
   {
     "from": "themes.json",
-    "to": "_list/themes/themes",
+    "to": "_list/json/themes",
+    "query": {
+      "group": "true"
+    }
+  },
+  {
+    "from": "themes.json",
+    "to": "_list/json/themes",
     "query": {
       "group": "true"
     }
   },
   {
     "from": "exercices.json",
-    "to": "_view/exercices",
+    "to": "_list/json/exercices",
     "query": {
       "include_docs": "true",
       "descending": "true"
