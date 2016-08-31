@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.css">
+<title>hi monde</title>
+</head>
+<body>
+<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="menu">
+      <li><a href="/">Accueil</a></li>
+      <li><a href="/exercices">Exercices</a></li>
+      <% if (data.roles.indexOf('teacher') !== -1 || data.roles.indexOf('_admin') !== -1) { %>
+      <li><a href="/new">Créer un exercice</a></li>
+      <li class="active"><a href="/autocomplete">Configurer</a></li>
+      <% } %>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+      <li class="menu-text"><%- data.name %></li>
+      <li><button type="button" class="button">Logout</button></li>
+    </ul>
+  </div>
+</div>
+<div class="row column">
+<h1 class="title">Configurer</h1>
+<nav aria-label="You are here:" role="navigation">
+  <ul class="breadcrumbs">
+    <li><a href="/">Accueil</a></li>
+    <li>
+      <span class="show-for-sr">Actuel: </span> Configurer
+    </li>
+  </ul>
+</nav>
+
+<p class="lead">
+Configurer l'autocomplétion de certains champs. Les valeurs disponibles au moment
+de l'autocomplétion incluent les valeurs des autres exercices.</p>
+<div class="row collapse">
+  <div class="medium-3 columns">
+    <ul class="tabs vertical" id="example-vert-tabs" data-tabs>
+      <li class="tabs-title is-active"><a href="#panel1v" aria-selected="true">Travaux</a></li>
+      <li class="tabs-title"><a href="#panel2v">Thèmes</a></li>
+    </ul>
+  </div>
+  <div class="medium-9 columns">
+    <div class="tabs-content vertical" data-tabs-content="example-vert-tabs">
+      <div class="tabs-panel is-active" id="panel1v">
+        <form method="post">
+          <h3>Configurer les thèmes</h3>
+          <div class="row">
+            <div class="column small-8">
+              <textarea name="theme" rows="10"><%- data.theme && data.theme.length && data.theme.join('\n') || '' %></textarea>
+            </div>
+            <div class="column small-4">
+              <input class="button secondary" type="submit" value="Configurer">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="tabs-panel" id="panel2v">
+        <form method="post">
+          <h3>Configurer les travaux</h3>
+          <div class="row">
+            <div class="column small-8">
+              <textarea name="travail" rows="10"><%- data.travail && data.travail.length && data.travail.join('\n') || '' %></textarea>
+            </div>
+            <div class="column small-4">
+              <input class="button secondary" type="submit" value="Configurer">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+<script type="text/javascript" src="/js/autocompleter.js"></script>
+</body>
+</html>

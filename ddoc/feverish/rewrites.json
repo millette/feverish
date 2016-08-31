@@ -10,6 +10,17 @@
     "to": "/_update/bienvenue/accueil"
   },
   {
+    "method": "GET",
+    "from": "autocomplete",
+    "to": "_show/autocompleter/autocompleter"
+  },
+  {
+    "method": "POST",
+    "from": "autocomplete",
+    "to": "/_update/autocompleter/autocompleter"
+  },
+
+  {
     "from": "js/:js",
     "to": ":js"
   },
