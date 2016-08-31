@@ -12,7 +12,6 @@ $(function () {
 
   const bodyData = $('body').data()
   var userDoc
-  var referenceUser
   var nextUser
 
   const saveUser = function (ud, errFn, succFn) {
@@ -31,6 +30,7 @@ $(function () {
     endkey: '"org.couchdb.user:\ufff0"',
     include_docs: true
   }
+
   const getRef = function (data) {
     nextUser = data.rows.filter(function (row) {
       return row.doc.roles.indexOf('student') !== -1 &&
@@ -38,32 +38,9 @@ $(function () {
         (!row.doc.corrections || !row.doc.corrections[bodyData.exercice])
     })
     .map(function (row) { return row.doc })[0]
-
-    referenceUser = data.rows.filter(function (row) {
-      return row.doc.roles.indexOf('student') !== -1 &&
-        row.doc.corrections &&
-        row.doc.corrections[bodyData.exercice] &&
-        row.doc.corrections[bodyData.exercice].reference &&
-        row.doc.name !== bodyData.student
-    })
-    .map(function (row) { return row.doc })[0]
   }
 
   $.getJSON('/_users/_all_docs', userQuery, getRef)
-
-  $('#reference-label').change(function (ev) {
-    const nopFn = function () { }
-    if ($(this).prop('checked')) {
-      if (referenceUser) {
-        if (window.confirm('Remplacer ' + referenceUser.name + '?')) {
-          delete referenceUser.corrections[bodyData.exercice].reference
-          saveUser(referenceUser, nopFn, nopFn)
-        } else {
-          $(this).prop('checked', false)
-        }
-      }
-    }
-  })
 
   $.getJSON('/_users/org.couchdb.user:' + bodyData.student, function (ud) {
     const $ed = $('#commentaires-label')
