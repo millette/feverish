@@ -9,7 +9,8 @@ module.exports = function (doc, req) {
 
   const dest = {
     code: 303,
-    headers: { location: '/edit/' + doc ? doc._id : req.uuid }
+    headers: { location: '/exercices' }
+    // headers: { location: '/edit/' + doc ? doc._id : req.uuid }
   }
   if (doc) {
     req.form.updatedAt = new Date().toISOString()
