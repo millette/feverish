@@ -5,6 +5,7 @@ module.exports = function (doc, req) {
   req.form.ponderation = parseFloat(req.form.ponderation)
   req.form.descriptif = req.form.descriptif.trim()
   req.form.theme = req.form.theme.trim()
+  req.form.travail = req.form.travail.trim()
 
   const dest = {
     code: 303,
