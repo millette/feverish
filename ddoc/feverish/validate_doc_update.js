@@ -2,7 +2,7 @@
 module.exports = function (newDoc, oldDoc, userCtx, secObj) {
   const ouch = (err) => { throw err }
 
-  const adminDelete = newDoc._deleted && userCtx.roles.indexOf('_admin') -== -1
+  const adminDelete = newDoc._deleted && userCtx.roles.indexOf('_admin') !== -1
   if (userCtx.roles.indexOf('teacher') === -1 && userCtx.roles.indexOf('_admin') === -1) { ouch({ unauthorized: 'not a teacher' }) }
   if (!adminDelete && userCtx.name !== newDoc.creator) { ouch({ forbidden: 'wrong creator' }) }
   if (!adminDelete && !newDoc.createdAt) { ouch({ forbidden: 'missing field: createdAt' }) }
