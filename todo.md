@@ -1,8 +1,6 @@
 # TODO
 
-1. dev: review emails for missing todos
-1. student: see results for all exams at once (replace current /exercice)
-1. teacher: see results for all exams at once (replace current /exercice)
+## Host it!
 1. nginx (auth, login)
 1. host it publicly (with login)
 
@@ -15,3 +13,16 @@
 1. dev: move css to ddoc attachments
 1. dev: split up templates (into partials)
 1. dev: move features from client js to _users design doc
+1. student: see results for all exams at once (replace current /exercice)
+1. teacher: see results for all exams at once (replace current /exercice)
+
+## Emails
+Sur <http://groupe2016:5985/edit/9f8d8eea13e55d2d4274d30f0715525a> et
+<http://groupe2016:5985/new>
+
+1. Remplacer label "Titre" par "Exercice"
+1. Remplacer "Éditer" par "Modifier"
+1. Bouton au bas de chaque formulaire: "Enregistrer"
+1. Cliquer sur son nom pour changer son mot-de-passe (prof seulement?)
+1. Résultats: view qui affiche résultats de tous les étudiants
+1. ÉtudiantEs: view qui affiche détails de tous les étudiants
