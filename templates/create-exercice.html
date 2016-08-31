@@ -53,7 +53,6 @@
     <div class="column small-12 medium-10 medium-offset-1 large-6 large-offset-3">
       <form method="post">
         <fieldset class="fieldset callout primary">
-        <h1 class="title text-center"><%- data.doc ? 'Éditer' : 'Nouvel' %> exercice</h1>
         <div class="row">
           <div class="small-4 column medium-6">
             <label for="titre-label" class="text-right middle">Titre</label>
@@ -64,7 +63,7 @@
         </div>
         <div class="row">
           <div class="small-4 column medium-6">
-            <label for="nom-label" class="text-right middle">Descriptif</label>
+            <label for="nom-label" class="text-right middle">Énoncé</label>
           </div>
           <div class="small-8 column medium-6">
             <textarea rows="10" id="nom-label" name="descriptif" required><%- data.doc && data.doc.descriptif || '' %></textarea>
@@ -72,16 +71,18 @@
         </div>
         <div class="row">
           <div class="small-4 column medium-6">
+            <label for="travail-label" class="text-right middle">Travail</label>
+          </div>
+          <div class="small-8 column medium-6">
+            <input type="text" name="travail" id="travail-label" value="<%- data.doc && data.doc.travail || '' %>">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-4 column medium-6">
             <label for="theme-label" class="text-right middle">Thème</label>
           </div>
           <div class="small-8 column medium-6">
-            <% if (data.doc) { %>
             <input type="text" name="theme" id="theme-label" value="<%- data.doc && data.doc.theme || '' %>">
-            <% } else { %>
-            <select id="theme-label" name="theme">
-              <%= data.rows.map(data.themeOption).join('\n')  %>
-            </select>
-            <% } %>
           </div>
         </div>
         <div class="row">
