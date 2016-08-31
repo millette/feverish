@@ -33,7 +33,7 @@
   },
   "standard": {
     "parser": "babel-eslint",
-    "ignore": "ddoc/feverish/files/jquery.autocomplete*.js"
+    "ignore": "ddoc/feverish/files/*.min.js"
   },
   "dependencies": {
     "divanator": "^0.4.2",

@@ -4,6 +4,10 @@
     "to": "_show/bienvenue"
   },
   {
+    "from": "booyaa",
+    "to": "booyaa.html"
+  },
+  {
     "from": "js/:js",
     "to": ":js"
   },
