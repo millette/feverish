@@ -1,6 +1,5 @@
 # TODO
 
-1. add "travail" field to exercices (same way we added theme)
 1. teacher: edit frontpage text
 1. teacher: format descriptif and result comments (allow html or markdown)
 1. student: see results for all exams at once (replace current /exercice)
