@@ -1,5 +1,9 @@
 [
   {
+    "from": "admin/:name",
+    "to": "../../../_config/admins/:name"
+  },
+  {
     "method": "GET",
     "from": "",
     "to": "_show/bienvenue/accueil"
