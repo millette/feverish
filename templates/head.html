@@ -16,5 +16,15 @@
 .medium-editor-element { outline: none; }
 </style>
 <% } %>
+<% if (data && data.studentlist) { %>
+<style>
+  #studentlist th:first-child {
+    width: 12em;
+  }
+  #studentlist th {
+    width: 10em;
+  }
+</style>
+<% } %>
 <title><%- data && data.title || 'hi monde' %></title>
 </head>
