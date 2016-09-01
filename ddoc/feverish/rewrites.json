@@ -23,7 +23,10 @@
   },
   {
     "from": "resultats",
-    "to": "_show/notyet"
+    "to": "_show/etudiants",
+    "query": {
+      "self": "true"
+    }
   },
   {
     "from": "new-student",
