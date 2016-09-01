@@ -4,19 +4,13 @@
 <div class="row column">
 <%= this.breadcrumbs({
   title: 'Corrections d\'exercice de ' + data.query.user,
-  subtitle: data.doc.title,
   last: data.query.user,
   paths: [
     ['exercices', 'Exercices'],
     ['corrections/' + data.doc._id, data.doc.title]
   ]
 }) %>
-<ul>
-<li>Travail: <span class="label warning"><%- data.doc.travail %></span></li>
-<li>Thème: <span class="label success"><%- data.doc.theme %></span></li>
-<li>Pondération sur <span class="stat"><%- data.doc.ponderation %></span></li>
-</ul>
-<p><%= data.doc.descriptif || data.doc.description %></p>
+<%= this.exercice(data) %>
   <div class="row">
     <div class="column small-12 medium-10 medium-offset-1 large-6 large-offset-3">
       <form method="post">

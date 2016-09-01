@@ -4,15 +4,10 @@
 <div class="row column">
 <%= this.breadcrumbs({
   title: 'Résultat d\'exercice de ' + data.name,
-  subtitle: data.doc.title,
   last: 'Score',
   paths: [['exercices', 'Exercices'], data.doc.title]
 }) %>
-<ul>
-<li>Thème: <span class="label"><%- data.doc.theme %></span></li>
-<li>Pondération sur <span class="stat"><%- data.doc.ponderation %></span></li>
-</ul>
-<p><%= data.doc.descriptif || data.doc.description %></p>
+<%= this.exercice(data) %>
 <h3>Score</h3>
 <div class="callout" id="json-score"></div>
   <div id="reference-image">
