@@ -43,25 +43,25 @@ $(function () {
     $.ajax({
       dataType: 'json',
       url: '/_users/org.couchdb.user:' + adminname,
-      success: function (userDoc, b, c, d) {
+      success: function (userDoc) {
         if (userDoc.roles.indexOf('teacher') === -1 && userDoc.roles.indexOf('_admin') === -1) { return badAttempt() }
         $.ajax({
           dataType: 'json',
           method: 'PUT',
           url: '/admin/' + adminname,
           data: JSON.stringify(pwds[0]),
-          error: function (a, b, c, d) {
+          error: function () {
             badAttempt()
           },
-          success: function (a, b, c, d) {
+          success: function () {
             $.ajax({
               url: '/_session',
               method: 'POST',
               data: 'name=' + adminname + '&password=' + pwds[0],
-              error: function (a, b, c, d) {
+              error: function () {
                 badAttempt()
               },
-              success: function (a, b, c, d) {
+              success: function () {
                 $('#changePassword').foundation('close')
               }
             })
