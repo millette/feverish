@@ -51,12 +51,7 @@
 <%= data.content %>
 </div>
 </div>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.js"></script>
-<% if (data.editor) { %>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/medium-editor/5.21.1/js/medium-editor.min.js"></script>
-<% } %>
-<script type="text/javascript" src="/js/main.js"></script>
+<%= this.js({ medium: true }) %>
 <% if (data.editor) { %>
 <script type="text/javascript" src="/js/editor.js"></script>
 <% } %>

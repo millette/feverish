@@ -1,0 +1,9 @@
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+<% if (data && data.medium) { %>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/medium-editor/5.21.1/js/medium-editor.min.js"></script>
+<% } %>
+<% data && data.custom && data.custom.forEach(function (js) { %>
+<script type="text/javascript" src="/js/<%- js %>.js"></script>
+<% }) %>

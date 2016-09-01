@@ -23,6 +23,5 @@ Sur <http://groupe2016:5985/edit/9f8d8eea13e55d2d4274d30f0715525a> et
 1. Remplacer label "Titre" par "Exercice"
 1. Remplacer "Éditer" par "Modifier"
 1. Bouton au bas de chaque formulaire: "Enregistrer"
-1. Cliquer sur son nom pour changer son mot-de-passe (prof seulement?)
 1. Résultats: view qui affiche résultats de tous les étudiants
 1. ÉtudiantEs: view qui affiche détails de tous les étudiants
