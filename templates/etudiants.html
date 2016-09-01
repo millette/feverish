@@ -1,0 +1,24 @@
+<%= this.head({ studentlist: true, title: 'Liste des étudiants' }) %>
+<body>
+<%= this.mainmenu({ roles: data.roles, active: 'etudiants', name: data.name }) %>
+<div class="row column">
+<%= this.breadcrumbs({ title: 'Liste des étudiants', last: 'Étudiants' }) %>
+<p><a class="button hollow" href="/new-student">Nouvel étudiant</a>
+ou allez sur <a href="/configure">Configuration</a> pour importer un lot d'étudiants.</p>
+<div class="row">
+<table id="studentlist" class="hover">
+  <thead>
+    <tr>
+      <th>Login</th>
+      <th>Consulter</th>
+      <th>Effacer</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div>
+</div>
+<%= this.js({ custom: ['etudiants'] }) %>
+</body>
+</html>
