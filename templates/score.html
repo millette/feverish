@@ -21,8 +21,12 @@
   </div>
   <div class="top-bar-right">
     <ul class="menu">
+      <% if (data.roles.indexOf('teacher') !== -1 || data.roles.indexOf('_admin') !== -1) { %>
+      <li><button class="button secondary hollow"><%- data.name %></button></li>
+      <% } else { %>
       <li class="menu-text"><%- data.name %></li>
-      <li><button type="button" class="button">Logout</button></li>
+      <% } %>
+      <li><button type="button" class="button secondary logout">Me déconnecter</button></li>
     </ul>
   </div>
 </div>

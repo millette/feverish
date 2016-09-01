@@ -2,8 +2,11 @@
 $(function () {
   'use strict'
   $(document).foundation()
-  const $button = $('.top-bar > .top-bar-right > .menu > li > button.button')
-  $button.addClass('warning').click(function (ev) {
+
+  $('.top-bar > .top-bar-right > .menu > li > button.hollow').click(function (ev) {
+  })
+
+  $('button.logout').click(function (ev) {
     $.ajax({
       url: '/_session',
       method: 'DELETE',
@@ -11,3 +14,5 @@ $(function () {
     })
   })
 })
+
+

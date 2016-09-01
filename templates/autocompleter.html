@@ -21,8 +21,12 @@
   </div>
   <div class="top-bar-right">
     <ul class="menu">
+      <% if (data.roles.indexOf('teacher') !== -1 || data.roles.indexOf('_admin') !== -1) { %>
+      <li><button class="button secondary hollow"><%- data.name %></button></li>
+      <% } else { %>
       <li class="menu-text"><%- data.name %></li>
-      <li><button type="button" class="button">Logout</button></li>
+      <% } %>
+      <li><button type="button" class="button secondary logout">Me déconnecter</button></li>
     </ul>
   </div>
 </div>
@@ -76,7 +80,6 @@ de l'autocomplétion incluent les valeurs des autres exercices.</p>
           </div>
         </form>
       </div>
-
       <div class="tabs-panel" id="panel3v">
         <form>
           <h3>Inscrire des étudiants</h3>
@@ -90,12 +93,9 @@ de l'autocomplétion incluent les valeurs des autres exercices.</p>
           </div>
         </form>
       </div>
-
-
     </div>
   </div>
 </div>
-
 </div>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.js"></script>
