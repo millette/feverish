@@ -1,9 +1,10 @@
 # TODO
 
 ## Dernier droit
-1. student/teacher: view de toutes les images de références
 1. teacher: liste des users (nom, consulter, delete - nouveau user)
 1. student: view des notes (tous) (lié sur page users)
+1. student/teacher: view de toutes les images de références
+(copier les images de référence dans le doc exercice)
 
 ## Host it!
 1. nginx (auth, login)
@@ -34,6 +35,10 @@ and the rest of the proxy subdomain, no port needed.
 1. teacher: configurable exercice path (doc._id)
 1. dev: use page.js to enable transitions between pages
 1. dev: move features from client js to _users design doc
-1. Add h1 to frontpage editor
+1. teacher: Pre-add h1 to frontpage editor
 1. Pager (for very long pages (> 20 items))
 1. Notez les matricules en clair?
+1. Notez les noms complets (champ ```fullname```)
+dans les user docs (login est raccourci selon les règles données)
+1. dev: Custom (smaller) Foundation (css/js)
+1. dev: Custom (smaller) jQuery (js)
