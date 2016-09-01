@@ -29,3 +29,5 @@ and the rest of the proxy subdomain, no port needed.
 1. teacher: configurable exercice path (doc._id)
 1. dev: use page.js to enable transitions between pages
 1. dev: move features from client js to _users design doc
+1. Add h1 to frontpage editor
+1. Pager (for very long pages (> 20 items))

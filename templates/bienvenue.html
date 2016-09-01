@@ -4,7 +4,7 @@
 <%= this.mainmenu(data) %>
 <div class="row column">
 <%= this.breadcrumbs({ title: data.title }) %>
-<div id='main-editor'>
+<div<%= data.editor ? ' id="main-editor"' : '' %>>
 <%= data.content %>
 </div>
 </div>

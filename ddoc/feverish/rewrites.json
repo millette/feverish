@@ -45,10 +45,6 @@
     "to": "_show/corrections/:ex"
   },
   {
-    "from": "users",
-    "to": "_show/users"
-  },
-  {
     "from": "travail.json",
     "to": "_list/json/travaux",
     "query": {
