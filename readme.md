@@ -30,6 +30,10 @@ $ ./feverish.sh --help
 npm config set feverish:dburl http://USERNAME:PASSWORD@localhost:5985/groupe2016
 ```
 
+## Divanator
+feverish builds on [divanator](https://github.com/millette/divanator)
+and you can expect a few features to flow upstream.
+
 ## License
 AGPL-v3 © [Robin Millette](http://robin.millette.info)
 
