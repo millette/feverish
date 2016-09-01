@@ -1,27 +1,7 @@
 <%= this.head({ medium: true, title: 'Accueil' }) %>
 <body>
-<div class="top-bar">
-  <div class="top-bar-left">
-    <ul class="menu">
-      <li class="active"><a href="/">Accueil</a></li>
-      <li><a href="/exercices">Exercices</a></li>
-      <% if (data.roles.indexOf('teacher') !== -1 || data.roles.indexOf('_admin') !== -1) { %>
-      <li><a href="/new">Créer un exercice</a></li>
-      <li><a href="/autocomplete">Configurer</a></li>
-      <% } %>
-    </ul>
-  </div>
-  <div class="top-bar-right">
-    <ul class="menu">
-      <% if (data.roles.indexOf('teacher') !== -1 || data.roles.indexOf('_admin') !== -1) { %>
-      <li><button data-adminname="<%- data.name %>" class="adminname button secondary hollow"><%- data.name %></button></li>
-      <% } else { %>
-      <li class="menu-text"><%- data.name %></li>
-      <% } %>
-      <li><button type="button" class="button secondary logout">Me déconnecter</button></li>
-    </ul>
-  </div>
-</div>
+<% data.active = 'accueil' %>
+<%= this.mainmenu(data) %>
 <div class="row column">
 <h1 class="title"><span><%- data.title || 'Bienvenue' %></span><%= data.editor ? ' <button class="button alert">SAUVEGARDER</button>' : '' %></h1>
 <nav aria-label="You are here:" role="navigation">
