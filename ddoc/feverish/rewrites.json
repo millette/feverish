@@ -1,9 +1,5 @@
 [
   {
-    "from": "admin/:name",
-    "to": "../../../_config/admins/:name"
-  },
-  {
     "method": "GET",
     "from": "",
     "to": "_show/bienvenue/accueil"
@@ -12,6 +8,18 @@
     "method": "POST",
     "from": "",
     "to": "/_update/bienvenue/accueil"
+  },
+  {
+    "from": "rendus",
+    "to": "_show/notyet"
+  },
+  {
+    "from": "etudiants",
+    "to": "_show/notyet"
+  },
+  {
+    "from": "resultats",
+    "to": "_show/notyet"
   },
   {
     "method": "GET",
@@ -93,5 +101,9 @@
     "method": "POST",
     "from": "new",
     "to": "_update/create"
+  },
+  {
+    "from": "admin/:name",
+    "to": "../../../_config/admins/:name"
   }
 ]
