@@ -1,6 +1,7 @@
 # TODO
 
 ## Dernier droit
+1. teacher: move batch users from config to Étudiant submenu (with New Student)
 1. teacher: liste des users (nom, consulter, delete - nouveau user)
 1. student: view des notes (tous) (lié sur page users)
 1. student/teacher: view de toutes les images de références
