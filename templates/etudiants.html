@@ -4,19 +4,13 @@
 <%= this.breadcrumbs({ title: 'Liste des étudiants', last: 'Étudiants' }) %>
 <p><a class="button hollow" href="/new-student">Nouvel étudiant</a>
 ou allez sur <a href="/configure">Configuration</a> pour importer un lot d'étudiants.</p>
-<div class="row">
 <table id="studentlist" class="hover">
-  <thead>
-    <tr>
-      <th>Login</th>
-      <th>Consulter</th>
-      <th>Effacer</th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
+<thead>
+<tr><th>Login</th><th>Consulter</th><th>Effacer</th></tr>
+</thead>
+<tbody>
+</tbody>
 </table>
-</div>
 <%= this.js({ custom: ['etudiants'] }) %>
 </body>
 </html>
