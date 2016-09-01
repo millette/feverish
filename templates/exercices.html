@@ -4,6 +4,9 @@
 <%= this.mainmenu(data) %>
 <div class="row column">
 <%= this.breadcrumbs({ title: 'Les exercices', last: 'Exercices' }) %>
+<% if (data.roles.indexOf('teacher') !== -1 || data.roles.indexOf('_admin') !== -1) { %>
+<p><a class="button hollow" href="/new">Créer un exercice</a></p>
+<% } %>
 <ol>
 <% data.rows.forEach(function (row) { %>
   <li>
