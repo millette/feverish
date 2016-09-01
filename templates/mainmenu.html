@@ -3,17 +3,19 @@
     <ul class="menu">
       <li<%= data.active === 'accueil' ? ' class="active"' : '' %>><a href="/">Accueil</a></li>
       <li<%= data.active === 'exercices' ? ' class="active"' : '' %>><a href="/exercices">Exercices</a></li>
+      <li<%= data.active === 'rendus' ? ' class="active"' : '' %>><a href="/rendus">Rendus</a></li>
       <% if (data.roles.indexOf('teacher') !== -1 || data.roles.indexOf('_admin') !== -1) { %>
-      <li<%= data.active === 'new' ? ' class="active"' : '' %>><a href="/new">Créer un exercice</a></li>
-      <li<%= data.active === 'configure' ? ' class="active"' : '' %>><a href="/autocomplete">Configurer</a></li>
+      <li<%= data.active === 'etudiants' ? ' class="active"' : '' %>><a href="/etudiants">Étudiants</a></li>
       <% } %>
     </ul>
   </div>
   <div class="top-bar-right">
     <ul class="menu">
       <% if (data.roles.indexOf('teacher') !== -1 || data.roles.indexOf('_admin') !== -1) { %>
+      <li<%= data.active === 'configure' ? ' class="active"' : '' %>><a href="/configure">Configurer</a></li>
       <li><button data-adminname="<%- data.name %>" class="adminname button secondary hollow"><%- data.name %></button></li>
       <% } else { %>
+      <li<%= data.active === 'resultats' ? ' class="active"' : '' %>><a href="/resultats">Mes résultats</a></li>
       <li class="menu-text"><%- data.name %></li>
       <% } %>
       <li><button type="button" class="button secondary logout">Me déconnecter</button></li>

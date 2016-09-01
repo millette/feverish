@@ -15,12 +15,12 @@
   },
   {
     "method": "GET",
-    "from": "autocomplete",
+    "from": "configure",
     "to": "_show/autocompleter/autocompleter"
   },
   {
     "method": "POST",
-    "from": "autocomplete",
+    "from": "configure",
     "to": "/_update/autocompleter/autocompleter"
   },
 
