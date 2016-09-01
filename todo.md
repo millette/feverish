@@ -11,7 +11,6 @@
 1. navigate by theme (student/teacher)
 1. improve feedback in general
 1. dev: move css to ddoc attachments
-1. dev: split up templates (into partials)
 1. dev: move features from client js to _users design doc
 1. student: see results for all exams at once (replace current /exercice)
 1. teacher: see results for all exams at once (replace current /exercice)
