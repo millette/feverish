@@ -1,9 +1,11 @@
 /* globals $, MediumEditor */
 $(function () {
   'use strict'
-
   var dirty = false
-  var $saver = $('h1.title > button')
+  var $saver
+  var $saverImp = $('h1.title:first-child')
+  $saverImp.html('<span>' + $saverImp.text() + '</span> <button class="button alert">SAUVEGARDER</button>')
+  $saver = $('h1.title:first-child > button')
 
   const show = function (maybe) {
     var title
@@ -13,6 +15,7 @@ $(function () {
       if (!dirty) { return }
     } else {
       title = $('#main-editor > h1').text()
+      console.log('title', title)
       if (title) { $('h1.title > span').text(title) }
       dirty = true
     }
