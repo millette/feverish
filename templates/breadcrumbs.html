@@ -1,8 +1,25 @@
-<h1 class="title"><%- data.title || 'Bienvenue' %></h1>
-<nav aria-label="You are here:" role="navigation">
+<h1 class="title"><%- data && data.title || 'Bienvenue' %></h1>
+<nav aria-label="Vous êtes ici:" role="navigation">
   <ul class="breadcrumbs">
+    <% if (!data || !data.last) { %>
     <li>
       <span class="show-for-sr">Actuel: </span> Accueil
     </li>
+    <% } else { %>
+    <li><a href="/">Accueil</a></li>
+    <% data.paths && data.paths.length && data.paths.forEach(function (p) { %>
+      <% if (typeof p === 'string') { %>
+      <li class="disabled"><%- p %></li>
+      <% } else { %>
+      <li><a href="/<%- p[0] %>"><%- p[1] %></a></li>
+      <% } %>
+    <% }) %>
+    <li>
+      <span class="show-for-sr">Actuel: </span> <%- data.last %>
+    </li>
+    <% } %>
   </ul>
 </nav>
+<% if (data && data.subtitle) { %>
+<h2><%- data.subtitle %></h2>
+<% } %>

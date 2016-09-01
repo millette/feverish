@@ -1,25 +1,20 @@
 <%= this.head({ medium: true, custom: ['jquery.autocomplete'], title: 'Édition' }) %>
 <body>
-<% data.active = 'new' %>
+<%
+  data.active = 'new'
+  var it = { paths: [ ['exercices', 'Exercices'] ] }
+  if (data.doc) {
+    it.title = 'Éditer exercice'
+    it.last = data.doc.title
+    it.paths.push('Édition')
+  } else {
+    it.title = 'Nouvel exercice'
+    it.last = 'Création'
+  }
+%>
 <%= this.mainmenu(data) %>
 <div class="row column">
-<h1 class="title"><%- data.doc ? 'Éditer' : 'Nouvel' %> exercice</h1>
-<nav aria-label="You are here:" role="navigation">
-  <ul class="breadcrumbs">
-    <li><a href="/">Accueil</a></li>
-    <li><a href="/exercices">Exercices</a></li>
-    <% if (data.doc) { %>
-    <li class="disabled">Édition</li>
-    <li>
-      <span class="show-for-sr">Actuel: </span> <%- data.doc.title %>
-    </li>
-    <% } else { %>
-    <li>
-      <span class="show-for-sr">Actuel: </span> Création
-    </li>
-    <% } %>
-  </ul>
-</nav>
+<%= this.breadcrumbs(it) %>
   <div class="row">
     <div class="column small-12 medium-10 medium-offset-1 large-6 large-offset-3">
       <form method="post">

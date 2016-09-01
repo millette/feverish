@@ -3,7 +3,7 @@
 <% data.active = 'accueil' %>
 <%= this.mainmenu(data) %>
 <div class="row column">
-<%= this.breadcrumbs(data) %>
+<%= this.breadcrumbs({ title: 'Accueil' }) %>
 <div id='main-editor'>
 <%= data.content %>
 </div>

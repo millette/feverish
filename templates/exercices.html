@@ -3,15 +3,7 @@
 <% data.active = 'exercices' %>
 <%= this.mainmenu(data) %>
 <div class="row column">
-<h1 class="title">Les exercices</h1>
-<nav aria-label="You are here:" role="navigation">
-  <ul class="breadcrumbs">
-    <li><a href="/">Accueil</a></li>
-    <li>
-      <span class="show-for-sr">Actuel: </span> Exercices
-    </li>
-  </ul>
-</nav>
+<%= this.breadcrumbs({ title: 'Les exercices', last: 'Exercices' }) %>
 <ol>
 <% data.rows.forEach(function (row) { %>
   <li>

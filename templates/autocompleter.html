@@ -3,15 +3,7 @@
 <% data.active = 'configure' %>
 <%= this.mainmenu(data) %>
 <div class="row column">
-<h1 class="title">Configurer</h1>
-<nav aria-label="You are here:" role="navigation">
-  <ul class="breadcrumbs">
-    <li><a href="/">Accueil</a></li>
-    <li>
-      <span class="show-for-sr">Actuel: </span> Configurer
-    </li>
-  </ul>
-</nav>
+<%= this.breadcrumbs({ title: 'Configurer', last: 'Configurer' }) %>
 <p class="lead">
 Configurer l'autocomplétion de certains champs. Les valeurs disponibles au moment
 de l'autocomplétion incluent les valeurs des autres exercices.</p>

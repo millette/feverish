@@ -2,17 +2,12 @@
 <body data-exid="<%- data.doc._id %>">
 <%= this.mainmenu(data) %>
 <div class="row column">
-<h1 class="title">Corrections d'exercice</h1>
-<nav aria-label="You are here:" role="navigation">
-  <ul class="breadcrumbs">
-    <li><a href="/">Accueil</a></li>
-    <li><a href="/exercices">Exercices</a></li>
-    <li>
-      <span class="show-for-sr">Actuel: </span> <%- data.doc.title %>
-    </li>
-  </ul>
-</nav>
-<h2><%- data.doc.title %></h2>
+<%= this.breadcrumbs({
+  title: 'Corrections d\'exercice',
+  subtitle: data.doc.title,
+  last: data.doc.title,
+  paths: [['exercices', 'Exercices']]
+}) %>
 <ul>
 <li>Travail: <span class="label warning"><%- data.doc.travail %></span></li>
 <li>Thème: <span class="label success"><%- data.doc.theme %></span></li>

@@ -2,18 +2,15 @@
 <body data-exercice="<%- data.doc._id %>" data-student="<%- data.query.user %>" data-ponderation="<%- data.doc.ponderation %>">
 <%= this.mainmenu(data) %>
 <div class="row column">
-<h1 class="title">Correction d'exercice de <%- data.query.user %></h1>
-<nav aria-label="You are here:" role="navigation">
-  <ul class="breadcrumbs">
-    <li><a href="/">Accueil</a></li>
-    <li><a href="/exercices">Exercices</a></li>
-    <li><a href="/corrections/<%- data.doc._id %>"><%- data.doc.title %></a></li>
-    <li>
-      <span class="show-for-sr">Actuel: </span> <%- data.query.user %>
-    </li>
-  </ul>
-</nav>
-<h2><%- data.doc.title %></h2>
+<%= this.breadcrumbs({
+  title: 'Corrections d\'exercice de ' + data.query.user,
+  subtitle: data.doc.title,
+  last: data.query.user,
+  paths: [
+    ['exercices', 'Exercices'],
+    ['corrections/' + data.doc._id, data.doc.title]
+  ]
+}) %>
 <ul>
 <li>Travail: <span class="label warning"><%- data.doc.travail %></span></li>
 <li>Thème: <span class="label success"><%- data.doc.theme %></span></li>
