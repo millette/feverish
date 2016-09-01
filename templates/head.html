@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/csshake/1.5.0/csshake-horizontal.min.css">
+<% data && data.custom && data.custom.forEach(function (css) { %>
+<link rel="stylesheet" href="/css/<%- css %>.css"></script>
+<% }) %>
+<% if (data && data.medium) { %>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/medium-editor/5.21.1/css/themes/mani.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/medium-editor/5.21.1/css/medium-editor.min.css">
+<style>
+.medium-editor-element { outline: none; }
+</style>
+<% } %>
+<title><%- data && data.title || 'hi monde' %></title>
+</head>

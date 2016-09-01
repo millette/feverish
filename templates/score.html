@@ -1,15 +1,4 @@
-<!doctype html>
-<html lang="fr">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="x-ua-compatible" content="ie=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.css">
-<% if (data.roles.indexOf('teacher') !== -1 || data.roles.indexOf('_admin') !== -1) { %>
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/csshake/1.5.0/csshake-horizontal.min.css">
-<% } %>
-<title>hi monde</title>
-</head>
+<%= this.head({ title: 'Résultat d\'exercice de ' + data.name }) %>
 <body data-exercice="<%- data.doc._id %>" data-student="<%- data.name %>" data-ponderation="<%- data.doc.ponderation %>">
 <div class="top-bar">
   <div class="top-bar-left">
