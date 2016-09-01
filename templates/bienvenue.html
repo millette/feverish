@@ -2,11 +2,9 @@
 <body>
 <% data.active = 'accueil' %>
 <%= this.mainmenu(data) %>
-<div class="row column">
 <%= this.breadcrumbs({ title: data.title }) %>
 <div<%= data.editor ? ' id="main-editor"' : '' %>>
 <%= data.content %>
-</div>
 </div>
 <%= this.js({ medium: data.editor }) %>
 <% if (data.editor) { %>

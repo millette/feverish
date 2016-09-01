@@ -1,7 +1,6 @@
 <%= this.head({ studentlist: true, title: 'Liste des étudiants' }) %>
 <body>
 <%= this.mainmenu({ roles: data.roles, active: 'etudiants', name: data.name }) %>
-<div class="row column">
 <%= this.breadcrumbs({ title: 'Liste des étudiants', last: 'Étudiants' }) %>
 <p><a class="button hollow" href="/new-student">Nouvel étudiant</a>
 ou allez sur <a href="/configure">Configuration</a> pour importer un lot d'étudiants.</p>
@@ -17,7 +16,6 @@ ou allez sur <a href="/configure">Configuration</a> pour importer un lot d'étud
   <tbody>
   </tbody>
 </table>
-</div>
 </div>
 <%= this.js({ custom: ['etudiants'] }) %>
 </body>

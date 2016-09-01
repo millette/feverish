@@ -1,10 +1,8 @@
 <%= this.head({ title: 'Étudiant: ' + data.student }) %>
 <body>
 <%= this.mainmenu({ roles: data.roles, name: data.name }) %>
-<div class="row column">
 <%= this.breadcrumbs({ title: 'Étudiant', subtitle: data.student, paths: data.self ? false : [['etudiants', 'Étudiants']], last: data.student }) %>
 <p><i>À venir</i></p>
-</div>
 <%= this.js() %>
 </body>
 </html>

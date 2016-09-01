@@ -2,7 +2,6 @@
 <body>
 <% data.active = 'configure' %>
 <%= this.mainmenu(data) %>
-<div class="row column">
 <%= this.breadcrumbs({ title: 'Configurer', last: 'Configurer' }) %>
 <p class="lead">
 Configurer l'autocomplétion de certains champs. Les valeurs disponibles au moment
@@ -58,7 +57,6 @@ de l'autocomplétion incluent les valeurs des autres exercices.</p>
       </div>
     </div>
   </div>
-</div>
 </div>
 <%= this.js({ custom: ['autocompleter'] }) %>
 </body>

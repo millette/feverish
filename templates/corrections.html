@@ -1,7 +1,6 @@
 <%= this.head({ title: 'Corrections' }) %>
 <body data-exid="<%- data.doc._id %>">
 <%= this.mainmenu(data) %>
-<div class="row column">
 <%= this.breadcrumbs({
   title: 'Corrections d\'exercice',
   last: data.doc.title,
@@ -12,7 +11,6 @@
 <ul class="menu vertical" id="json"></ul>
 <h3>Corrigés</h3>
 <ul class="menu vertical" id="json2"></ul>
-</div>
 <%= this.js({ custom: ['corrections'] }) %>
 </body>
 </html>

@@ -1,7 +1,6 @@
 <%= this.head({ medium: true, title: 'Corrections de ' + data.query.user }) %>
 <body data-exercice="<%- data.doc._id %>" data-student="<%- data.query.user %>" data-ponderation="<%- data.doc.ponderation %>">
 <%= this.mainmenu(data) %>
-<div class="row column">
 <%= this.breadcrumbs({
   title: 'Corrections d\'exercice de ' + data.query.user,
   last: data.query.user,
@@ -11,46 +10,45 @@
   ]
 }) %>
 <%= this.exercice(data) %>
-  <div class="row">
-    <div class="column small-12 medium-10 medium-offset-1 large-6 large-offset-3">
-      <form method="post">
-        <fieldset class="fieldset callout primary">
-        <div class="row">
-          <div class="small-4 column medium-6">
-            <label for="note-label" class="text-right middle">Note sur <%- data.doc.ponderation %></label>
-          </div>
-          <div class="small-8 column medium-6">
-            <input min="0" max="<%- data.doc.ponderation %>" type="number" step="any" id="note-label" name="note" required>
-          </div>
+<div class="row">
+  <div class="column small-12 medium-10 medium-offset-1 large-6 large-offset-3">
+    <form method="post">
+      <fieldset class="fieldset callout primary">
+      <div class="row">
+        <div class="small-4 column medium-6">
+          <label for="note-label" class="text-right middle">Note sur <%- data.doc.ponderation %></label>
         </div>
-        <div class="row">
-          <div class="small-4 column medium-6">
-            <label aria-describedby="commentairesHelpText" for="commentaires-label" class="text-right">Commentaires</label>
-          </div>
-          <div class="small-8 column medium-6">
-            <textarea rows="10" id="commentaires-label" name="commentaires" required></textarea>
-            <p class="help-text" id="commentairesHelpText">Éditeur WYSIWYG, sélectionnez du texte pour le styler.</p>
-          </div>
+        <div class="small-8 column medium-6">
+          <input min="0" max="<%- data.doc.ponderation %>" type="number" step="any" id="note-label" name="note" required>
         </div>
-        <div class="row">
-          <div class="small-4 column medium-6">
-            <label for="reference-label" class="text-right">Référence</label>
-          </div>
-          <div class="small-8 column medium-6">
-            <input type="checkbox" id="reference-label" name="reference">
-          </div>
+      </div>
+      <div class="row">
+        <div class="small-4 column medium-6">
+          <label aria-describedby="commentairesHelpText" for="commentaires-label" class="text-right">Commentaires</label>
         </div>
-        <div class="row">
-          <div class="small-offset-4 small-8 medium-6 medium-offset-6 column">
-            <input class="button expanded" type="submit" value="Noter">
-          </div>
+        <div class="small-8 column medium-6">
+          <textarea rows="10" id="commentaires-label" name="commentaires" required></textarea>
+          <p class="help-text" id="commentairesHelpText">Éditeur WYSIWYG, sélectionnez du texte pour le styler.</p>
         </div>
-        </fieldset>
-      </form>
-    </div>
+      </div>
+      <div class="row">
+        <div class="small-4 column medium-6">
+          <label for="reference-label" class="text-right">Référence</label>
+        </div>
+        <div class="small-8 column medium-6">
+          <input type="checkbox" id="reference-label" name="reference">
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-offset-4 small-8 medium-6 medium-offset-6 column">
+          <input class="button expanded" type="submit" value="Noter">
+        </div>
+      </div>
+      </fieldset>
+    </form>
   </div>
-<pre id="json"></pre>
 </div>
+<pre id="json"></pre>
 <%= this.js({ medium: true, custom: ['corrections-user'] }) %>
 </body>
 </html>
