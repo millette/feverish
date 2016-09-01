@@ -1,5 +1,12 @@
 # TODO
 
+## Dernier droit
+1. dev: changement de mot de passe = logout (bug)
+1. dev: config theme/travaux inversés (bug)
+1. student/teacher: view de toutes les images de références
+1. teacher: liste des users (nom, delete - nouveau user)
+1. student: view des notes (tous)
+
 ## Host it!
 1. nginx (auth, login)
 1. host it publicly (with login)
@@ -31,3 +38,4 @@ and the rest of the proxy subdomain, no port needed.
 1. dev: move features from client js to _users design doc
 1. Add h1 to frontpage editor
 1. Pager (for very long pages (> 20 items))
+1. Notez les matricules en clair?
