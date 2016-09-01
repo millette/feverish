@@ -30,7 +30,7 @@
   <div class="top-bar-right">
     <ul class="menu">
       <% if (data.roles.indexOf('teacher') !== -1 || data.roles.indexOf('_admin') !== -1) { %>
-      <li><button class="button secondary hollow"><%- data.name %></button></li>
+      <li><button data-adminname="<%- data.name %>" class="adminname button secondary hollow"><%- data.name %></button></li>
       <% } else { %>
       <li class="menu-text"><%- data.name %></li>
       <% } %>
