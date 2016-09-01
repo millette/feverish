@@ -15,10 +15,18 @@
   },
   {
     "from": "etudiants",
-    "to": "_show/notyet"
+    "to": "_show/etudiants"
+  },
+  {
+    "from": "etudiants/:user",
+    "to": "_show/etudiants"
   },
   {
     "from": "resultats",
+    "to": "_show/notyet"
+  },
+  {
+    "from": "new-student",
     "to": "_show/notyet"
   },
   {
