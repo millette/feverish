@@ -42,3 +42,4 @@ and the rest of the proxy subdomain, no port needed.
 dans les user docs (login est raccourci selon les règles données)
 1. dev: Custom (smaller) Foundation (css/js)
 1. dev: Custom (smaller) jQuery (js)
+1. resize jpegs client-side
