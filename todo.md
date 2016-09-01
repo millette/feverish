@@ -1,8 +1,6 @@
 # TODO
 
 ## Dernier droit
-1. dev: changement de mot de passe = logout (bug)
-1. dev: password text fields (bug)
 1. student/teacher: view de toutes les images de références
 1. teacher: liste des users (nom, consulter, delete - nouveau user)
 1. student: view des notes (tous) (lié sur page users)

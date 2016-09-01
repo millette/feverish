@@ -54,7 +54,17 @@ $(function () {
             badAttempt()
           },
           success: function (a, b, c, d) {
-            $('#changePassword').foundation('close')
+            $.ajax({
+              url: '/_session',
+              method: 'POST',
+              data: 'name=' + adminname + '&password=' + pwds[0],
+              error: function (a, b, c, d) {
+                badAttempt()
+              },
+              success: function (a, b, c, d) {
+                $('#changePassword').foundation('close')
+              }
+            })
           }
         })
       }
