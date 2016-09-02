@@ -17,15 +17,16 @@ $(function () {
     if (pwds.length !== 3 || pwds[2] !== pwds[1]) { return badAttempt() }
     const parts = pwds[0].split(' ')
     if (parts.length !== 2) { return badAttempt() }
+    const uid = 'org.couchdb.user:' + pwds[0]
     const userDoc = {
-      _id: 'org.couchdb.user:' + pwds[0],
+      _id: uid,
       name: pwds[0],
       type: 'user',
       roles: ['student'],
       password: pwds[1]
     }
     $.ajax({
-      url: '/_users/org.couchdb.user:' + pwds[0],
+      url: '/_users/' + uid,
       dataType: 'json',
       data: JSON.stringify(userDoc),
       method: 'PUT',
