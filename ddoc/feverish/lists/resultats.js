@@ -6,10 +6,15 @@ module.exports = function (head, req, mocks) {
   start({ headers: { 'Content-Type': 'text/html; charset=utf-8' } })
   let row
   const rows = []
-  while ((row = getRow())) { rows.push(row.doc) }
+  while ((row = getRow())) {
+    delete row.doc.description
+    delete row.doc.descriptif
+    rows.push(row)
+  }
 
   req.userCtx.student = req.query.student || req.userCtx.name
   req.userCtx.self = !req.query.student
   req.userCtx.rows = rows
+  req.userCtx.exercice = tpl.exercice
   send(tpl.etudiant(req.userCtx))
 }
