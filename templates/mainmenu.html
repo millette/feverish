@@ -13,7 +13,12 @@
           <li><a href="/etudiants/lot">Inscription en lot</a></li>
         </ul>
       </li>
-      <li<%= data.active === 'exercices' ? ' class="active"' : '' %>><a href="/exercices">Exercices</a></li>
+      <li<%= data.active === 'exercices' ? ' class="active"' : '' %>>
+        <a href="/exercices">Exercices</a>
+        <ul class="menu">
+          <li><a href="/new">Nouveau</a></li>
+        </ul>
+      </li>
       <li<%= data.active === 'rendus' ? ' class="active"' : '' %>><a href="/rendus">Rendus</a></li>
       <% if (data.roles.indexOf('teacher') !== -1 || data.roles.indexOf('_admin') !== -1) { %>
       <% } %>
