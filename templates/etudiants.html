@@ -2,8 +2,10 @@
 <body>
 <%= this.mainmenu({ roles: data.roles, active: 'etudiants', name: data.name }) %>
 <%= this.breadcrumbs({ title: 'Liste des étudiants', last: 'Étudiants' }) %>
-<p><a class="button hollow" href="/etudiants/new">Nouvel étudiant</a>
-ou allez sur <a href="/etudiants/lot">Configuration</a> pour importer un lot d'étudiants. (à venir)</p>
+<p>
+<a class="button hollow" href="/etudiants/new">Nouvel étudiant</a>
+<a class="button hollow" href="/etudiants/lot">Inscrire des étudiants en lot</a>
+</p>
 <table id="studentlist" class="hover">
 <thead>
 <tr><th>Login</th><th>Consulter</th><th>Effacer</th></tr>

@@ -15,11 +15,11 @@
   },
   {
     "from": "etudiants/new",
-    "to": "_show/notyet"
+    "to": "_show/etudiants-new"
   },
   {
     "from": "etudiants/lot",
-    "to": "_show/notyet"
+    "to": "_show/etudiants-lot"
   },
   {
     "from": "etudiants",
