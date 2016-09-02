@@ -18,7 +18,7 @@ $(function () {
     $sub.val('Soumettre')
   })
 
-  $('form[method="post"]').submit(function (ev) {
+  $('form.configure').submit(function (ev) {
     const $form = $(this)
     const data = $form.serialize()
     ev.preventDefault()
