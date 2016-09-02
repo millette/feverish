@@ -1,7 +1,6 @@
 # TODO
 
 ## Dernier droit
-1. make sure we capture the right form submits
 1. student: view des notes (tous) (lié sur page users)
 1. teacher: move batch users from config to Étudiant submenu (with New Student)
 1. student/teacher: view de toutes les images de références
