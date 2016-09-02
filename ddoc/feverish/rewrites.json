@@ -26,11 +26,27 @@
     "to": "_show/etudiants"
   },
   {
-    "from": "etudiant/:user",
+    "from": "etudiant-ancien/:user",
     "to": "_show/etudiants"
   },
   {
+    "from": "etudiant/:student",
+    "to": "_list/resultats/exercices",
+    "query": {
+      "include_docs": "true",
+      "descending": "true"
+    }
+  },
+  {
     "from": "resultats",
+    "to": "_list/resultats/exercices",
+    "query": {
+      "include_docs": "true",
+      "descending": "true"
+    }
+  },
+  {
+    "from": "resultats-ancien",
     "to": "_show/etudiants",
     "query": {
       "self": "true"

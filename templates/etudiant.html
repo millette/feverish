@@ -1,8 +1,24 @@
-<%= this.head({ title: 'Étudiant: ' + data.student }) %>
-<body>
-<%= this.mainmenu({ roles: data.roles, name: data.name }) %>
-<%= this.breadcrumbs({ title: 'Étudiant', subtitle: data.student, paths: data.self ? false : [['etudiants', 'Étudiants']], last: data.student }) %>
-<p><i>À venir</i></p>
-<%= this.js() %>
+<% if (data.self) { %>
+<%= this.head({ title: 'Mes résultats: ' + data.student }) %>
+<% } else { %>
+<%= this.head({ title: 'Résultats de ' + data.student }) %>
+<% } %>
+<body data-student="<%- data.student %>">
+<%= this.mainmenu({ active: data.self && 'resultats', roles: data.roles, name: data.name }) %>
+<% if (data.self) { %>
+<%= this.breadcrumbs({ title: 'Mes résultats', subtitle: data.student, last: 'Mes résultats' }) %>
+<% } else { %>
+<%= this.breadcrumbs({ title: 'Résultats de ' + data.student, paths: [['etudiants', 'Étudiants']], last: 'Résultats' }) %>
+<% } %>
+<p><i>En cours</i></p>
+<div class="row">
+  <div class="column small-6">
+    <pre id="rows"><%- JSON.stringify(data.rows, null, ' ') %></pre>
+  </div>
+  <div class="column small-6">
+    <pre id="json"></pre>
+  </div>
+</div>
+<%= this.js({ custom: ['etudiant'] }) %>
 </body>
 </html>
