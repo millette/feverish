@@ -8,18 +8,15 @@
 <% if (data.self) { %>
 <%= this.breadcrumbs({ title: 'Mes résultats', subtitle: data.student, last: 'Mes résultats' }) %>
 <% } else { %>
-<%= this.breadcrumbs({ title: 'Résultats de ' + data.student, paths: [['etudiants', 'Étudiants']], last: 'Résultats' }) %>
+<%= this.breadcrumbs({ title: 'Résultats de ' + data.student, subtitle: data.student, paths: [['etudiants', 'Étudiants']], last: 'Résultats' }) %>
 <% } %>
 <p><i>En cours</i></p>
 <div class="row">
-  <div class="column small-6">
-    <% data.rows.forEach(function (row) { %>
-        <%= data.exercice(row) %>
-    <% }) %>
-  </div>
-  <div class="column small-6">
-    <pre id="json"></pre>
-  </div>
+  <% data.rows.forEach(function (row) { %>
+    <div class="column small-12 medium-12 large-6 exercice" id="<%- row.doc._id %>">
+    <%= data.exercice(row) %>
+    </div>
+  <% }) %>
 </div>
 <%= this.js({ custom: ['etudiant'] }) %>
 </body>

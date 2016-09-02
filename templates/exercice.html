@@ -1,5 +1,8 @@
-<div>
+<% if (data.doc.h3) { %>
+<h3><%- data.doc.title %></h3>
+<% } else { %>
 <h2><%- data.doc.title %></h2>
+<% } %>
 <ul>
 <% if (data.doc.travail) { %>
 <li>Travail: <span class="label warning"><%- data.doc.travail %></span></li>
@@ -14,4 +17,3 @@
 <% if (data.doc.descriptif || data.doc.description) { %>
 <p><%= data.doc.descriptif || data.doc.description %></p>
 <% } %>
-</div>
