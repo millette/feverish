@@ -2,7 +2,44 @@
 <body>
 <%= this.mainmenu(data) %>
 <%= this.breadcrumbs({ title: 'Inscrire un étudiant', paths: [['etudiants', 'Étudiants']], last: 'Inscrire' }) %>
-<p><i>À venir...</i></p>
-<%= this.js() %>
+<p><i>En cours...</i></p>
+<div class="row">
+  <div class="column small-12 medium-10 medium-offset-1 large-6 large-offset-3">
+    <form id="new-student" method="get" action="/etudiants">
+      <fieldset class="fieldset callout primary">
+      <div class="row">
+        <div class="small-4 column medium-6">
+          <label for="titre-label" class="text-right middle">Nom (login)</label>
+        </div>
+        <div class="small-8 column medium-6">
+          <input type="text" id="titre-label" name="title" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-4 column medium-6">
+          <label for="titre2-label" class="text-right middle">Mot de passe (matricule)</label>
+        </div>
+        <div class="small-8 column medium-6">
+          <input type="password" id="titre2-label" name="password" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-4 column medium-6">
+          <label for="titre3-label" class="text-right middle">Mot de passe (répétez)</label>
+        </div>
+        <div class="small-8 column medium-6">
+          <input type="password" id="titre3-label" name="password2" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-offset-4 small-8 medium-6 medium-offset-6 column">
+          <input class="button expanded" type="submit" value="Inscrire">
+        </div>
+      </div>
+    </fieldset>
+    </form>
+  </div>
+</div>
+<%= this.js({ custom: ['etudiants-new'] }) %>
 </body>
 </html>
