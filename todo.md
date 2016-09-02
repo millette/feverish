@@ -3,7 +3,7 @@
 ## Dernier droit
 1. teacher: liste des users (nom, consulter, delete)
    1. deleter (current: confirm; todo: timed undo?)
-   1. consulter
+   1. consulter (link is there)
 1. teacher: add new student
 1. student: view des notes (tous) (lié sur page users)
 1. teacher: move batch users from config to Étudiant submenu (with New Student)

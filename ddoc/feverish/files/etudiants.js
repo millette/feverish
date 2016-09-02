@@ -2,18 +2,17 @@
 $(function () {
   'use strict'
 
-  const $table = $('table#studentlist')
-  const $tableBody = $('tbody', $table)
+  const $tableBody = $('table#studentlist tbody')
   const fn = function (data) {
     data.rows
       .filter(function (row) {
         return row.doc.roles.indexOf('teacher') === -1 && row.doc.roles.indexOf('_admin') === -1
       })
-      .map(function (row) { return row.id.split(':')[1] })
-      .forEach(function (u) {
+      .forEach(function (row) {
+        const u = row.id.split(':')[1]
         const id = 'confirm-delete-' + u.replace(/ /g, '')
         $tableBody.append([
-          '<tr data-uid="' + u + '"><td>' + u + '</td>',
+          '<tr data-rev="' + row.value.rev + '" data-uid="' + u + '"><td>' + u + '</td>',
           '<td><a href="/etudiant/' + u + '">consulter</a></td>',
           '<td>',
           '<button type="button" class="button warning" data-toggle="' + id + '">effacer</button>',
@@ -32,12 +31,16 @@ $(function () {
   }
   $.getJSON('/_users/_all_docs', query, fn)
 
-  $table.on('click', 'button.confirm', function (ev) {
-    const $row = $(this).parents('tr')
+  $tableBody.on('click', 'button.confirm', function (ev) {
+    $(this).parents('.dropdown-pane').foundation('close')
+    const $row = $(this).parents('tr').addClass('callout alert')
     const uid = $row.data('uid')
-    $row.fadeOut(500, function () {
-      $row.remove()
-      console.log('clicked - removed (FAKE)', uid)
+    const rev = $row.data('rev')
+    $.ajax({
+      url: '/_users/org.couchdb.user:' + uid + '?rev=' + rev,
+      method: 'DELETE',
+      error: function () { $row.addClass('callout secondary') },
+      success: function () { $row.fadeOut(500, function () { $row.remove() }) }
     })
   })
 })
