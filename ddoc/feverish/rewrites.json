@@ -14,11 +14,19 @@
     "to": "_show/notyet"
   },
   {
+    "from": "etudiants/new",
+    "to": "_show/notyet"
+  },
+  {
+    "from": "etudiants/lot",
+    "to": "_show/notyet"
+  },
+  {
     "from": "etudiants",
     "to": "_show/etudiants"
   },
   {
-    "from": "etudiants/:user",
+    "from": "etudiant/:user",
     "to": "_show/etudiants"
   },
   {
@@ -27,10 +35,6 @@
     "query": {
       "self": "true"
     }
-  },
-  {
-    "from": "new-student",
-    "to": "_show/notyet"
   },
   {
     "method": "GET",

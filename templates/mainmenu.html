@@ -1,11 +1,21 @@
 <div class="top-bar">
   <div class="top-bar-left">
+    <% if (data.roles.indexOf('teacher') !== -1 || data.roles.indexOf('_admin') !== -1) { %>
+    <ul class="menu dropdown" data-dropdown-menu>
+    <% } else { %>
     <ul class="menu">
+    <% } %>
       <li<%= data.active === 'accueil' ? ' class="active"' : '' %>><a href="/">Accueil</a></li>
       <li<%= data.active === 'exercices' ? ' class="active"' : '' %>><a href="/exercices">Exercices</a></li>
       <li<%= data.active === 'rendus' ? ' class="active"' : '' %>><a href="/rendus">Rendus</a></li>
       <% if (data.roles.indexOf('teacher') !== -1 || data.roles.indexOf('_admin') !== -1) { %>
-      <li<%= data.active === 'etudiants' ? ' class="active"' : '' %>><a href="/etudiants">Étudiants</a></li>
+      <li<%= data.active === 'etudiants' ? ' class="active"' : '' %>>
+        <a href="/etudiants">Étudiants</a>
+        <ul class="menu">
+          <li><a href="/etudiants/new">Inscription</a></li>
+          <li><a href="/etudiants/lot">Inscription en lot</a></li>
+        </ul>
+      </li>
       <% } %>
     </ul>
   </div>

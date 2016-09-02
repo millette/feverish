@@ -11,7 +11,7 @@ $(function () {
       })
       .map(function (row) { return row.id.split(':')[1] })
       .forEach(function (u) {
-        $tableBody.append('<tr data-uid="' + u + '"><td>' + u + '</td><td><a href="/etudiants/' + u + '">consulter</a></td><td><button type="button" class="button alert">effacer</button></td></tr>')
+        $tableBody.append('<tr data-uid="' + u + '"><td>' + u + '</td><td><a href="/etudiant/' + u + '">consulter</a></td><td><button type="button" class="button alert">effacer</button></td></tr>')
       })
   }
   const query = {
