@@ -5,9 +5,7 @@ $(function () {
   const $tableBody = $('table#studentlist tbody')
   const fn = function (data) {
     data.rows
-      .filter(function (row) {
-        return row.doc.roles.indexOf('teacher') === -1 && row.doc.roles.indexOf('_admin') === -1
-      })
+      .filter(function (row) { return row.doc.roles.indexOf('teacher') === -1 && row.doc.roles.indexOf('_admin') === -1 })
       .forEach(function (row) {
         const u = row.id.split(':')[1]
         const id = 'confirm-delete-' + u.replace(/ /g, '')
@@ -16,7 +14,8 @@ $(function () {
           '<td><a href="/etudiant/' + u + '">consulter</a></td>',
           '<td>',
           '<button type="button" class="button warning" data-toggle="' + id + '">effacer</button>',
-          '<div class="dropdown-pane top" id="' + id + '" data-dropdown data-auto-focus="true" data-close-on-click="true" data-position-class="top">',
+          '<div class="dropdown-pane top" id="' + id,
+          '" data-dropdown data-auto-focus="true" data-close-on-click="true" data-position-class="top">',
           '<button type="button" class="confirm button alert">Effacer ' + u + '</button>',
           '</div>',
           '</td></tr>'
@@ -36,10 +35,11 @@ $(function () {
     const $row = $(this).parents('tr').addClass('callout alert')
     const uid = $row.data('uid')
     const rev = $row.data('rev')
+    // TODO: delete rendus de référence
     $.ajax({
       url: '/_users/org.couchdb.user:' + uid + '?rev=' + rev,
       method: 'DELETE',
-      error: function () { $row.addClass('callout secondary') },
+      error: function () { $row.removeClass('alert').addClass('secondary') },
       success: function () { $row.fadeOut(500, function () { $row.remove() }) }
     })
   })
