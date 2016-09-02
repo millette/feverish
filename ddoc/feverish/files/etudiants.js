@@ -11,8 +11,19 @@ $(function () {
       })
       .map(function (row) { return row.id.split(':')[1] })
       .forEach(function (u) {
-        $tableBody.append('<tr data-uid="' + u + '"><td>' + u + '</td><td><a href="/etudiant/' + u + '">consulter</a></td><td><button type="button" class="button alert">effacer</button></td></tr>')
+        const id = 'confirm-delete-' + u.replace(/ /g, '')
+        $tableBody.append([
+          '<tr data-uid="' + u + '"><td>' + u + '</td>',
+          '<td><a href="/etudiant/' + u + '">consulter</a></td>',
+          '<td>',
+          '<button type="button" class="button warning" data-toggle="' + id + '">effacer</button>',
+          '<div class="dropdown-pane top" id="' + id + '" data-dropdown data-auto-focus="true" data-close-on-click="true" data-position-class="top">',
+          '<button type="button" class="confirm button alert">Effacer ' + u + '</button>',
+          '</div>',
+          '</td></tr>'
+        ].join(''))
       })
+    $tableBody.foundation()
   }
   const query = {
     include_docs: true,
@@ -20,4 +31,13 @@ $(function () {
     endkey: '"org.couchdb.user:\ufff0"'
   }
   $.getJSON('/_users/_all_docs', query, fn)
+
+  $table.on('click', 'button.confirm', function (ev) {
+    const $row = $(this).parents('tr')
+    const uid = $row.data('uid')
+    $row.fadeOut(500, function () {
+      $row.remove()
+      console.log('clicked - removed (FAKE)', uid)
+    })
+  })
 })
