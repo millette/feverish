@@ -3,20 +3,9 @@
 ## Dernier droit
 1. student: view des notes (tous) (lié sur page users)
 1. teacher: move batch users from config to Étudiant submenu (with New Student)
-1. student/teacher: view de toutes les images de références
-(copier les images de référence dans le doc exercice)
-
-## Host it!
-1. nginx (auth, login)
-1. host it publicly (with login)
-
-## Emails
-Sur <http://groupe2016:5985/edit/9f8d8eea13e55d2d4274d30f0715525a> et
-<http://groupe2016:5985/new>
-
-Note: ```groupe2016``` is my local alias with my port.
-Remplace ```http://groupe2016:5985``` with ```https://...```
-and the rest of the proxy subdomain, no port needed.
+1. copier les images de référence dans le doc exercice
+  1. student/teacher: view de toutes les images de référence
+1. host it publicly (nginx ssl with login)
 
 ### À clarifier:
 Quels URL, quelles parties?
@@ -25,7 +14,7 @@ Quels URL, quelles parties?
 1. Remplacer "Éditer" par "Modifier"
 1. Bouton au bas de chaque formulaire: "Enregistrer"
 
-## Next version
+## After initial launch
 1. teacher: edit page instructions
 1. teacher: configurable exercice path (doc._id)
 1. dev: use page.js to enable transitions between pages
@@ -39,3 +28,5 @@ dans les user docs (login est raccourci selon les règles données)
 1. dev: Custom (smaller) jQuery (js)
 1. resize jpegs client-side
 1. teacher: delete users: timed undo?)
+1. import drupal data
+1. replicate last year to create next year
