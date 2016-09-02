@@ -60,7 +60,7 @@ $(function () {
     $(x.origElements).hide()
   })
 
-  $('form').submit(function (ev) {
+  $('form#score-student').submit(function (ev) {
     ev.preventDefault()
     const $form = $(this)
     if (!userDoc.corrections) { userDoc.corrections = { } }
