@@ -10,7 +10,7 @@
 <% data.rows.forEach(function (row) { %>
   <li>
     <h3><%- row.title %> <small><%- row.createdAt.split('T')[0] %></small></h3>
-    <ul class="menu"><%= data.userMenu(row) %></ul>
+    <div class="button-group"><%= data.userMenu(row) %></div>
   </li>
 <% }) %>
 </ol>
