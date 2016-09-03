@@ -11,13 +11,40 @@
 <%= this.breadcrumbs({ title: 'Résultats de ' + data.student, subtitle: data.student, paths: [['etudiants', 'Étudiants']], last: 'Résultats' }) %>
 <% } %>
 <p><i>En cours</i></p>
-<div class="row">
+<table class="hover stack">
+  <thead>
+    <tr>
+      <th width="100">Aperçu</th>
+      <th>Travail</th>
+      <th>Thème</th>
+      <th>Exercice</th>
+      <th>Date</th>
+      <th>Note</th>
+      <th title="Pondération">Sur</th>
+      <th>Sur 100</th>
+      <th>Référence</th>
+    </tr>
+  </thead>
+  <tbody>
   <% data.rows.forEach(function (row) { %>
-    <div class="column small-12 medium-12 large-6 exercice" id="<%- row.doc._id %>">
-    <%= data.exercice(row) %>
-    </div>
+    <tr class="exercice666" id="<%- row.doc._id %>">
+      <td><img src="" alt="Aperçu"></td>
+      <td><%- row.doc.travail || '' %></td>
+      <td><%- row.doc.theme || '' %></td>
+      <% if (data.self) { %>
+      <td><a href="/score/<%- row.doc._id %>"><%- row.doc.title %></a></td>
+      <% } else { %>
+      <td><a href="/corrections/<%- row.doc._id + '/' + data.student %>"><%- row.doc.title %></a></td>
+      <% } %>
+      <td><%- row.doc.createdAt.split('T')[0] %></td>
+      <td title="Cliquez pour lire les commentaires" class="json-note">2</td>
+      <td title="Pondération" class="json-ponderation">3</td>
+      <td class="json-percent">66%</td>
+      <td class="json-reference"><%- Math.random() < .3 ? 'OUI' : '' %></td>
+    </tr>
   <% }) %>
-</div>
+  </tbody>
+</table>
 <%= this.js({ custom: ['etudiant'] }) %>
 </body>
 </html>

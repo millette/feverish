@@ -12,10 +12,8 @@ module.exports = function (head, req, mocks) {
     row.doc.h3 = true
     rows.push(row)
   }
-
   req.userCtx.student = req.query.student || req.userCtx.name
   req.userCtx.self = !req.query.student
   req.userCtx.rows = rows
-  req.userCtx.exercice = tpl.exercice
   send(tpl.etudiant(req.userCtx))
 }
