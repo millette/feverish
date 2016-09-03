@@ -30,3 +30,4 @@ dans les user docs (login est raccourci selon les règles données)
 1. teacher: delete users: timed undo?)
 1. import drupal data
 1. replicate last year to create next year
+1. add sum to students' results pages

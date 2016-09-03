@@ -10,6 +10,7 @@
   <thead>
     <tr>
       <th width="100">Aperçu</th>
+      <th>Référence</th>
       <th>Travail</th>
       <th>Thème</th>
       <th>Exercice</th>
@@ -17,13 +18,13 @@
       <th>Note</th>
       <th title="Pondération">Sur</th>
       <th>Sur 100</th>
-      <th>Référence</th>
     </tr>
   </thead>
   <tbody>
   <% data.rows.forEach(function (row) { %>
     <tr class="exercice" id="<%- row.doc._id %>">
       <td class="json-apercu"><img width="100" src="" alt="Aperçu"></td>
+      <td class="json-reference"></td>
       <td><%- row.doc.travail || '' %></td>
       <td><%- row.doc.theme || '' %></td>
       <% if (data.self) { %>
@@ -40,7 +41,6 @@
       </td>
       <td title="Pondération" class="json-ponderation"></td>
       <td class="json-percent"></td>
-      <td class="json-reference"></td>
     </tr>
   <% }) %>
   </tbody>
