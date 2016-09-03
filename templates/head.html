@@ -16,6 +16,16 @@
 .medium-editor-element { outline: none; }
 </style>
 <% } %>
+
+<% if (data && data.scorelist) { %>
+<style>
+  /* .json-note[data-toggle] { */
+  td > a {
+    display: block;
+  }
+</style>
+<% } %>
+
 <% if (data && data.studentlist) { %>
 <style>
   #studentlist th:first-child {
