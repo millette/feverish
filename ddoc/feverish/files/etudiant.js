@@ -5,13 +5,20 @@ $(function () {
   $.getJSON('/_users/org.couchdb.user:' + student, function (userDoc) {
     var r
     var $me
-    $('.exercice').append('<pre>Aucun résultat</pre>')
-    $('.exercice').parent('tr').hide()
+    $('.exercice').hide()
     if (userDoc.corrections) {
       for (r in userDoc.corrections) {
-        $me = $('pre', '#' + r)
-        $me.text(JSON.stringify(userDoc.corrections[r], null, ' '))
-        $me.parents('.exercice').parent('tr').slideDown()
+        $me = $('#' + r)
+        $('.json-note', $me).text(userDoc.corrections[r].note)
+        $('.json-ponderation', $me).text(userDoc.corrections[r].ponderation)
+        $('.json-percent', $me).text(Math.round(100 * userDoc.corrections[r].note / userDoc.corrections[r].ponderation))
+        $('.json-reference', $me).text(userDoc.corrections[r].reference ? 'référence' : '')
+        if (userDoc._attachments[r + '.jpg']) {
+          $('.json-apercu img', $me).attr('src', '/_users/org.couchdb.user:' + student + '/' + r + '.jpg')
+        } else {
+          $('.json-apercu img', $me).remove()
+        }
+        $me.slideDown()
       }
     }
   })

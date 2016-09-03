@@ -27,8 +27,8 @@
   </thead>
   <tbody>
   <% data.rows.forEach(function (row) { %>
-    <tr class="exercice666" id="<%- row.doc._id %>">
-      <td><img src="" alt="Aperçu"></td>
+    <tr class="exercice" id="<%- row.doc._id %>">
+      <td class="json-apercu"><img width="100" src="" alt="Aperçu"></td>
       <td><%- row.doc.travail || '' %></td>
       <td><%- row.doc.theme || '' %></td>
       <% if (data.self) { %>
