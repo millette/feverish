@@ -1,7 +1,6 @@
 # TODO
 
 ## Dernier droit
-1. teacher: delete exercice
 1. student: view des notes (tous) (lié sur page users)
    1. table with travail, theme, titre, date, note, ponderation, %, comment popup
 1. teacher: move batch users from config to Étudiant submenu (with New Student)
