@@ -1,11 +1,9 @@
 # TODO
 
 ## Dernier droit
-1. student: view des notes (tous) (lié sur page users)
-   1. table with travail, theme, titre, date, note, ponderation, %, comment popup
-1. teacher: move batch users from config to Étudiant submenu (with New Student)
 1. copier les images de référence dans le doc exercice
    1. student/teacher: view de toutes les images de référence
+1. teacher: move batch users from config to Étudiant submenu (with New Student)
 1. teacher: frontpage title bug
 1. host it publicly (nginx ssl with login)
 
