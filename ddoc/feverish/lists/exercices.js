@@ -9,7 +9,11 @@ module.exports = function (head, req, mocks) {
     return [
       '<a class="button" href="/edit/' + row._id + '">Éditer</a>',
       '<a class="button success" href="/corrections/' + row._id + '">Corriger</a>',
-      '<button type="button" class="button warning" data-exid="' + row._id + '">Effacer</button>'
+      '<button type="button" class="button warning" data-toggle="' + row._id + '">Effacer</button>',
+      '<div class="dropdown-pane top" id="' + row._id,
+      '" data-dropdown data-auto-focus="true" data-close-on-click="true" data-position-class="top">',
+      '<button type="button" class="confirm-delete button alert" data-exid="' + row._id + '" data-exrev="' + row._rev + '">Effacer ' + row.title + '</button>',
+      '</div>'
     ].join('')
   }
 

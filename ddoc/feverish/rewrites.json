@@ -103,6 +103,11 @@
     }
   },
   {
+    "method": "DELETE",
+    "from": "delete/:ex",
+    "to": "../../:ex"
+  },
+  {
     "method": "GET",
     "from": "edit/:ex",
     "to": "_show/edit/:ex"
