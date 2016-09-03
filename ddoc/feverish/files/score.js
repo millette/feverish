@@ -10,7 +10,6 @@ $(function () {
   const putFile = function (docUrl, exid, file, forUser) {
     // see http://stackoverflow.com/a/11910333/1154755
     const putRequest = new window.XMLHttpRequest()
-    // TODO: PUT jpg to exercice doc too
     putRequest.open('PUT', docUrl + '/' + exid + '.jpg' + '?rev=' + lastRevs[forUser ? 'userdoc' : 'exdoc'], true)
     putRequest.setRequestHeader('Content-Type', file.type)
     putRequest.onreadystatechange = function (response) {
@@ -40,13 +39,24 @@ $(function () {
     const file2 = $self[0].files[0]
 
     const putRequest = putFile(docUrl, exid, file, true)
-    // TODO: PUT jpg to exercice doc too
+    const putRequestEx = putFile('/ref/' + exid, exid, file)
+
+/*
+http://groupe2016:5985
+* /ref
+* /a952c9b0405c32ff271e02f75401dcc4
+* /a952c9b0405c32ff271e02f75401dcc4.jpg
+* ?rev=2-0e8cf7fabb7fc2dcec9a69a4412ea760
+*/
 
     const fileReader = new window.FileReader()
     fileReader.onload = function (readerEvent) { putRequest.send(readerEvent.target.result) }
     fileReader.readAsArrayBuffer(file)
     const fileReader2 = new window.FileReader()
-    fileReader2.onload = function (readerEvent) { $('#reference-image img')[0].src = fileReader2.result }
+    fileReader2.onload = function (readerEvent) {
+      putRequestEx.send(readerEvent.target.result)
+      $('#reference-image img')[0].src = fileReader2.result
+    }
     fileReader2.readAsDataURL(file2)
   }
 
@@ -59,6 +69,7 @@ $(function () {
 
   const showScore = function (bodyData, userDoc, $score, score) {
     $accordion.show()
+    lastRevs.exdoc = bodyData.exercicerev
     lastRevs.userdoc = userDoc._rev
     score.percent = Math.round(1000 * score.note / score.ponderation) / 10
     $score.addClass('success').html(makeHtml(score))

@@ -108,6 +108,11 @@
     "to": "../../:ex"
   },
   {
+    "method": "PUT",
+    "from": "ref/:ex/*",
+    "to": "../../:ex/*"
+  },
+  {
     "method": "GET",
     "from": "edit/:ex",
     "to": "_show/edit/:ex"
