@@ -10,6 +10,7 @@ $(function () {
       for (r in userDoc.corrections) {
         $me = $('#' + r)
         $('.json-note', $me).text(userDoc.corrections[r].note)
+        $('.json-commentaires', $me).html(userDoc.corrections[r].commentaires)
         $('.json-ponderation', $me).text(userDoc.corrections[r].ponderation)
         $('.json-percent', $me).text(Math.round(100 * userDoc.corrections[r].note / userDoc.corrections[r].ponderation))
         $('.json-reference', $me).text(userDoc.corrections[r].reference ? 'référence' : '')
