@@ -10,11 +10,13 @@ var r
   <% if (!row._attachments) { return } %>
   <div>
     <h3><%- row.title %></h3>
-    <ul class="no-bullet">
+    <div class="row">
       <% for (r in row._attachments) { %>
-      <li><img src="<%- ['/rendu', row._id, r].join('/') %>" alt="rendu de référence pour l'exercice <%- row.title %>"></li>
+      <div class="column small-12 medium-6 large-4">
+      <img class="thumbnail" src="<%- ['/rendu', row._id, r].join('/') %>" alt="rendu de référence pour l'exercice <%- row.title %>">
+      </div>
       <% } %>
-    </ul>
+    </div>
   </div>
 <% }) %>
 <%= this.js() %>

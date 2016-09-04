@@ -1,8 +1,8 @@
 # TODO
 
 ## Dernier droit
-1. teacher: move batch users from config to Étudiant submenu (with New Student)
 1. rendus on 1-2-3 columns, with popout image
+1. teacher: move batch users from config to Étudiant submenu (with New Student)
 1. host it publicly (nginx ssl with login)
 
 ### À clarifier:
