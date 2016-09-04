@@ -31,35 +31,39 @@ $(function () {
   })
 
   const blarg = function () {
-    const docs = {
-      docs: this.result.trim()
-        .split('\n')
-        .map(function (line) {
-          line = line.trim()
-          const ret = line.split('\t').map(function (words) { return words.split(' ')[0] })
-          if (ret.length !== 3) { return }
-          const name = ret[2] + ' ' + ret[1]
-          return {
-            name: name,
-            password: ret[0],
-            type: 'user',
-            roles: ['student'],
-            _id: 'org.couchdb.user:' + name
-          }
+    const self = this
+    $.getJSON('/_uuids?count=50', function (uuids) {
+      const docs = {
+        docs: self.result.trim()
+          .split('\n')
+          .map(function (line, i) {
+            line = line.trim()
+            const ret = line.split('\t').map(function (words) { return words.split(' ')[0] })
+            if (ret.length !== 3) { return }
+            const name = ret[2] + ' ' + ret[1]
+            return {
+              name: name,
+              opaque: uuids.uuids[i],
+              password: ret[0],
+              type: 'user',
+              roles: ['student'],
+              _id: 'org.couchdb.user:' + name
+            }
+          })
+          .filter(function (u) { return u })
+      }
+      if (docs.docs && docs.docs.length) {
+        $.ajax({
+          contentType: 'application/json',
+          dataType: 'json',
+          url: '/_users/_bulk_docs',
+          method: 'POST',
+          data: JSON.stringify(docs),
+          success: fn.bind(null, $input.parents('form')),
+          error: function (a, b, c, d) { console.log('err bulk users', a, b, c, d) }
         })
-        .filter(function (u) { return u })
-    }
-    if (docs.docs && docs.docs.length) {
-      $.ajax({
-        contentType: 'application/json',
-        dataType: 'json',
-        url: '/_users/_bulk_docs',
-        method: 'POST',
-        data: JSON.stringify(docs),
-        success: fn.bind(null, $input.parents('form')),
-        error: function (a, b, c, d) { console.log('err bulk users', a, b, c, d) }
-      })
-    }
+      }
+    })
   }
 
   $input.on('change', function () {
