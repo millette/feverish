@@ -3,41 +3,40 @@
 <% data.active = 'configure' %>
 <%= this.mainmenu(data) %>
 <%= this.breadcrumbs({ title: 'Configurer', last: 'Configurer' }) %>
-<p class="lead">
-Configurer l'autocomplétion de certains champs. Les valeurs disponibles au moment
-de l'autocomplétion incluent les valeurs des autres exercices.</p>
+<p class="lead">Spécifier valeurs autorisées de certains champs.</p>
+<p class="lead">Les valeurs disponibles au moment de l'autocomplétion incluent les valeurs des autres exercices.</p>
 <div class="row collapse">
   <div class="medium-3 columns">
     <ul class="tabs vertical" id="example-vert-tabs" data-tabs>
       <li class="tabs-title is-active"><a href="#panel1v" aria-selected="true">Thèmes</a></li>
       <li class="tabs-title"><a href="#panel2v">Travaux</a></li>
-      <li class="tabs-title"><a href="#panel3v">Étudiants</a></li>
+      <li class="tabs-title"><a href="#panel3v">ÉtudiantEs</a></li>
     </ul>
   </div>
   <div class="medium-9 columns">
     <div class="tabs-content vertical" data-tabs-content="example-vert-tabs">
       <div class="tabs-panel is-active" id="panel1v">
         <form class="configure" method="post">
-          <h3>Configurer les thèmes</h3>
+          <h3>Spécifier les thèmes</h3>
           <div class="row">
             <div class="column small-8">
               <textarea name="theme" rows="10"><%- data.theme && data.theme.length && data.theme.join('\n') || '' %></textarea>
             </div>
             <div class="column small-4">
-              <input class="button secondary" type="submit" value="Soumettre">
+              <input class="button secondary" type="submit" value="Enregistrer">
             </div>
           </div>
         </form>
       </div>
       <div class="tabs-panel" id="panel2v">
         <form class="configure" method="post">
-          <h3>Configurer les travaux</h3>
+          <h3>Spécifier les travaux</h3>
           <div class="row">
             <div class="column small-8">
               <textarea name="travail" rows="10"><%- data.travail && data.travail.length && data.travail.join('\n') || '' %></textarea>
             </div>
             <div class="column small-4">
-              <input class="button secondary" type="submit" value="Soumettre">
+              <input class="button secondary" type="submit" value="Enregistrer">
             </div>
           </div>
         </form>
@@ -50,7 +49,7 @@ de l'autocomplétion incluent les valeurs des autres exercices.</p>
               <input type="file">
             </div>
             <div class="column small-4">
-              <input class="button secondary" type="submit" value="Soumettre">
+              <input class="button secondary" type="submit" value="Enregistrer">
             </div>
           </div>
         </form>
