@@ -3,7 +3,7 @@
   "config": {
     "dburl": "http://localhost:5985/groupe2016"
   },
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "Portfolio",
   "main": "index.js",
   "bin": "cli.js",
