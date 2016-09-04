@@ -8,18 +8,15 @@ module.exports = function (newDoc, oldDoc, userCtx, secObj, mocks) {
   const kn = Object.keys(newDoc).filter(internal).sort()
   const ouch = (err) => { throw err }
 
-  mocks.log(userCtx)
-  mocks.log(kn)
-
   const validateStudent = function () {
     const currentAtt = []
     var r
     const ko = Object.keys(oldDoc).filter(internal).sort()
     if (userCtx.roles.indexOf('student') !== -1) {
-      mocks.log(ko)
-
       // docs must have the same fields
       if (!ko.length || ko.length !== kn.length || ko.join('}{') !== kn.join('}{')) { ouch({ forbidden: 'student, can\'t touch this' }) }
+
+      // we're expecting a single jpeg
       if (!newDoc._attachments) { ouch({ forbidden: 'expecting a jpeg from student' }) }
       for (r in newDoc._attachments) { if (newDoc._attachments[r].revpos === 0) { currentAtt.push(r) } }
       if (currentAtt.length !== 1 || currentAtt[0].slice(-4) !== '.jpg') { ouch({ forbidden: 'expecting a (single) jpeg from student' }) }
