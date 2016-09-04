@@ -9,6 +9,9 @@
 <% data && data.custom && data.custom.forEach(function (css) { %>
 <link rel="stylesheet" href="/css/<%- css %>.css"></script>
 <% }) %>
+<% if (data && data.motionui) { %>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/motion-ui/1.2.2/motion-ui.min.css" />
+<% } %>
 <% if (data && data.medium) { %>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/medium-editor/5.21.1/css/themes/mani.min.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/medium-editor/5.21.1/css/medium-editor.min.css">

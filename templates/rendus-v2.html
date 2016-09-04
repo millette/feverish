@@ -1,0 +1,37 @@
+<%= this.head({ motionui: true, title: 'Les rendus de référence' }) %>
+<body>
+<%
+data.active = 'rendus'
+var r
+%>
+<%= this.mainmenu(data) %>
+<%= this.breadcrumbs({ title: 'Les rendus de référence', last: 'Rendus' }) %>
+<div class="small expanded button-group">
+  <a class="button hollow" href="/rendus">Sur 3 colonnes</a>
+  <a class="button" href="/rendus/v2">Version actuelle</a>
+</div>
+<% data.rows.forEach(function (row) { %>
+  <% if (!row._attachments) { return } %>
+  <div>
+    <h3><%- row.title %></h3>
+    <div class="orbit" role="region" aria-label="<%- row.title %>" data-orbit>
+      <ul class="orbit-container">
+        <button class="orbit-previous"><span class="show-for-sr">Suivant</span>&#9664;&#xFE0E;</button>
+        <button class="orbit-next"><span class="show-for-sr">Précédent</span>&#9654;&#xFE0E;</button>
+        <% for (r in row._attachments) { %>
+        <li class="is-active orbit-slide">
+          <img class="orbit-image" src="<%- ['/rendu', row._id, r].join('/') %>" alt="rendu de référence pour l'exercice <%- row.title %>">
+        </li>
+        <% } %>
+      </ul>
+      <nav class="orbit-bullets">
+        <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span></button>
+        <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
+        <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
+      </nav>
+    </div>
+  </div>
+<% }) %>
+<%= this.js() %>
+</body>
+</html>
