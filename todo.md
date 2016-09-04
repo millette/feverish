@@ -1,6 +1,7 @@
 # TODO
 
 ## Dernier droit
+1. add 2 fields to users: firstname, lastname
 1. teacher: move batch users from config to Étudiant submenu (with New Student)
 1. host it publicly (nginx ssl with login)
 
