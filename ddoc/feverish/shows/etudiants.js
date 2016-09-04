@@ -12,5 +12,7 @@ module.exports = function (doc, req) {
     req.userCtx.student = req.query.user
     return tpl.etudiant(req.userCtx)
   }
+
+  req.userCtx.fixer = req.query.fixer
   return tpl.etudiants(req.userCtx)
 }

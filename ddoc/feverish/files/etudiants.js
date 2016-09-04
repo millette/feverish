@@ -5,6 +5,8 @@ $(function () {
   var allUsers
 
   const $tableBody = $('table#studentlist tbody')
+
+  const fixer = $tableBody.data('fixer')
   const fn = function (data) {
     allUsers = data.rows.filter(function (row) { return row.doc.roles.indexOf('teacher') === -1 && row.doc.roles.indexOf('_admin') === -1 })
     allUsers.forEach(function (row, i) {
@@ -12,7 +14,10 @@ $(function () {
       const id = 'confirm-delete-' + u.replace(/ /g, '')
       $tableBody.append([
         '<tr data-rowi="' + i + '" data-rev="' + row.value.rev + '" data-uid="' + u + '">',
-        '<td>' + u + ' <small>' + (row.doc.opaque || '<button class="fix-opaque button secondary" type="button">fix opaque</button>') + '</small></td>',
+        (fixer
+          ? ('<td>' + u + ' <small>' + (row.doc.opaque || '<button class="fix-opaque button secondary" type="button">fix opaque</button>') + '</small></td>')
+          : ('<td>' + u + '</td>')
+        ),
         '<td><a href="/etudiant/' + u + '">consulter</a></td>',
         '<td>',
         '<button type="button" class="button warning" data-toggle="' + id + '">effacer</button>',

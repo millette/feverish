@@ -10,7 +10,7 @@
 <thead>
 <tr><th>Login</th><th>Consulter</th><th>Effacer</th></tr>
 </thead>
-<tbody>
+<tbody<%- data.fixer ? ' data-fixer="true"' : '' %>>
 </tbody>
 </table>
 <%= this.js({ custom: ['etudiants'] }) %>
