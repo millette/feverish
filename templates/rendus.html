@@ -18,7 +18,7 @@ var r
     <div class="row">
       <% for (r in row._attachments) { %>
       <div class="column small-12 medium-6 large-4">
-      <img class="thumbnail" src="<%- ['/rendu', row._id, r].join('/') %>" alt="rendu de référence pour l'exercice <%- row.title %>">
+      <a href="<%- ['/rendu', row._id, r].join('/') %>"><img class="thumbnail" src="<%- ['/rendu', row._id, r].join('/') %>" alt="rendu de référence pour l'exercice <%- row.title %>"></a>
       </div>
       <% } %>
     </div>
