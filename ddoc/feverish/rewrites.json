@@ -11,7 +11,11 @@
   },
   {
     "from": "rendus",
-    "to": "_show/notyet"
+    "to": "_list/rendus/exercices",
+    "query": {
+      "include_docs": "true",
+      "descending": "true"
+    }
   },
   {
     "from": "etudiants/new",
@@ -108,6 +112,11 @@
       "include_docs": "true",
       "descending": "true"
     }
+  },
+  {
+    "method": "GET",
+    "from": "rendu/:ex/*",
+    "to": "../../:ex/*"
   },
   {
     "method": "DELETE",

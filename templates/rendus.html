@@ -1,0 +1,23 @@
+<%= this.head({ title: 'Les rendus de référence' }) %>
+<body>
+<%
+data.active = 'rendus'
+var r
+%>
+<%= this.mainmenu(data) %>
+<%= this.breadcrumbs({ title: 'Les rendus de référence', last: 'Rendus' }) %>
+<% data.rows.forEach(function (row) { %>
+  <% if (!row._attachments) { return } %>
+  <div>
+    <h3><%- row.title %> <small><%- row.createdAt %></small></h3>
+    <ul class="no-bullet">
+      <% for (r in row._attachments) { %>
+      <li><img class="thumbnail" width="200" src="<%- ['/rendu', row._id, r].join('/') %>" alt="rendu de référence pour l'exercice <%- row.title %>"></li>
+      <% } %>
+    </ul>
+  </div>
+<% }) %>
+<%= this.js() %>
+
+</body>
+</html>
