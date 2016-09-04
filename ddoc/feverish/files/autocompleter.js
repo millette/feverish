@@ -38,13 +38,15 @@ $(function () {
           .split('\n')
           .map(function (line, i) {
             line = line.trim()
-            const ret = line.split('\t').map(function (words) { return words.split(' ')[0] })
+            const ret = line.split('\t').map(function (words) { return words.split(' ') })
             if (ret.length !== 3) { return }
-            const name = ret[2] + ' ' + ret[1]
+            const name = ret[2][0] + ' ' + ret[1][0]
             return {
               name: name,
+              firstname: ret[2].join(' '),
+              lastname: ret[1].join(' '),
               opaque: uuids.uuids[i],
-              password: ret[0],
+              password: ret[0][0],
               type: 'user',
               roles: ['student'],
               _id: 'org.couchdb.user:' + name
