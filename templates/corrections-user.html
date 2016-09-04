@@ -1,8 +1,8 @@
-<%= this.head({ medium: true, title: 'Corrections de ' + data.query.user }) %>
+<%= this.head({ medium: true, title: 'Corriger exercice de ' + data.query.user }) %>
 <body data-exercice="<%- data.doc._id %>" data-student="<%- data.query.user %>" data-ponderation="<%- data.doc.ponderation %>">
 <%= this.mainmenu(data) %>
 <%= this.breadcrumbs({
-  title: 'Corrections d\'exercice de ' + data.query.user,
+  title: 'Corriger exercice de ' + data.query.user,
   last: data.query.user,
   paths: [
     ['exercices', 'Exercices'],
@@ -28,12 +28,12 @@
         </div>
         <div class="small-8 column medium-6">
           <textarea rows="10" id="commentaires-label" name="commentaires" required></textarea>
-          <p class="help-text" id="commentairesHelpText">Éditeur WYSIWYG, sélectionnez du texte pour le styler.</p>
+          <p class="help-text" id="commentairesHelpText">Sélectionnez du texte pour le styler.</p>
         </div>
       </div>
       <div class="row">
         <div class="small-4 column medium-6">
-          <label for="reference-label" class="text-right">Référence</label>
+          <label for="reference-label" class="text-right">Rendu de référence</label>
         </div>
         <div class="small-8 column medium-6">
           <input type="checkbox" id="reference-label" name="reference" value="">
