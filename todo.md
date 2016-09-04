@@ -2,12 +2,14 @@
 
 ## Dernier droit
 1. teacher: move batch users from config to Étudiant submenu (with New Student)
-1. teacher: frontpage title bug
+1. review alain patches
+1. rendus on 1-2-3 columns, with popout image
 1. host it publicly (nginx ssl with login)
 
 ### À clarifier:
 Quels URL, quelles parties?
 
+1. teacher: frontpage title bug
 1. Remplacer label "Titre" par "Exercice"
 1. Remplacer "Éditer" par "Modifier"
 1. Bouton au bas de chaque formulaire: "Enregistrer"
