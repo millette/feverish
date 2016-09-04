@@ -18,6 +18,15 @@
     }
   },
   {
+    "from": "rendus/v2",
+    "to": "_list/rendus/exercices",
+    "query": {
+      "include_docs": "true",
+      "descending": "true",
+      "v2": "rendus-v2"
+    }
+  },
+  {
     "from": "etudiants/new",
     "to": "_show/etudiants-new"
   },
