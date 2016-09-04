@@ -1,16 +1,13 @@
 /* globals $ */
 $(function () {
   'use strict'
-
   const $input = $('input[type="file"]')
-
   const fn = function ($who, a, b, c, d) {
     const $sub = $('input[type="submit"]', $who)
     $sub.val('Merci!')
     $sub.removeClass('secondary')
     $sub.addClass('success')
   }
-
   const blarg = function () {
     const self = this
     $.getJSON('/_uuids?count=50', function (uuids) {
@@ -48,7 +45,6 @@ $(function () {
       }
     })
   }
-
   $input.on('change', function () {
     const f = this.files[0]
     if (f.type !== 'text/plain') { return }

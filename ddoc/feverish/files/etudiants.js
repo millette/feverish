@@ -1,11 +1,8 @@
 /* globals $ */
 $(function () {
   'use strict'
-
   var allUsers
-
   const $tableBody = $('table#studentlist tbody')
-
   const fixer = $tableBody.data('fixer')
   const fn = function (data) {
     allUsers = data.rows.filter(function (row) { return row.doc.roles.indexOf('teacher') === -1 && row.doc.roles.indexOf('_admin') === -1 })
