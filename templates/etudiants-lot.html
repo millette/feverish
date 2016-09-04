@@ -2,7 +2,30 @@
 <body>
 <%= this.mainmenu(data) %>
 <%= this.breadcrumbs({ title: 'ÉtudiantEs en lot', paths: [['etudiants', 'Étudiants']], last: 'Lot' }) %>
-<p><i>À venir...</i> Voir <a href="/configure">configuration</a> pour le moment.</p>
-<%= this.js() %>
+<p class="lead">Téléverser un fichier délimité par des tabulations avec sur chaque ligne ces trois champs dans l'ordre:</p>
+<ol>
+  <li>Matricule</li>
+  <li>Nom de famille</li>
+  <li>Prénom</li>
+</ol>
+<p>Le nom affiché et utilisé pour se connecter est composé du premier mot du prénom
+suivi du premier mot du nom de famille. Par exemple, <b>Jean Charles Légaré</b>
+sera affiché comme <b>Jean Légaré</b> tandis que <b>Jean-Yves Légaré</b> sera
+<b>Jean-Yves Légaré</b>.</p>
+<div class="row">
+  <div class="column small-12 medium-10 medium-offset-1 large-6 large-offset-3">
+    <form>
+      <div class="row">
+        <div class="column small-8">
+          <input type="file">
+        </div>
+        <div class="column small-4">
+          <input class="button secondary" type="submit" value="Enregistrer">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<%= this.js({ custom: ['etudiants-lot'] }) %>
 </body>
 </html>
