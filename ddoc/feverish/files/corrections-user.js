@@ -31,7 +31,7 @@ $(function () {
     include_docs: true
   }
 
-  const getRef = function (data) {
+  const getNext = function (data) {
     nextUser = data.rows.filter(function (row) {
       return row.doc.roles.indexOf('student') !== -1 &&
         row.doc.name !== bodyData.student &&
@@ -40,12 +40,13 @@ $(function () {
     .map(function (row) { return row.doc })[0]
   }
 
-  $.getJSON('/_users/_all_docs', userQuery, getRef)
+  $.getJSON('/_users/_all_docs', userQuery, getNext)
 
   $.getJSON('/_users/org.couchdb.user:' + bodyData.student, function (ud) {
     const $ed = $('#commentaires-label')
     var x
     userDoc = ud
+    $('#reference-label').val(userDoc.opaque)
     const exData = userDoc.corrections && userDoc.corrections[bodyData.exercice]
     if (exData) {
       $('#note-label').val(exData.note)
