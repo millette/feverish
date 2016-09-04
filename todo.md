@@ -1,7 +1,6 @@
 # TODO
 
 ## Dernier droit
-1. student/teacher: view de toutes les images de référence
 1. teacher: move batch users from config to Étudiant submenu (with New Student)
 1. teacher: frontpage title bug
 1. host it publicly (nginx ssl with login)
