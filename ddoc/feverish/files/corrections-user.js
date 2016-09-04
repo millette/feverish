@@ -41,7 +41,6 @@ $(function () {
   }
 
   $.getJSON('/_users/_all_docs', userQuery, getNext)
-
   $.getJSON('/_users/org.couchdb.user:' + bodyData.student, function (ud) {
     const $ed = $('#commentaires-label')
     var x
@@ -64,8 +63,19 @@ $(function () {
   $('form#score-student').submit(function (ev) {
     ev.preventDefault()
     const $form = $(this)
+    const theScore = score($form, bodyData.ponderation)
+    const refRole = [
+      'ref',
+      bodyData.exercice,
+      userDoc.opaque + '.jpg'
+    ].join(':')
     if (!userDoc.corrections) { userDoc.corrections = { } }
-    userDoc.corrections[bodyData.exercice] = score($form, bodyData.ponderation)
+    userDoc.corrections[bodyData.exercice] = theScore
+    if (userDoc.corrections[bodyData.exercice].reference) {
+      userDoc.roles.push(refRole)
+    } else {
+      userDoc.roles = userDoc.roles.filter(function (x) { return x !== refRole })
+    }
     const errorFn = function (a, b, c) { console.log('errorFn', a, b, c) }
     const successFn = function (a, b, c) {
       $('input[type="submit"]').addClass('success').val('Merci!')
