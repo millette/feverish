@@ -9,10 +9,10 @@ var r
 <% data.rows.forEach(function (row) { %>
   <% if (!row._attachments) { return } %>
   <div>
-    <h3><%- row.title %> <small><%- row.createdAt %></small></h3>
+    <h3><%- row.title %></h3>
     <ul class="no-bullet">
       <% for (r in row._attachments) { %>
-      <li><img class="thumbnail" width="200" src="<%- ['/rendu', row._id, r].join('/') %>" alt="rendu de référence pour l'exercice <%- row.title %>"></li>
+      <li><img src="<%- ['/rendu', row._id, r].join('/') %>" alt="rendu de référence pour l'exercice <%- row.title %>"></li>
       <% } %>
     </ul>
   </div>
