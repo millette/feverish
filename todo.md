@@ -3,14 +3,6 @@
 ## Dernier droit
 1. host it publicly (nginx ssl with login)
 
-### À clarifier:
-Quels URL, quelles parties?
-
-1. teacher: frontpage title bug
-1. Remplacer label "Titre" par "Exercice"
-1. Remplacer "Éditer" par "Modifier"
-1. Bouton au bas de chaque formulaire: "Enregistrer"
-
 ## After initial launch
 1. teacher: edit page instructions
 1. teacher: configurable exercice path (doc._id)
@@ -19,8 +11,6 @@ Quels URL, quelles parties?
 1. teacher: Pre-add h1 to frontpage editor
 1. Pager (for very long pages (> 20 items))
 1. Notez les matricules en clair?
-1. Notez les noms complets (champ ```fullname```)
-dans les user docs (login est raccourci selon les règles données)
 1. dev: Custom (smaller) Foundation (css/js)
 1. dev: Custom (smaller) jQuery (js)
 1. resize jpegs client-side
