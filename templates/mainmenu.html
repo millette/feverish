@@ -8,7 +8,7 @@
       <li<%= data.active === 'accueil' ? ' class="active"' : '' %>><a href="/">Accueil</a></li>
       <% if (data.roles.indexOf('teacher') !== -1 || data.roles.indexOf('_admin') !== -1) { %>
       <li<%= data.active === 'etudiants' ? ' class="active"' : '' %>>
-        <a href="/etudiants">ÉtudiantEs</a>
+        <a href="/etudiants">Étudiants</a>
         <ul class="menu">
           <li><a href="/etudiants/new">Inscrire</a></li>
           <li><a href="/etudiants/lot">Inscrire en lot</a></li>
