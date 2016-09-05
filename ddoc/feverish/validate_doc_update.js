@@ -11,8 +11,8 @@ module.exports = function (newDoc, oldDoc, userCtx, secObj, mocks) {
   const validateStudent = function () {
     const currentAtt = []
     var r
-    const ko = Object.keys(oldDoc).filter(internal).sort()
     if (userCtx.roles.indexOf('student') === -1) { return false }
+    const ko = Object.keys(oldDoc).filter(internal).sort()
     // docs must have the same fields
     if (!ko.length || ko.length !== kn.length || ko.join('}{') !== kn.join('}{')) { ouch({ forbidden: 'student, can\'t touch this' }) }
 
