@@ -10,14 +10,14 @@
       <li<%= data.active === 'etudiants' ? ' class="active"' : '' %>>
         <a href="/etudiants">ÉtudiantEs</a>
         <ul class="menu">
-          <li><a href="/etudiants/new">Inscription</a></li>
-          <li><a href="/etudiants/lot">Inscription en lot</a></li>
+          <li><a href="/etudiants/new">Inscrire</a></li>
+          <li><a href="/etudiants/lot">Inscrire en lot</a></li>
         </ul>
       </li>
       <li<%= data.active === 'exercices' ? ' class="active"' : '' %>>
         <a href="/exercices">Exercices</a>
         <ul class="menu">
-          <li><a href="/new">Nouveau</a></li>
+          <li><a href="/new">Créer un exercice</a></li>
         </ul>
       </li>
       <% } else { %>
@@ -25,7 +25,7 @@
         <a href="/exercices">Exercices</a>
       </li>
       <% } %>
-      <li<%= data.active === 'rendus' ? ' class="active"' : '' %>><a href="/rendus">Rendus</a></li>
+      <li<%= data.active === 'rendus' ? ' class="active"' : '' %>><a href="/rendus">Rendus de référence</a></li>
     </ul>
   </div>
   <div class="top-bar-right">
