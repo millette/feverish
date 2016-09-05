@@ -1,10 +1,10 @@
-<%= this.head({ studentlist: true, title: 'Liste des étudiantEs' }) %>
+<%= this.head({ studentlist: true, title: 'Liste des étudiants' }) %>
 <body>
 <%= this.mainmenu({ roles: data.roles, active: 'etudiants', name: data.name }) %>
-<%= this.breadcrumbs({ title: 'Liste des étudiantEs', last: 'Étudiants' }) %>
+<%= this.breadcrumbs({ title: 'Liste des étudiants', last: 'Étudiants' }) %>
 <p>
-<a class="button hollow" href="/etudiants/new">Nouvel étudiantE</a>
-<a class="button hollow" href="/etudiants/lot">Inscrire des étudiantEs en lot</a>
+<a class="button hollow" href="/etudiants/new">Nouvel étudiant</a>
+<a class="button hollow" href="/etudiants/lot">Inscrire des étudiants en lot</a>
 </p>
 <table id="studentlist" class="hover">
 <thead>
