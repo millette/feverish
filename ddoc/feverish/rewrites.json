@@ -10,7 +10,7 @@
     "to": "/_update/bienvenue/accueil"
   },
   {
-    "from": "rendus",
+    "from": "rendus/v2",
     "to": "_list/rendus/exercices",
     "query": {
       "include_docs": "true",
@@ -18,7 +18,7 @@
     }
   },
   {
-    "from": "rendus/v2",
+    "from": "rendus",
     "to": "_list/rendus/exercices",
     "query": {
       "include_docs": "true",

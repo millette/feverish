@@ -6,10 +6,6 @@ var r
 %>
 <%= this.mainmenu(data) %>
 <%= this.breadcrumbs({ title: 'Les rendus de référence', last: 'Rendus' }) %>
-<div class="small expanded button-group">
-  <a class="button hollow" href="/rendus">Sur 3 colonnes</a>
-  <a class="button" href="/rendus/v2">Version actuelle</a>
-</div>
 <% data.rows.forEach(function (row) { %>
   <% if (!row._attachments) { return } %>
   <div>
