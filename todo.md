@@ -2,6 +2,7 @@
 
 ## Dernier droit
 1. teacher: Pre-add h1 to frontpage editor (bugfix)
+1. Add a couple of images to frontpage template
 1. Fit carousel images to screen size (cropping??)
 1. Fix validate_doc_update() to handle replication
 1. determine (sub)domain name
