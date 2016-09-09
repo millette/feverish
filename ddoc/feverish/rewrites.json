@@ -81,6 +81,10 @@
     "to": ":css"
   },
   {
+    "from": "img/:img",
+    "to": ":img"
+  },
+  {
     "from": "score/:ex",
     "to": "_show/score/:ex"
   },
