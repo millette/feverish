@@ -15,9 +15,9 @@
       <th>Thème</th>
       <th>Exercice</th>
       <th>Date</th>
-      <th>Note</th>
-      <th title="Pondération">Sur</th>
-      <th>Sur 100</th>
+      <th class="text-right">Note</th>
+      <th class="text-right" title="Pondération">Sur</th>
+      <th class="text-right">Sur 100</th>
     </tr>
   </thead>
   <tbody>
@@ -33,12 +33,12 @@
       <td><a href="/corrections/<%- row.doc._id + '/' + data.student %>"><%- row.doc.title %></a></td>
       <% } %>
       <td><%- row.doc.createdAt.split('T')[0] %></td>
-      <td title="Cliquez pour lire les commentaires">
+      <td class="text-right" title="Cliquez pour lire les commentaires">
           <a class="json-note" href="#" data-toggle="toggle-<%- row.doc._id %>"></a>
           <div class="json-commentaires dropdown-pane top" id="toggle-<%- row.doc._id %>" data-dropdown data-auto-focus="true" data-close-on-click="true" data-position-class="top"></div>
       </td>
-      <td title="Pondération" class="json-ponderation"></td>
-      <td class="json-percent"></td>
+      <td title="Pondération" class="text-right json-ponderation"></td>
+      <td class="text-right json-percent"></td>
     </tr>
   <% }) %>
   </tbody>
