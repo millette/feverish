@@ -8,15 +8,11 @@ $(function () {
   $saver = $('h1.title:first-child > button')
 
   const show = function (maybe) {
-    var title
     if (maybe) {
       $('#main-editor *').removeClass('lead')
       $('#main-editor > p').first().addClass('lead')
       if (!dirty) { return }
     } else {
-      title = $('#main-editor > h1').text()
-      console.log('title', title)
-      if (title) { $('h1.title > span').text(title) }
       dirty = true
     }
     $saver.show()
@@ -31,7 +27,7 @@ $(function () {
   const x = new MediumEditor($ed[0], {
     autoLink: true,
     placeholder: { text: 'Tapez votre texte ici.' },
-    toolbar: { buttons: ['h1', 'h2', 'h3', 'bold', 'italic', 'orderedlist', 'unorderedlist', 'quote'] }
+    toolbar: { buttons: ['h2', 'h3', 'h4', 'bold', 'italic', 'orderedlist', 'unorderedlist', 'quote'] }
   })
 
   x.subscribe('blur', show.bind(null, true))
@@ -44,7 +40,6 @@ $(function () {
       if (a !== 'ok') { return console.log('saved error', a, b, c, d) }
       dirty = false
       $saver.hide()
-      $('#main-editor > h1').remove()
     }
 
     $.ajax({
