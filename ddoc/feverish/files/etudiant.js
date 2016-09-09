@@ -29,9 +29,9 @@ $(function () {
         sums.note += userDoc.corrections[r].note
         sums.ponderation += userDoc.corrections[r].ponderation
       }
-      $el1 = $('<tr><th colspan="6">Total</th><th class="text-right">' +
-        sums.note + '</th><th class="text-right">' + sums.ponderation +
-        '</th><th class="text-right">' + Math.round(100 * sums.note / sums.ponderation) + '</th>')
+      $el1 = $('<tr><th colspan="6">Total</th><th class="json-note">' +
+        sums.note + '</th><th class="json-ponderation">' + sums.ponderation +
+        '</th><th class="json-percent">' + Math.round(100 * sums.note / sums.ponderation) + '</th>')
       $tbody.append($el1)
     }
   })

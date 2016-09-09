@@ -29,24 +29,17 @@ h3 { margin-top: 1.75rem; margin-bottom: 0.75rem; }
 
 <% if (data && data.scorelist) { %>
 <style>
-  td > a {
-    display: block;
-  }
+  td > a { display: block; }
+  .json-commentaires { position: absolute; }
+  .json-ponderation, .json-note, .json-percent { text-align: right }
 </style>
 <% } %>
 
 <% if (data && data.studentlist) { %>
 <style>
-  #studentlist th:first-child {
-    width: 12em;
-  }
-  #studentlist th {
-    width: 10em;
-  }
-
-  .dropdown-pane.top {
-    width: 15em;
-  }
+  #studentlist th:first-child { width: 12em; }
+  #studentlist th { width: 10em; }
+  .dropdown-pane.top { width: 15em; }
 </style>
 <% } %>
 <title><%- data && data.title || 'Portfolio de rendus' %></title>
