@@ -3,8 +3,14 @@ $(function () {
   'use strict'
   const student = $('body').data('student')
   $.getJSON('/_users/org.couchdb.user:' + student, function (userDoc) {
+    const sums = {
+      note: 0,
+      ponderation: 0
+    }
+    const $tbody = $('tbody')
     var r
     var $me
+    var $el1
     $('.exercice').hide()
     if (userDoc.corrections) {
       for (r in userDoc.corrections) {
@@ -20,7 +26,13 @@ $(function () {
           $('.json-apercu img', $me).remove()
         }
         $me.slideDown()
+        sums.note += userDoc.corrections[r].note
+        sums.ponderation += userDoc.corrections[r].ponderation
       }
+      $el1 = $('<tr><th colspan="6">Total</th><th>' + sums.note +
+        '</th><th>' + sums.ponderation + '</th><th>' +
+        Math.round(100 * sums.note / sums.ponderation) + '</th>')
+      $tbody.append($el1)
     }
   })
 })

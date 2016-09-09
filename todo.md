@@ -1,9 +1,9 @@
 # TODO
 
 ## Dernier droit
+1. add sum to students' results pages
 1. Fit carousel images to screen size (cropping??)
 1. Fix validate_doc_update() to handle replication
-1. determine (sub)domain name
 1. host it publicly (nginx ssl with login)
 
 ## After initial launch
@@ -19,4 +19,3 @@
 1. teacher: delete users: timed undo?)
 1. import drupal data
 1. replicate last year to create next year
-1. add sum to students' results pages
