@@ -2,30 +2,37 @@
 <body>
 <%
 data.active = 'rendus'
-var r
+// var r
+var keys
 %>
 <%= this.mainmenu(data) %>
 <%= this.breadcrumbs({ title: 'Les rendus de référence', last: 'Rendus' }) %>
 <% data.rows.forEach(function (row) { %>
-  <% if (!row._attachments) { return } %>
+  <%
+  if (!row._attachments) { return }
+  keys = Object.keys(row._attachments)
+  %>
   <div>
     <h3><%- row.title %></h3>
     <div class="orbit" role="region" aria-label="<%- row.title %>" data-orbit>
       <ul class="orbit-container">
         <button class="orbit-previous"><span class="show-for-sr">Suivant</span>&#9664;&#xFE0E;</button>
         <button class="orbit-next"><span class="show-for-sr">Précédent</span>&#9654;&#xFE0E;</button>
-        <% for (r in row._attachments) { %>
+        <!-- % for (r in row._attachments) { % -->
+        <% keys.forEach(function (r) { %>
         <li class="is-active orbit-slide">
           <img class="orbit-image" src="<%- ['/rendu', row._id, r].join('/') %>" alt="rendu de référence pour l'exercice <%- row.title %>">
         </li>
-        <% } %>
+        <% }) %>
       </ul>
+      <% if (keys.length > 1) { %>
       <nav class="orbit-bullets">
         <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Image #1</span></button>
-        <% Object.keys(row._attachments).slice(1).forEach(function (at, i) { %>
+        <% keys.slice(1).forEach(function (at, i) { %>
         <button data-slide="<%- i + 1 %>"><span class="show-for-sr">Image #<%- i + 1 %></span></button>
         <% }) %>
       </nav>
+      <% } %>
     </div>
   </div>
 <% }) %>
