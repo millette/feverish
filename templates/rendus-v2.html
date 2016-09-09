@@ -23,7 +23,7 @@ var r
       <nav class="orbit-bullets">
         <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Image #1</span></button>
         <% Object.keys(row._attachments).slice(1).forEach(function (at, i) { %>
-        <button data-slide="<%- i %>"><span class="show-for-sr">Image #<%- i + 1 %></span></button>
+        <button data-slide="<%- i + 1 %>"><span class="show-for-sr">Image #<%- i + 1 %></span></button>
         <% }) %>
       </nav>
     </div>
