@@ -15,6 +15,7 @@ $(function () {
     if (userDoc.corrections) {
       for (r in userDoc.corrections) {
         $me = $('#' + r)
+        if (!$me.length) { continue }
         $('.json-note', $me).text(userDoc.corrections[r].note)
         $('.json-commentaires', $me).html(userDoc.corrections[r].commentaires)
         $('.json-ponderation', $me).text(userDoc.corrections[r].ponderation)
