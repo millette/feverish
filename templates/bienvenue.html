@@ -2,10 +2,14 @@
 <body>
 <% data.active = 'accueil' %>
 <%= this.mainmenu(data) %>
+<div id="header" class="row column text-center">
+<img src="/img/header.png" alt="entête">
+</div>
 <%= this.breadcrumbs({ title: data.title }) %>
 <div<%= data.editor ? ' id="main-editor"' : '' %>>
 <%= data.content %>
 </div>
+<div><img src="/img/exemple.jpg" alt="exemple de rendu"></div>
 <%= this.js({ medium: data.editor }) %>
 <% if (data.editor) { %>
 <script type="text/javascript" src="/js/editor.js"></script>
