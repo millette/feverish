@@ -1,9 +1,5 @@
 # TODO
 
-## Dernier droit
-1. Fix validate_doc_update() to handle replication
-1. host it publicly (nginx ssl with login)
-
 ## After initial launch
 1. teacher: edit page instructions
 1. teacher: configurable exercice path (doc._id)
@@ -19,6 +15,7 @@
 1. replicate last year to create next year (nb: pas toujours pareils).
 1. Fit carousel images to screen size (pad or crop)
 1. Scores page table is pushing content out of view (comment toggle)
+1. Fix validate_doc_update() to handle replication
 
 ## Ajouts d'Alain
 1. Hook(s) to allow css styling locally, without recompiling Foundation.
@@ -29,3 +26,4 @@
 6. Lorsqu'on supprime un exercice, alors supprimer tous les rendus de cet exercice.
 7. Make title of exercise into an autocomplete, in page "exercice/new".
 8. Add list of exercise titles to page "Configurer" of prof.
+
