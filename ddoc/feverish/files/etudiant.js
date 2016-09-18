@@ -21,7 +21,7 @@ $(function () {
         $('.json-ponderation', $me).text(userDoc.corrections[r].ponderation)
         $('.json-percent', $me).text(Math.round(100 * userDoc.corrections[r].note / userDoc.corrections[r].ponderation))
         $('.json-reference', $me).text(userDoc.corrections[r].reference ? 'référence' : '')
-        if (userDoc._attachments[r + '.jpg']) {
+        if (userDoc._attachments && userDoc._attachments[r + '.jpg']) {
           $('.json-apercu img', $me).attr('src', '/_users/org.couchdb.user:' + student + '/' + r + '.jpg')
         } else {
           $('.json-apercu img', $me).remove()

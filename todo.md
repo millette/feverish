@@ -1,10 +1,6 @@
 # TODO
 
 ## Bugs
-* Les résultats d'un étudiant ne s'affichent pas
-(ex.: <https://pres-vis-2016.cegep-lanaudiere.qc.ca/etudiant/Florence%20Laroche>)
-quand aucun jpeg n'a été téléversé (TypeError: userDoc._attachments is undefined
- etudiant.js:24:1)
 * Page trop vide <https://pres-vis-2016.cegep-lanaudiere.qc.ca/rendus>,
 ajouter une phrase ou un paragraphe pour indiquer que les rendus
 apparaitront ici.
