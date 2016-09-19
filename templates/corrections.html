@@ -6,11 +6,17 @@
   last: data.doc.title,
   paths: [['exercices', 'Exercices']]
 }) %>
-<%= this.exercice(data) %>
-<h3>À faire</h3>
-<ul class="menu vertical" id="json"></ul>
-<h3>Corrigés</h3>
-<ul class="menu vertical" id="json2"></ul>
+<div class="row">
+  <div class="column small-12 medium-4">
+    <%= this.exercice(data) %>
+  </div>
+  <div class="column small-12 medium-8">
+    <h3>À faire</h3>
+    <ul class="menu vertical" id="json"></ul>
+    <h3>Corrigés</h3>
+    <ul class="menu vertical" id="json2"></ul>
+  </div>
+</div>
 <%= this.js({ custom: ['corrections'] }) %>
 </body>
 </html>
