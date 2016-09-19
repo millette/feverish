@@ -1,4 +1,4 @@
-/* globals $, MediumEditor */
+/* globals $, MediumEditor, app */
 $(function () {
   'use strict'
   const score = function ($form, ponderation) {
@@ -32,7 +32,7 @@ $(function () {
   }
 
   const getNext = function (data) {
-    nextUser = data.rows.filter(function (row) {
+    nextUser = data.rows.sort(app.userSorter).filter(function (row) {
       return row.doc.roles.indexOf('student') !== -1 &&
         row.doc.name !== bodyData.student &&
         (!row.doc.corrections || !row.doc.corrections[bodyData.exercice])

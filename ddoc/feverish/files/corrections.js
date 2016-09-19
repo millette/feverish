@@ -1,4 +1,4 @@
-/* globals $ */
+/* globals $, app */
 $(function () {
   'use strict'
   const exid = $('body').data('exid')
@@ -21,7 +21,7 @@ $(function () {
       }
     const withAtts = d.filter(filt)
     const atts = withAtts.length
-      ? withAtts.map(function (doc) {
+      ? withAtts.sort(app.userSorter).map(function (doc) {
         return '<li' + act(doc) + '><a href="/corrections/' + exid + '/' + doc.name + '">' + doc.name + '</a></li>'
       })
       : ['<li class="menu-text">[' + (todo ? 'TERMINÉ' : 'PERSONNE') + ']</li>']
