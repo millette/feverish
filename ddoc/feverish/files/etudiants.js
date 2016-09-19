@@ -17,7 +17,7 @@ $(function () {
         ),
         '<td><a href="/etudiant/' + u + '">consulter</a></td>',
         '<td>',
-        '<button type="button" class="button warning" data-toggle="' + id + '">effacer</button>',
+        '<div class="label warning" data-toggle="' + id + '">effacer</div>',
         '<div class="dropdown-pane top" id="' + id,
         '" data-dropdown data-auto-focus="true" data-close-on-click="true" data-position-class="top">',
         '<button type="button" class="confirm button alert">Effacer ' + u + '</button>',
