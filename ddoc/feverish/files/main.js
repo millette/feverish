@@ -1,6 +1,19 @@
 /* globals $ */
+/* eslint no-unused-vars: ["error", { "varsIgnorePattern": "app" }] */
+
+'use strict'
+
+var app = {
+  userSorter: function (a, b) {
+    var a1 = a.name ? a.name : a.doc.name
+    var b1 = b.name ? b.name : b.doc.name
+    var a2 = a1.toLowerCase().split(' ').reverse().join(' ')
+    var b2 = b1.toLowerCase().split(' ').reverse().join(' ')
+    return a2.localeCompare(b2)
+  }
+}
+
 $(function () {
-  'use strict'
   const $passwordButton = $('.top-bar > .top-bar-right > .menu > li > button.hollow')
   if ($passwordButton.length) {
     $passwordButton.attr('data-open', 'changePassword')
@@ -71,7 +84,7 @@ $(function () {
     })
   })
 
-  $('button.logout').click(function (ev) {
+  $('button.logout').click(function () {
     $.ajax({
       url: '/_session',
       method: 'DELETE',
