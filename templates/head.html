@@ -26,20 +26,27 @@ h3 { margin-top: 1.75rem; margin-bottom: 0.75rem; }
 #main-editor h4 { 1.1rem; }
 </style>
 <% } %>
-
 <% if (data && data.scorelist) { %>
 <style>
   td > a { display: block; }
   .json-ponderation, .json-note, .json-percent { text-align: right }
 </style>
 <% } %>
-
 <% if (data && data.studentlist) { %>
 <style>
   #studentlist th:first-child { width: 12em; }
   #studentlist th { width: 10em; }
   #studentlist td > div.label { cursor: pointer; }
   .dropdown-pane.top { width: 15em; }
+</style>
+<% } %>
+<% if (data && data.exercicesTable) { %>
+<style>
+  td > div.label { cursor: pointer; }
+  td > a.label:hover, td > a.label:active, td > a.label:focus {
+    color: white;
+    cursor: pointer;
+  }
 </style>
 <% } %>
 <title><%- data && data.title || 'Portfolio de rendus' %></title>

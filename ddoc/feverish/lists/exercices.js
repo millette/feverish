@@ -2,18 +2,20 @@
 'use strict'
 module.exports = function (head, req, mocks) {
   const tpl = require('views/lib/templates')
+
   const studentMenu = function (row) {
-    return '<a class="button success" href="/score/' + row._id + '">Consulter mon résultat</a>'
+    return '<td><a class="label success" href="/score/' + row._id + '">Consulter mon résultat</a></td>'
   }
+
   const teacherMenu = function (row) {
     return [
-      '<a class="button" href="/edit/' + row._id + '">Éditer</a>',
-      '<a class="button success" href="/corrections/' + row._id + '">Corriger</a>',
-      '<button type="button" class="button warning" data-toggle="' + row._id + '">Effacer</button>',
-      '<div class="dropdown-pane top" id="' + row._id,
+      '<td><a class="label" href="/edit/' + row._id + '">Éditer</a></td>',
+      '<td><a class="label success" href="/corrections/' + row._id + '">Corriger</a></td>',
+      '<td><div class="label warning" data-toggle="' + row._id + '">Effacer</div></td>',
+      '<td><div class="dropdown-pane top" id="' + row._id,
       '" data-dropdown data-auto-focus="true" data-close-on-click="true" data-position-class="top">',
       '<button type="button" class="confirm-delete button alert" data-exid="' + row._id + '" data-exrev="' + row._rev + '">Effacer ' + row.title + '</button>',
-      '</div>'
+      '</div></td>'
     ].join('')
   }
 
