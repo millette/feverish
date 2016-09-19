@@ -9,7 +9,6 @@ module.exports = function (head, req, mocks) {
   while ((row = getRow())) {
     delete row.doc.description
     delete row.doc.descriptif
-    row.doc.h3 = true
     rows.push(row)
   }
   req.userCtx.student = req.query.student || req.userCtx.name
