@@ -1,4 +1,4 @@
-/* globals $ */
+/* globals $, app */
 $(function () {
   'use strict'
   var allUsers
@@ -6,7 +6,7 @@ $(function () {
   const fixer = $tableBody.data('fixer')
   const fn = function (data) {
     allUsers = data.rows.filter(function (row) { return row.doc.roles.indexOf('teacher') === -1 && row.doc.roles.indexOf('_admin') === -1 })
-    allUsers.forEach(function (row, i) {
+    allUsers.sort(app.userSorter).forEach(function (row, i) {
       const u = row.id.split(':')[1]
       const id = 'confirm-delete-' + u.replace(/ /g, '')
       $tableBody.append([
