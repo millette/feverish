@@ -1,13 +1,13 @@
 <h3><%- data.doc.title %></h3>
 <ul>
 <% if (data.doc.travail) { %>
-<li>Travail: <span><%- data.doc.travail %></span></li>
+<li>Travail: <%- data.doc.travail %></li>
 <% } %>
 <% if (data.doc.theme) { %>
-<li>Thème: <span><%- data.doc.theme %></span></li>
+<li>Thème: <%- data.doc.theme %></li>
 <% } %>
 <% if (data.doc.ponderation) { %>
-<li>Pondération sur <span><%- data.doc.ponderation %></span></li>
+<li>Pondération sur <%- data.doc.ponderation %></li>
 <% } %>
 </ul>
 <% if (data.doc.descriptif || data.doc.description) { %>
