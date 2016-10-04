@@ -7,7 +7,7 @@
   {
     "method": "POST",
     "from": "",
-    "to": "/_update/bienvenue/accueil"
+    "to": "_update/bienvenue/accueil"
   },
   {
     "from": "rendus/v2",
@@ -69,7 +69,7 @@
   {
     "method": "POST",
     "from": "configure",
-    "to": "/_update/autocompleter/autocompleter"
+    "to": "_update/autocompleter/autocompleter"
   },
 
   {
@@ -149,7 +149,7 @@
   {
     "method": "POST",
     "from": "edit/:ex",
-    "to": "/_update/create/:ex"
+    "to": "_update/create/:ex"
   },
   {
     "method": "GET",
